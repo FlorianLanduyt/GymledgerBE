@@ -30,3 +30,12 @@
 /Users/florianlanduyt/Projects/GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.csproj.CopyComplete
 /Users/florianlanduyt/Projects/GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.dll
 /Users/florianlanduyt/Projects/GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.pdb
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.csprojAssemblyReference.cache
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/staticwebassets/GymLedgerAPI.StaticWebAssets.Manifest.cache
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/staticwebassets/GymLedgerAPI.StaticWebAssets.xml
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.MvcApplicationPartsAssemblyInfo.cs
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.MvcApplicationPartsAssemblyInfo.cache
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.AssemblyInfoInputs.cache
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.AssemblyInfo.cs
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.dll
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.pdb
