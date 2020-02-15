@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{AF31347B-018E-4D4B-8489-592B7A4FF86D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Data/ApplicationDbContext.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Data/Repositories/TrainingRepo.cs">
     <Files>
       <File FileName="GymLedgerAPI/Startup.cs" Line="42" Column="1" IsPinned="True" />
       <File FileName="GymLedgerAPI/Data/Mapping/CoachMapper.cs" Line="1" Column="1" />
@@ -16,8 +16,12 @@
       <File FileName="GymLedgerAPI/Domain/Models/Gymnast.cs" Line="20" Column="1" />
       <File FileName="GymLedgerAPI/Domain/Models/GymnastCoach.cs" Line="22" Column="18" />
       <File FileName="GymLedgerAPI/Domain/Models/KindOfTraining.cs" Line="1" Column="1" />
-      <File FileName="GymLedgerAPI/Data/ApplicationDbContext.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Data/ApplicationDbContext.cs" Line="30" Column="70" />
       <File FileName="GymLedgerAPI/Data/DataInit.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Data/Repositories/CoachRepo.cs" Line="45" Column="36" />
+      <File FileName="GymLedgerAPI/Data/Repositories/ExerciseRepo.cs" Line="43" Column="36" />
+      <File FileName="GymLedgerAPI/Data/Repositories/GymnastRepo.cs" Line="43" Column="36" />
+      <File FileName="GymLedgerAPI/Data/Repositories/TrainingRepo.cs" Line="12" Column="14" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -26,8 +30,9 @@
             <Node name="GymLedgerAPI" expanded="True">
               <Node name="Data" expanded="True">
                 <Node name="Mapping" expanded="True" />
-                <Node name="Repositories" expanded="True" />
-                <Node name="ApplicationDbContext.cs" selected="True" />
+                <Node name="Repositories" expanded="True">
+                  <Node name="TrainingRepo.cs" selected="True" />
+                </Node>
               </Node>
               <Node name="Domain" expanded="True">
                 <Node name="Interfaces " expanded="True" />

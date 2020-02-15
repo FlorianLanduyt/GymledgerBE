@@ -1,40 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using GymLedgerAPI.Domain.Interfaces;
 using GymLedgerAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace GymLedgerAPI.Data.Repositories
 {
     public class CoachRepo : ICoachRepo
     {
-        public CoachRepo()
-        {
+        private readonly ApplicationDbContext _context;
+        private readonly DbSet<Coach> _coaches;
 
+        public CoachRepo(ApplicationDbContext context)
+        {
+            _context = context;
+            _coaches = context.Coaches;
         }
 
         public void Add(Coach obj)
         {
-            throw new NotImplementedException();
+            _coaches.Add(obj);
         }
 
         public ICollection<Coach> GetAll()
         {
-            throw new NotImplementedException();
+            return _coaches.ToList();
         }
 
         public Coach GetbyId(long id)
         {
-            throw new NotImplementedException();
+            return _coaches
+                .Include(c => c.GymnastCoaches).ThenInclude(gc => gc.Gymnast)
+                .SingleOrDefault(c => c.Id == id);
         }
 
         public void Remove(Coach obj)
         {
-            throw new NotImplementedException();
+            _coaches.Remove(obj);
         }
 
         public void SaveChanges()
         {
-            throw new NotImplementedException();
+            _context.SaveChanges();
         }
     }
 }

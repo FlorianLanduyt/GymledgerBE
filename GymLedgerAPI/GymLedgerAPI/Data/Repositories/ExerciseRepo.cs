@@ -1,39 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using GymLedgerAPI.Domain.Interfaces;
 using GymLedgerAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace GymLedgerAPI.Data.Repositories
 {
     public class ExerciseRepo : IExerciseRepo
     {
-        public ExerciseRepo()
+        private readonly ApplicationDbContext _context;
+        private readonly DbSet<Exercise> _exercises;
+
+        public ExerciseRepo(ApplicationDbContext context)
         {
+            _context = context;
+            _exercises = context.Excercises;
         }
 
         public void Add(Exercise obj)
         {
-            throw new NotImplementedException();
+            _context.Add(obj);
         }
 
         public ICollection<Exercise> GetAll()
         {
-            throw new NotImplementedException();
+            return _exercises.ToList();
         }
 
         public Exercise GetbyId(long id)
         {
-            throw new NotImplementedException();
+            return _exercises.SingleOrDefault(e => e.Id == id);
         }
 
         public void Remove(Exercise obj)
         {
-            throw new NotImplementedException();
+            _exercises.Remove(obj);
         }
 
         public void SaveChanges()
         {
-            throw new NotImplementedException();
+            _context.SaveChanges();
         }
     }
 }
