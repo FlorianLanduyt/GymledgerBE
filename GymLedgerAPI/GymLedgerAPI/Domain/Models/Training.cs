@@ -17,7 +17,7 @@ namespace GymLedgerAPI.Models
         {
             Kind = kind;
             Date = date;
-            Exercises = new List<TrainingExercise>();
+            TrainingExercises = new List<TrainingExercise>();
         }
 
         protected Training() { }

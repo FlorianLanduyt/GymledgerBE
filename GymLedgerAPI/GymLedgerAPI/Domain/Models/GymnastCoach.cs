@@ -18,5 +18,10 @@ namespace GymLedgerAPI.Domain.Models
             Coach = c;
             CoachId = cId;
         }
+
+        protected GymnastCoach()
+        {
+
+        }
     }
 }

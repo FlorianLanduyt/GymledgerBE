@@ -1,16 +1,23 @@
 ﻿<Properties StartupConfiguration="{AF31347B-018E-4D4B-8489-592B7A4FF86D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Domain/Models/Exercise.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Data/ApplicationDbContext.cs">
     <Files>
       <File FileName="GymLedgerAPI/Startup.cs" Line="42" Column="1" IsPinned="True" />
       <File FileName="GymLedgerAPI/Data/Mapping/CoachMapper.cs" Line="1" Column="1" />
       <File FileName="GymLedgerAPI/Data/Mapping/GymnastCoachMapper.cs" Line="16" Column="96" />
       <File FileName="GymLedgerAPI/Data/Mapping/GymnastMapper.cs" Line="1" Column="1" />
-      <File FileName="GymLedgerAPI/Data/Mapping/TrainingMapper.cs" Line="15" Column="1" />
-      <File FileName="GymLedgerAPI/Domain/Models/TrainingExercise.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Data/Mapping/TrainingMapper.cs" Line="14" Column="39" />
+      <File FileName="GymLedgerAPI/Domain/Models/TrainingExercise.cs" Line="22" Column="18" />
       <File FileName="GymLedgerAPI/Data/Mapping/ExerciseMapper.cs" Line="1" Column="1" />
-      <File FileName="GymLedgerAPI/Data/Mapping/TrainingExerciseMapper.cs" Line="17" Column="47" />
-      <File FileName="GymLedgerAPI/Domain/Models/Training.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Data/Mapping/TrainingExerciseMapper.cs" Line="18" Column="152" />
+      <File FileName="GymLedgerAPI/Domain/Models/Training.cs" Line="26" Column="1" />
       <File FileName="GymLedgerAPI/Domain/Models/Exercise.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Domain/Models/User.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Domain/Models/Coach.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Domain/Models/Gymnast.cs" Line="20" Column="1" />
+      <File FileName="GymLedgerAPI/Domain/Models/GymnastCoach.cs" Line="22" Column="18" />
+      <File FileName="GymLedgerAPI/Domain/Models/KindOfTraining.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Data/ApplicationDbContext.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Data/DataInit.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,12 +27,11 @@
               <Node name="Data" expanded="True">
                 <Node name="Mapping" expanded="True" />
                 <Node name="Repositories" expanded="True" />
+                <Node name="ApplicationDbContext.cs" selected="True" />
               </Node>
               <Node name="Domain" expanded="True">
                 <Node name="Interfaces " expanded="True" />
-                <Node name="Models" expanded="True">
-                  <Node name="Exercise.cs" selected="True" />
-                </Node>
+                <Node name="Models" expanded="True" />
               </Node>
             </Node>
           </Node>
