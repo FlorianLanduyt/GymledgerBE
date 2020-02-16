@@ -18,5 +18,10 @@ namespace GymLedgerAPI.Domain.Models
             Exercise = e;
             ExerciseId = eId;
         }
+
+        protected TrainingExercise()
+        {
+
+        }
     }
 }

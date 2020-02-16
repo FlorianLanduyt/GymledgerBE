@@ -12,12 +12,14 @@ namespace GymLedgerAPI.Models
 
 
         public IList<TrainingExercise> TrainingExercises { get; set; }
+        public IList<ExerciseEvaluation> ExerciseEvaluations { get; set; }
 
         public Training(KindOfTraining kind, DateTime date)
         {
             Kind = kind;
             Date = date;
             TrainingExercises = new List<TrainingExercise>();
+            ExerciseEvaluations = new List<ExerciseEvaluation>();
         }
 
         protected Training() { }

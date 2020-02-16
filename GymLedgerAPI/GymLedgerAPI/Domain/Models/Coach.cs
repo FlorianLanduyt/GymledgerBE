@@ -16,5 +16,10 @@ namespace GymLedgerAPI.Models
         protected Coach()
         {
         }
+
+        public void AddGymnast(Gymnast g)
+        {
+            GymnastCoaches.Add(new GymnastCoach(g, this));
+        }
     }
 }

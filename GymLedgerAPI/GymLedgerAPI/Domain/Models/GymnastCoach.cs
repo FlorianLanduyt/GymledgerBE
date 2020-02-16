@@ -11,12 +11,12 @@ namespace GymLedgerAPI.Domain.Models
         public Coach Coach { get; set; }
         public long CoachId { get; set; }
 
-        public GymnastCoach(Gymnast g, long gId, Coach c, long cId)
+        public GymnastCoach(Gymnast g, Coach c)
         {
             Gymnast = g;
-            GymnastId = gId;
+            GymnastId = g.Id;
             Coach = c;
-            CoachId = cId;
+            CoachId = c.Id;
         }
 
         protected GymnastCoach()
