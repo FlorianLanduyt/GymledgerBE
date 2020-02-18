@@ -12,6 +12,7 @@ namespace GymLedgerAPI.Models
         public Coach(string firstname, string lastname, DateTime birthday, string email): base(firstname, lastname, birthday, email)
         {
             GymnastCoaches = new List<GymnastCoach>();
+            isCoach = true;
         }
 
         protected Coach()

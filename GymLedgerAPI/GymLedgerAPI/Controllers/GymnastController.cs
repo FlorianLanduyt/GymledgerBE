@@ -11,22 +11,19 @@ using Microsoft.AspNetCore.Mvc;
 namespace GymLedgerAPI.Controllers
 {
     [Route("api/[controller]")]
-    public class UserController : Controller
+    public class GymnastController : Controller
     {
-        private readonly IUserRepo _userRepo;
+        private readonly IGymnastRepo _gymnasts;
 
-        public UserController(IUserRepo userRepo)
+        public GymnastController(IGymnastRepo gymnasts)
         {
-            _userRepo = userRepo;
+            _gymnasts = gymnasts;
         }
 
-        // GET: api/values
-        [HttpGet("users")]
-        public ActionResult<IEnumerable<User>> GetUsers()
+        [HttpGet("gymnasts")]
+        public ActionResult<IEnumerable<Gymnast>> GetGymnasts()
         {
-            return _userRepo.GetAll().ToList();
+            return _gymnasts.GetAll().ToList();
         }
-
-        
     }
 }

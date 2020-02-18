@@ -15,6 +15,7 @@ namespace GymLedgerAPI.Models
         {
             Trainings = new List<Training>();
             GymnastCoaches = new List<GymnastCoach>();
+            isCoach = false;
         }
 
         protected Gymnast()

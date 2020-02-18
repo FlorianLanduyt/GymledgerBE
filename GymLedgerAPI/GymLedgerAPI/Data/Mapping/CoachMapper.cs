@@ -11,7 +11,7 @@ namespace GymLedgerAPI.Data.Mapping
         {
             builder.ToTable("Coach");
 
-            //builder.HasKey(c => c.Id);
+            //builder.HasKey(c => c.CoachId);
         }
     }
 }

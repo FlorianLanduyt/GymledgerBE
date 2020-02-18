@@ -50,6 +50,11 @@ namespace GymLedgerAPI.Data
                 _dbContext.AppUsers.Add(florian);
                 _dbContext.AppUsers.Add(jonathan);
 
+                _dbContext.Gymnasts.Add(florian);
+                _dbContext.Gymnasts.Add(jonathan);
+                _dbContext.Coaches.Add(stefan);
+                _dbContext.Coaches.Add(koen);
+
 
                 // ---------- Creating the users -------------------------------
                 await CreateUser(stefan, password);

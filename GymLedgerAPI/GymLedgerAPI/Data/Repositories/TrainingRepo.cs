@@ -31,7 +31,7 @@ namespace GymLedgerAPI.Data.Repositories
         public Training GetbyId(int id)
         {
             return _trainings
-                .Include(t =>t.TrainingExercises).ThenInclude(t => t.Exercise)
+                .Include(t => t.TrainingExercises).ThenInclude(t => t.Exercise)
                 .SingleOrDefault(t => t.Id == id);
         }
 

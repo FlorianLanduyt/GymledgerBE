@@ -15,6 +15,8 @@ using GymLedgerAPI.Models;
 using Microsoft.OpenApi.Models;
 using System;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace GymLedgerAPI
 {
@@ -36,6 +38,11 @@ namespace GymLedgerAPI
             services.AddControllers();
             services.AddRazorPages();
 
+
+            services.AddMvc(option => option
+                .EnableEndpointRouting = false)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+                .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
 
             //services.AddDbContext<ApplicationDbContext>(options =>
@@ -68,8 +75,8 @@ namespace GymLedgerAPI
                 
             });
 
-            //services.AddScoped<IGymnastRepo, GymnastRepo>();
-            //services.AddScoped<ICoachRepo, CoachRepo>();
+            services.AddScoped<IGymnastRepo, GymnastRepo>();
+            services.AddScoped<ICoachRepo, CoachRepo>();
             services.AddScoped<IUserRepo, UserRepo>();
             services.AddScoped<IExerciseRepo, ExerciseRepo>();
             services.AddScoped<ITrainingRepo, TrainingRepo>();

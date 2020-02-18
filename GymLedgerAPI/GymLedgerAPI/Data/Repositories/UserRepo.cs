@@ -12,7 +12,7 @@ namespace GymLedgerAPI.Data.Repositories
         private readonly ApplicationDbContext _context;
         private readonly DbSet<User> _users;
 
-        public UserRepo(ApplicationDbContext context) 
+        public UserRepo(ApplicationDbContext context)
         {
             _context = context;
             _users = context.AppUsers;

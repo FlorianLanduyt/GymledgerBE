@@ -11,22 +11,20 @@ using Microsoft.AspNetCore.Mvc;
 namespace GymLedgerAPI.Controllers
 {
     [Route("api/[controller]")]
-    public class UserController : Controller
+    public class CoachController : Controller
     {
-        private readonly IUserRepo _userRepo;
+        private readonly ICoachRepo _coachRepo;
 
-        public UserController(IUserRepo userRepo)
+        public CoachController(ICoachRepo coachRepo)
         {
-            _userRepo = userRepo;
+            _coachRepo = coachRepo;
         }
 
-        // GET: api/values
-        [HttpGet("users")]
-        public ActionResult<IEnumerable<User>> GetUsers()
-        {
-            return _userRepo.GetAll().ToList();
-        }
 
-        
+        [HttpGet]
+        public ActionResult<IEnumerable<Coach>> GetCoaches()
+        {
+            return _coachRepo.GetAll().ToList();
+        }
     }
 }
