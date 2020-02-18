@@ -5,18 +5,18 @@ namespace GymLedgerAPI.Domain.Models
 {
     public class TrainingExercise
     {
-        public long TrainingId { get; set; }
+        public int TrainingId { get; set; }
         public Training Training { get; set; }
-        public long ExerciseId { get; set; }
+        public int ExerciseId { get; set; }
         public Exercise Exercise { get; set; }
 
 
-        public TrainingExercise(long tId, Training t, long eId, Exercise e)
+        public TrainingExercise(Training t, Exercise e)
         {
             Training = t;
-            TrainingId = tId;
+            TrainingId = t.Id;
             Exercise = e;
-            ExerciseId = eId;
+            ExerciseId = e.Id;
         }
 
         protected TrainingExercise()

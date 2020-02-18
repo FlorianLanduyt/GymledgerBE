@@ -6,10 +6,9 @@ namespace GymLedgerAPI.Models
 {
     public class Training
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
         public KindOfTraining Kind { get; set; }
         public DateTime Date { get; set; }
-
 
         public IList<TrainingExercise> TrainingExercises { get; set; }
         public IList<ExerciseEvaluation> ExerciseEvaluations { get; set; }

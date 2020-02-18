@@ -6,7 +6,7 @@ namespace GymLedgerAPI.Models
 {
     public class Exercise
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
         public string Description { get; set; }
         public int Number { get; set; }
         public string Image { get; set; }
@@ -15,11 +15,10 @@ namespace GymLedgerAPI.Models
         public IList<TrainingExercise> TrainingExercises{ get; set; }
 
 
-        public Exercise(string description, int number, string image, double weight, string note = "")
+        public Exercise(string description, int number, string image, double weight)
         {
             Description = description;
             Number = number;
-            Note = note;
             Image = image;
             Weight = weight;
 

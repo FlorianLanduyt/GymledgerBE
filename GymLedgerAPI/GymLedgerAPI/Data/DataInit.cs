@@ -23,8 +23,6 @@ namespace GymLedgerAPI.Data
             _dbContext.Database.EnsureDeleted();
             if (_dbContext.Database.EnsureCreated())
             {
-
-
                 #region Users
                 // ----------- Creating the coaches and gymnasts ---------------
 
@@ -42,15 +40,15 @@ namespace GymLedgerAPI.Data
                 stefan.AddGymnast(florian);
                 stefan.AddGymnast(jonathan);
 
-                koen.AddGymnast(florian);
+                //koen.AddGymnast(florian);
 
 
                 // ---------- Adding users to the database ---------------------
 
-                _dbContext.Coaches.Add(koen);
-                _dbContext.Coaches.Add(stefan);
-                _dbContext.Gymnasts.Add(florian);
-                _dbContext.Gymnasts.Add(jonathan);
+                _dbContext.AppUsers.Add(koen);
+                _dbContext.AppUsers.Add(stefan);
+                _dbContext.AppUsers.Add(florian);
+                _dbContext.AppUsers.Add(jonathan);
 
 
                 // ---------- Creating the users -------------------------------
@@ -68,7 +66,7 @@ namespace GymLedgerAPI.Data
                 Training t3 = new Training(KindOfTraining.LEGPOWER, new DateTime(DateTime.Now.AddDays(4).Year, DateTime.Now.AddDays(4).Month, DateTime.Now.AddDays(4).Day));
 
                 Exercise e1 = new Exercise("Squat", 10, "www.image.be", 50);
-                Exercise e1 = new Exercise("Squat", 10, "www.image.be", 50);
+                Exercise e2 = new Exercise("Squat", 10, "www.image.be", 50);
 
                 #endregion
 

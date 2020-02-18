@@ -28,7 +28,7 @@ namespace GymLedgerAPI.Data.Repositories
             return _exercises.ToList();
         }
 
-        public Exercise GetbyId(long id)
+        public Exercise GetbyId(int id)
         {
             return _exercises.SingleOrDefault(e => e.Id == id);
         }

@@ -1,11 +1,16 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using GymLedgerAPI.Domain.Models;
+
+using Microsoft.AspNetCore.Identity;
 
 namespace GymLedgerAPI.Models
 {
-    public class User
+    public class User : IdentityUser<int>
     {
-        public int Id { get; set; }
+        //public int UserId { get; set; }
 
         [Required]
         public string Firstname { get; set; }
@@ -16,8 +21,8 @@ namespace GymLedgerAPI.Models
         [Required]
         public DateTime BirthDate { get; set; }
 
-        [Required]
-        public string Email { get; set; }
+        //[Required]
+        //public string Email { get; set; }
 
 
 
@@ -32,5 +37,6 @@ namespace GymLedgerAPI.Models
         protected User()
         {
         }
+
     }
 }

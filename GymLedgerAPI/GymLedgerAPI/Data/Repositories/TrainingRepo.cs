@@ -28,7 +28,7 @@ namespace GymLedgerAPI.Data.Repositories
             return _trainings.ToList();
         }
 
-        public Training GetbyId(long id)
+        public Training GetbyId(int id)
         {
             return _trainings
                 .Include(t =>t.TrainingExercises).ThenInclude(t => t.Exercise)
