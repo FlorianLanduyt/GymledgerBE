@@ -21,7 +21,7 @@ namespace GymLedgerAPI.Controllers
         }
 
         // GET: api/values
-        [HttpGet("users")]
+        [HttpGet]
         public ActionResult<IEnumerable<User>> GetUsers()
         {
             return _userRepo.GetAll().ToList();

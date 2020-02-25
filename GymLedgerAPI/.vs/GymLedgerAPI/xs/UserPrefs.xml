@@ -1,53 +1,35 @@
 ﻿<Properties StartupConfiguration="{AF31347B-018E-4D4B-8489-592B7A4FF86D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Data/Mapping/ExerciseEvaluationMapper.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Startup.cs">
     <Files>
-      <File FileName="GymLedgerAPI/Startup.cs" Line="42" Column="1" IsPinned="True" />
-      <File FileName="GymLedgerAPI/Data/Mapping/CoachMapper.cs" Line="1" Column="1" />
-      <File FileName="GymLedgerAPI/Data/Mapping/GymnastCoachMapper.cs" Line="16" Column="55" />
-      <File FileName="GymLedgerAPI/Data/Mapping/GymnastMapper.cs" Line="1" Column="1" />
-      <File FileName="GymLedgerAPI/Data/Mapping/TrainingMapper.cs" Line="14" Column="39" />
-      <File FileName="GymLedgerAPI/Domain/Models/TrainingExercise.cs" Line="22" Column="18" />
-      <File FileName="GymLedgerAPI/Data/Mapping/ExerciseMapper.cs" Line="1" Column="1" />
-      <File FileName="GymLedgerAPI/Data/Mapping/TrainingExerciseMapper.cs" Line="18" Column="152" />
-      <File FileName="GymLedgerAPI/Domain/Models/Training.cs" Line="26" Column="1" />
-      <File FileName="GymLedgerAPI/Domain/Models/Exercise.cs" Line="12" Column="1" />
-      <File FileName="GymLedgerAPI/Domain/Models/User.cs" Line="6" Column="18" />
-      <File FileName="GymLedgerAPI/Domain/Models/Coach.cs" Line="26" Column="1" />
-      <File FileName="GymLedgerAPI/Domain/Models/Gymnast.cs" Line="15" Column="13" />
-      <File FileName="GymLedgerAPI/Domain/Models/GymnastCoach.cs" Line="19" Column="27" />
-      <File FileName="GymLedgerAPI/Domain/Models/KindOfTraining.cs" Line="1" Column="1" />
-      <File FileName="GymLedgerAPI/Data/ApplicationDbContext.cs" Line="18" Column="1" />
-      <File FileName="GymLedgerAPI/Data/DataInit.cs" Line="71" Column="28" />
-      <File FileName="GymLedgerAPI/Data/Repositories/CoachRepo.cs" Line="45" Column="36" />
-      <File FileName="GymLedgerAPI/Data/Repositories/ExerciseRepo.cs" Line="43" Column="36" />
-      <File FileName="GymLedgerAPI/Data/Repositories/GymnastRepo.cs" Line="43" Column="36" />
-      <File FileName="GymLedgerAPI/Data/Repositories/TrainingRepo.cs" Line="45" Column="36" />
-      <File FileName="GymLedgerAPI/Domain/Models/ExcerciseEvaluation.cs" Line="13" Column="18" />
-      <File FileName="GymLedgerAPI/Domain/Interfaces /ExerciseEvaluation.cs" Line="6" Column="79" />
-      <File FileName="GymLedgerAPI/Domain/Interfaces /IGenericRepo.cs" Line="6" Column="22" />
-      <File FileName="GymLedgerAPI/Domain/Interfaces /ICoachRepo.cs" Line="1" Column="1" />
-      <File FileName="GymLedgerAPI/Domain/Interfaces /IExerciseRepo.cs" Line="1" Column="1" />
-      <File FileName="GymLedgerAPI/Data/Repositories/ExerciseEvaluationRepo.cs" Line="8" Column="66" />
-      <File FileName="GymLedgerAPI/Data/Mapping/ExerciseEvaluationMapper.cs" Line="4" Column="43" />
+      <File FileName="GymLedgerAPI/Data/Mapping/TrainingMapper.cs" Line="16" Column="98" />
+      <File FileName="GymLedgerAPI/Domain/Models/Training.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Data/Mapping/UserMapper.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Data/Repositories/GymnastRepo.cs" Line="42" Column="27" />
+      <File FileName="GymLedgerAPI/Controllers/GymnastController.cs" Line="32" Column="39" />
+      <File FileName="GymLedgerAPI/Domain/Models/GymnastCoach.cs" Line="14" Column="48" />
+      <File FileName="GymLedgerAPI/Startup.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GymLedgerAPI" expanded="True">
             <Node name="GymLedgerAPI" expanded="True">
+              <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True">
-                <Node name="Mapping" expanded="True">
-                  <Node name="ExerciseEvaluationMapper.cs" selected="True" />
-                </Node>
                 <Node name="Repositories" expanded="True" />
               </Node>
               <Node name="Domain" expanded="True">
                 <Node name="Interfaces " expanded="True" />
                 <Node name="Models" expanded="True" />
               </Node>
+              <Node name="Properties" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

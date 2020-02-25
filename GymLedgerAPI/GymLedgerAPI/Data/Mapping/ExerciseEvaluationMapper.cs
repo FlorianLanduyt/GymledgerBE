@@ -7,10 +7,6 @@ namespace GymLedgerAPI.Data.Mapping
 {
     public class ExerciseEvaluationMapper : IEntityTypeConfiguration<ExerciseEvaluation>
     {
-        public ExerciseEvaluationMapper()
-        {
-        }
-
         public void Configure(EntityTypeBuilder<ExerciseEvaluation> builder)
         {
             builder.ToTable("ExerciseEvaluation");

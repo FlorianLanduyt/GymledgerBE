@@ -20,6 +20,7 @@
     <Compile Remove="Domain\LoginDTO.cs" />
     <Compile Remove="Domain\Models\IdentityModels.cs" />
     <Compile Remove="Domain\Models\IdentityModels.cs" />
+    <Compile Remove="Controllers\TrainerController.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.1" />

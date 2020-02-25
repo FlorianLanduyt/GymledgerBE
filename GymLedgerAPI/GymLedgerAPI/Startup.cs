@@ -53,7 +53,7 @@ namespace GymLedgerAPI
 
             if (Env.IsDevelopment())
             {
-                string connectionString = $"Server=127.0.0.1;Database=Gymledger;User=root;Password=rootroot";
+                string connectionString = $"Server=127.0.0.1;Database=Gymledger;User=root;Password=rootroot;Persist Security Info=True";
                 services.AddDbContextPool<ApplicationDbContext>(options => options.UseMySql(connectionString, mySqlOptions =>
                 {
                     mySqlOptions.ServerVersion(new Version(8, 0, 17), ServerType.MySql).DisableBackslashEscaping();
@@ -67,13 +67,13 @@ namespace GymLedgerAPI
             services.AddIdentityCore<User>(cfg => cfg.User.RequireUniqueEmail = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddAuthorization(options => {
-                //Function policies
-                options.AddPolicy("Gymnast", policy => policy.RequireClaim(ClaimTypes.Role, "gymnast"));
-                options.AddPolicy("Coach", policy => policy.RequireClaim(ClaimTypes.Role, "coach"));
-                options.AddPolicy("NonUser", policy => policy.RequireClaim(ClaimTypes.Role, "nonuser"));
+            //services.AddAuthorization(options => {
+            //    //Function policies
+            //    options.AddPolicy("Gymnast", policy => policy.RequireClaim(ClaimTypes.Role, "gymnast"));
+            //    options.AddPolicy("Coach", policy => policy.RequireClaim(ClaimTypes.Role, "coach"));
+            //    options.AddPolicy("NonUser", policy => policy.RequireClaim(ClaimTypes.Role, "nonuser"));
                 
-            });
+            //});
 
             services.AddScoped<IGymnastRepo, GymnastRepo>();
             services.AddScoped<ICoachRepo, CoachRepo>();

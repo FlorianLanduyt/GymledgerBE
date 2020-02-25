@@ -13,7 +13,8 @@ namespace GymLedgerAPI.Data.Mapping
 
             builder.HasKey(t => t.Id);
 
-            builder.HasMany(t => t.ExerciseEvaluations).WithOne().HasForeignKey(t => t.ExerciseId).OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(t => t.ExerciseEvaluations).WithOne().HasForeignKey(t => t.TrainingId).OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(t => t.TrainingExercises).WithOne().HasForeignKey( t=>t.TrainingId).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

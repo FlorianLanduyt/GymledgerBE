@@ -20,10 +20,16 @@ namespace GymLedgerAPI.Controllers
             _gymnasts = gymnasts;
         }
 
-        [HttpGet("gymnasts")]
+        [HttpGet]
         public ActionResult<IEnumerable<Gymnast>> GetGymnasts()
         {
             return _gymnasts.GetAll().ToList();
+        }
+
+        [HttpGet("gymnasts/{CoachId}")]
+        public ActionResult<IEnumerable<Gymnast>> GetGymnastFromCoach(int coachId)
+        {
+            return _gymnasts.GetGymnastsFromCoach(coachId).ToList();
         }
     }
 }
