@@ -3,10 +3,10 @@ namespace GymLedgerAPI.Models
 {
     public enum KindOfTraining
     {
-        GENERAL,
-        LEGPOWER,
-        SCHOULDERPOWER,
-        CORESTABILITY,
-        BACKPOWER
+        GENERAL = 0,
+        LEGPOWER = 1,
+        SCHOULDERPOWER = 2,
+        CORESTABILITY = 3,
+        BACKPOWER = 4
     }
 }

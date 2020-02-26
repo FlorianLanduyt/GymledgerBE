@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using GymLedgerAPI.Domain.Models;
 
 namespace GymLedgerAPI.Models
@@ -22,6 +23,11 @@ namespace GymLedgerAPI.Models
         public void AddGymnast(Gymnast g)
         {
             GymnastCoaches.Add(new GymnastCoach(g, this));
+        }
+
+        public void RemoveGymnast(Gymnast g)
+        {
+            GymnastCoaches.Remove(GymnastCoaches.FirstOrDefault(gc => gc.Gymnast == g));
         }
     }
 }

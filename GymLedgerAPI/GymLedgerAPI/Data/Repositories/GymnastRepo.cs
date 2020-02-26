@@ -25,8 +25,7 @@ namespace GymLedgerAPI.Data.Repositories
 
         public ICollection<Gymnast> GetAll()
         {
-            return _gymnasts.Include(g => g.GymnastCoaches)
-                .ToList();
+            return _gymnasts.ToList();
         }
 
         public Gymnast GetbyId(int id)
@@ -34,13 +33,21 @@ namespace GymLedgerAPI.Data.Repositories
             return _gymnasts.SingleOrDefault(g => g.Id == id);
         }
 
+        public Gymnast GetGymnastWithTrainings(int gymnastId) {
+            return _gymnasts
+                .Include(g => g.Trainings)
+                .SingleOrDefault(g => g.Id == gymnastId);
+        }
+
         public ICollection<Gymnast> GetGymnastsFromCoach(int coachId)
         {
             return _gymnasts
-                .Include(g => g.GymnastCoaches).ThenInclude(gc => gc.Coach)
-                .Where(g => g.GymnastCoaches.Any(gc => gc.Coach.Id == coachId))
+                .Include(g => g.GymnastCoaches).ThenInclude(gc => gc.Gymnast)
+                .Where(g => g.GymnastCoaches.All(gc => gc.CoachId == coachId))
                 .ToList();
         }
+
+        
 
         public void Remove(Gymnast obj)
         {

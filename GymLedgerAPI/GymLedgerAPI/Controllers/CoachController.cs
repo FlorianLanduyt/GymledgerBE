@@ -6,7 +6,6 @@ using GymLedgerAPI.Domain.Interfaces;
 using GymLedgerAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace GymLedgerAPI.Controllers
 {
@@ -26,5 +25,17 @@ namespace GymLedgerAPI.Controllers
         {
             return _coachRepo.GetAll().ToList();
         }
+
+        [HttpGet("{coachId}")]
+        public ActionResult<Coach> GetGymnast(int coachId) {
+            Coach coach = _coachRepo.GetbyId(coachId);
+
+            if (coach == null) {
+                return NotFound();
+            }
+            return coach;
+        }
+
+
     }
 }

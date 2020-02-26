@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using GymLedgerAPI.Models;
 
 namespace GymLedgerAPI.Domain.Interfaces

@@ -35,6 +35,8 @@ namespace GymLedgerAPI.Data.Repositories
                 .SingleOrDefault(t => t.Id == id);
         }
 
+        
+
         public void Remove(Training obj)
         {
             _trainings.Remove(obj);

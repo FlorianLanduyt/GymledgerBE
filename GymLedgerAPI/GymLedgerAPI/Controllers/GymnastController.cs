@@ -26,10 +26,50 @@ namespace GymLedgerAPI.Controllers
             return _gymnasts.GetAll().ToList();
         }
 
+
+        [HttpGet("{gymnastId}")]
+        public ActionResult<Gymnast> GetGymnast(int gymnastId)
+        {
+            Gymnast g = _gymnasts.GetbyId(gymnastId);
+
+            if (g == null)
+            {
+                return NotFound();
+            }
+            return g;
+        }
+
+        [HttpGet("gymnastsWithTraining/{gymnastId}")]
+        public ActionResult<Gymnast> GetGymnastWithTraining(int gymnastId) {
+            try {
+                return _gymnasts.GetGymnastWithTrainings(gymnastId);
+            } catch (ArgumentNullException) {
+                return NotFound("Geen gymnast met dit id");
+            }
+        }
+
+
         [HttpGet("gymnasts/{CoachId}")]
         public ActionResult<IEnumerable<Gymnast>> GetGymnastFromCoach(int coachId)
         {
-            return _gymnasts.GetGymnastsFromCoach(coachId).ToList();
+            try {
+                return _gymnasts.GetGymnastsFromCoach(coachId).ToList();
+            } catch (ArgumentNullException) {
+                return NotFound("Geen gymnasten met deze coach");
+            }
         }
+
+
+
+
+
+        
+
+
+
+
+
+
+
     }
 }

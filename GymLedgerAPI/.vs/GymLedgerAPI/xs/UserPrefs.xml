@@ -1,13 +1,15 @@
 ﻿<Properties StartupConfiguration="{AF31347B-018E-4D4B-8489-592B7A4FF86D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Startup.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Domain/Models/KindOfTraining.cs">
     <Files>
-      <File FileName="GymLedgerAPI/Data/Mapping/TrainingMapper.cs" Line="16" Column="98" />
-      <File FileName="GymLedgerAPI/Domain/Models/Training.cs" Line="1" Column="1" />
-      <File FileName="GymLedgerAPI/Data/Mapping/UserMapper.cs" Line="1" Column="1" />
-      <File FileName="GymLedgerAPI/Data/Repositories/GymnastRepo.cs" Line="42" Column="27" />
-      <File FileName="GymLedgerAPI/Controllers/GymnastController.cs" Line="32" Column="39" />
-      <File FileName="GymLedgerAPI/Domain/Models/GymnastCoach.cs" Line="14" Column="48" />
-      <File FileName="GymLedgerAPI/Startup.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Controllers/GymnastController.cs" Line="43" Column="60" />
+      <File FileName="GymLedgerAPI/Domain/Models/Gymnast.cs" />
+      <File FileName="GymLedgerAPI/Domain/Interfaces /IGymnastRepo.cs" />
+      <File FileName="GymLedgerAPI/Domain/Models/Training.cs" Line="23" Column="49" />
+      <File FileName="GymLedgerAPI/Domain/DTOs/TrainingDTO.cs" Line="19" Column="47" />
+      <File FileName="GymLedgerAPI/Controllers/TrainingController.cs" Line="34" Column="27" />
+      <File FileName="GymLedgerAPI/Data/Repositories/TrainingRepo.cs" Line="35" Column="51" />
+      <File FileName="GymLedgerAPI/Data/DataInit.cs" Line="85" Column="42" />
+      <File FileName="GymLedgerAPI/Domain/Models/KindOfTraining.cs" Line="7" Column="21" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,17 +21,15 @@
                 <Node name="Repositories" expanded="True" />
               </Node>
               <Node name="Domain" expanded="True">
-                <Node name="Interfaces " expanded="True" />
-                <Node name="Models" expanded="True" />
+                <Node name="DTOs" expanded="True" />
+                <Node name="Models" expanded="True">
+                  <Node name="KindOfTraining.cs" selected="True" />
+                </Node>
               </Node>
               <Node name="Properties" expanded="True" />
-              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
