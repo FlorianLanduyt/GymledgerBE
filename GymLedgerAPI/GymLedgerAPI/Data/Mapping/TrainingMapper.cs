@@ -15,6 +15,8 @@ namespace GymLedgerAPI.Data.Mapping
 
             builder.HasMany(t => t.ExerciseEvaluations).WithOne().HasForeignKey(t => t.TrainingId).OnDelete(DeleteBehavior.Cascade);
             builder.HasMany(t => t.TrainingExercises).WithOne().HasForeignKey( t=>t.TrainingId).OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(t => t.Gymnast).WithMany(t =>t.Trainings).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
