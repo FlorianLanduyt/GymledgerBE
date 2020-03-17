@@ -12,7 +12,8 @@ namespace GymLedgerAPI.Models
         public string Image { get; set; }
         public double Weight { get; set; }
 
-        public IList<TrainingExercise> TrainingExercises{ get; set; }
+        //public IList<Category> categories { get; set; } = new List<Category>();
+        public IList<TrainingExercise> TrainingExercises{ get; set; } = new List<TrainingExercise>();
 
 
         public Exercise(string description, int number, string image, double weight)
@@ -21,8 +22,7 @@ namespace GymLedgerAPI.Models
             Number = number;
             Image = image;
             Weight = weight;
-
-            TrainingExercises = new List<TrainingExercise>();
+ 
         }
 
         protected Exercise()

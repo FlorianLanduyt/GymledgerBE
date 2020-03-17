@@ -81,6 +81,7 @@ namespace GymLedgerAPI
             services.AddScoped<IExerciseRepo, ExerciseRepo>();
             services.AddScoped<ITrainingRepo, TrainingRepo>();
             services.AddScoped<IExerciseEvaluationRepo, ExerciseEvaluationRepo>();
+            services.AddScoped<ICategoryRepo, CategoryRepo>();
 
 
    //         services.AddOpenApiDocument(c =>

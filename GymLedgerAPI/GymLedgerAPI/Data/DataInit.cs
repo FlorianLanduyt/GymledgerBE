@@ -64,12 +64,35 @@ namespace GymLedgerAPI.Data
 
                 #endregion
 
+                #region Categories
+                //GENERAL = 0,
+                //LEGPOWER = 1,
+                //SCHOULDERPOWER = 2,
+                //CORESTABILITY = 3,
+                //BACKPOWER = 4
+
+                Category general = new Category("General", "");
+                Category legpower = new Category("Legpower", "");
+                Category schoulderPower = new Category("Shoulders", "");
+                Category corestability = new Category("Corestab", "");
+                Category backpower = new Category("Backpower", "");
+
+                _dbContext.Categories.Add(general);
+                _dbContext.Categories.Add(corestability);
+                _dbContext.Categories.Add(schoulderPower);
+                _dbContext.Categories.Add(legpower);
+                _dbContext.Categories.Add(backpower);
+
+
+                #endregion
+
+
                 #region Trainings
 
-                Training t1 = new Training(KindOfTraining.GENERAL, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day));
-                Training t2 = new Training(KindOfTraining.CORESTABILITY, new DateTime(DateTime.Now.AddDays(3).Year, DateTime.Now.AddDays(3).Month, DateTime.Now.AddDays(3).Day));
-                Training t3 = new Training(KindOfTraining.LEGPOWER, new DateTime(DateTime.Now.AddDays(4).Year, DateTime.Now.AddDays(4).Month, DateTime.Now.AddDays(4).Day));
-                Training t4 = new Training(KindOfTraining.GENERAL, new DateTime(DateTime.Now.AddDays(5).Year, DateTime.Now.AddDays(5).Month, DateTime.Now.AddDays(5).Day));
+                Training t1 = new Training(general, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day), 5,7);
+                Training t2 = new Training(corestability, new DateTime(DateTime.Now.AddDays(3).Year, DateTime.Now.AddDays(3).Month, DateTime.Now.AddDays(3).Day),4,8);
+                Training t3 = new Training(legpower, new DateTime(DateTime.Now.AddDays(4).Year, DateTime.Now.AddDays(4).Month, DateTime.Now.AddDays(4).Day));
+                Training t4 = new Training(backpower, new DateTime(DateTime.Now.AddDays(5).Year, DateTime.Now.AddDays(5).Month, DateTime.Now.AddDays(5).Day), 9,9);
 
                 _dbContext.Trainings.Add(t1);
                 _dbContext.Trainings.Add(t2);
@@ -80,14 +103,18 @@ namespace GymLedgerAPI.Data
                 Exercise e2 = new Exercise("Biceps", 10, "www.image.be", 50);
                 Exercise e3 = new Exercise("Triceps", 15, "www.image.be", 20);
 
+                t1.AddExerciseToTraining(e1);
+                t1.AddExerciseToTraining(e2);
+                t1.AddExerciseToTraining(e3);
+
+                t2.AddExerciseToTraining(e2);
+
 
                 florian.AddTraining(t1);
                 florian.AddTraining(t2);
                 florian.AddTraining(t3);
                 florian.AddTraining(t4);
 
-                //jonathan.AddTraining(t2);
-                //jonathan.AddTraining(t4);
 
                 #endregion
 

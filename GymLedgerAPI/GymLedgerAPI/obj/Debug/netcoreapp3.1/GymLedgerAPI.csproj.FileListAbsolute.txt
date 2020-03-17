@@ -30,6 +30,12 @@
 /Users/florianlanduyt/Projects/GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.csproj.CopyComplete
 /Users/florianlanduyt/Projects/GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.dll
 /Users/florianlanduyt/Projects/GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.pdb
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/staticwebassets/GymLedgerAPI.StaticWebAssets.Manifest.cache
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/staticwebassets/GymLedgerAPI.StaticWebAssets.xml
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.MvcApplicationPartsAssemblyInfo.cs
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.MvcApplicationPartsAssemblyInfo.cache
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.AssemblyInfoInputs.cache
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.AssemblyInfo.cs
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/appsettings.Development.json
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/appsettings.json
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Properties/launchSettings.json
@@ -46,6 +52,10 @@
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V3.dll
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V4.dll
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.dll
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.JsonPatch.dll
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.Bcl.AsyncInterfaces.dll
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.Bcl.HashCode.dll
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.Data.SqlClient.dll
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.dll
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -58,7 +68,15 @@
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.OpenApi.dll
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/MySqlConnector.dll
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Newtonsoft.Json.Bson.dll
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Pomelo.EntityFrameworkCore.MySql.dll
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Pomelo.JsonObject.dll
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.Swagger.dll
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerUI.dll
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/System.Runtime.Caching.dll
@@ -71,26 +89,7 @@
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp2.0/System.Runtime.Caching.dll
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.0/System.Runtime.Caching.dll
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
-/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/staticwebassets/GymLedgerAPI.StaticWebAssets.Manifest.cache
-/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/staticwebassets/GymLedgerAPI.StaticWebAssets.xml
-/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.MvcApplicationPartsAssemblyInfo.cs
-/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.MvcApplicationPartsAssemblyInfo.cache
-/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.AssemblyInfoInputs.cache
-/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.AssemblyInfo.cs
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.RazorTargetAssemblyInfo.cache
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.csproj.CopyComplete
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.dll
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.pdb
-/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.csprojAssemblyReference.cache
-/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.OpenApi.dll
-/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.Swagger.dll
-/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerGen.dll
-/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerUI.dll
-/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.Bcl.AsyncInterfaces.dll
-/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.Bcl.HashCode.dll
-/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/MySqlConnector.dll
-/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Pomelo.EntityFrameworkCore.MySql.dll
-/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Pomelo.JsonObject.dll
-/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.JsonPatch.dll
-/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
-/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Newtonsoft.Json.Bson.dll

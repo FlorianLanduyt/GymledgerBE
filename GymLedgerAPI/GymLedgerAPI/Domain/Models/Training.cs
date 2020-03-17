@@ -9,29 +9,27 @@ namespace GymLedgerAPI.Models
         private int _amount;
 
         public int Id { get; set; }
-        public KindOfTraining Kind { get; set; }
+        public Category Category { get; set; }
         public DateTime Date { get; set; }
-        public string FeelingBeforeTraining { get; set; }
-        public string FeelingAfterTraining { get; set; }
+        public int FeelingBeforeTraining { get; set; }
+        public int FeelingAfterTraining { get; set; }
+
 
         public Gymnast Gymnast { get; set; }
 
         public IList<TrainingExercise> TrainingExercises { get; set; } = new List<TrainingExercise>();
         public IList<ExerciseEvaluation> ExerciseEvaluations { get; set; } = new List<ExerciseEvaluation>();
 
-        //public int AmountOfExercises {
-        //    get { return _amount; }
-        //    private set {
-        //        if (TrainingExercises.Any())
-        //            _amount = TrainingExercises.Count;
-        //        else
-        //            _amount = 0;
-        //    }
-        //}
+        public int AmountOfExercises {
+            get { return _amount; }
+            private set { _amount = TrainingExercises.Count; }
+        }
 
-        public Training(KindOfTraining kind, DateTime date, string feelingBefore = "", string feelingAfter = "")
+
+
+        public Training(Category category, DateTime date, int feelingBefore = 0, int feelingAfter = 0)
         {
-            Kind = kind;
+            Category = category;
             Date = date;
             FeelingBeforeTraining = feelingBefore;
             FeelingAfterTraining = feelingAfter;
@@ -44,6 +42,7 @@ namespace GymLedgerAPI.Models
 
         public void AddExerciseToTraining(Exercise e) {
             TrainingExercises.Add(new TrainingExercise(this, e));
+            Console.WriteLine(TrainingExercises.Count);
         }
     }
 }

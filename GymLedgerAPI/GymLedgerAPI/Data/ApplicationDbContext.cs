@@ -17,6 +17,7 @@ namespace GymLedgerAPI.Data
         public DbSet<Exercise> Excercises { get; set; }
         public DbSet<Training> Trainings { get; set; }
         public DbSet<ExerciseEvaluation> Evaluations { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)

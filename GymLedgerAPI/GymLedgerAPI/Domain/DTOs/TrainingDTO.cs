@@ -10,11 +10,11 @@ namespace GymLedgerAPI.DTOs {
         public DateTime Day { get; set; }
 
         [Required]
-        public KindOfTraining Category { get; set; }
+        public Category Category { get; set; }
 
         
-        public string BeforeFeeling { get; set; }
-        public string AfterFeeling { get; set; }
+        public int BeforeFeeling { get; set; }
+        public int AfterFeeling { get; set; }
 
         public ICollection<Exercise> Exercises { get; set; }
 

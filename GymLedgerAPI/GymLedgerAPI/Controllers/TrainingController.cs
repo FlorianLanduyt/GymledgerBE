@@ -47,5 +47,7 @@ namespace GymLedgerAPI.Controllers
 
             return CreatedAtAction(nameof(GetTraining), new { trainingId = training.Id }, training);
         }
+
+
     }
 }
