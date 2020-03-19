@@ -15,11 +15,12 @@ namespace GymLedgerAPI.Controllers
     public class TrainingController : Controller {
         private readonly IGymnastRepo _gymnasts;
         private readonly ITrainingRepo _trainings;
+        private readonly ICategoryRepo _categories;
 
-
-        public TrainingController(IGymnastRepo gymnasts, ITrainingRepo trainings) {
+        public TrainingController(IGymnastRepo gymnasts, ITrainingRepo trainings, ICategoryRepo categories) {
             _gymnasts = gymnasts;
             _trainings = trainings;
+            _categories = categories;
         }
 
         [HttpGet("{trainingId}")]
@@ -31,10 +32,17 @@ namespace GymLedgerAPI.Controllers
             }
         }
 
+        [HttpGet("{gymnastId}/trainings")]
+        public ActionResult<IEnumerable<Training>> GetAllTrainingsFromGymnast(int gymnastId) {
+            return _trainings.GetAllTrainingsFromGymnast(gymnastId).ToList();
+        }
+
         [HttpPost("{gymnastId}")]
         public ActionResult<Training> CreateNewTraining([FromBody]TrainingDTO trainingDTO, int gymnastId) {
             Gymnast gymnast = _gymnasts.GetbyId(gymnastId);
-            Training training = new Training(trainingDTO.Category, trainingDTO.Day, trainingDTO.BeforeFeeling, trainingDTO.AfterFeeling);
+            Category category = _categories.GetbyId(trainingDTO.CategoryId);
+
+            Training training = new Training(category, trainingDTO.Day, trainingDTO.BeforeFeeling, trainingDTO.AfterFeeling);
 
 
             // Andere post-it

@@ -74,7 +74,7 @@ namespace GymLedgerAPI.Data
                 Category general = new Category("General", "");
                 Category legpower = new Category("Legpower", "");
                 Category schoulderPower = new Category("Shoulders", "");
-                Category corestability = new Category("Corestab", "");
+                Category corestability = new Category("Corestability", "");
                 Category backpower = new Category("Backpower", "");
 
                 _dbContext.Categories.Add(general);

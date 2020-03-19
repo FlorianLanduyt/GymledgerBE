@@ -10,6 +10,7 @@ namespace GymLedgerAPI.Models
 
         public int Id { get; set; }
         public Category Category { get; set; }
+        //public int CategoryId { get; set; }
         public DateTime Date { get; set; }
         public int FeelingBeforeTraining { get; set; }
         public int FeelingAfterTraining { get; set; }
@@ -30,6 +31,7 @@ namespace GymLedgerAPI.Models
         public Training(Category category, DateTime date, int feelingBefore = 0, int feelingAfter = 0)
         {
             Category = category;
+            //CategoryId = Category.Id;
             Date = date;
             FeelingBeforeTraining = feelingBefore;
             FeelingAfterTraining = feelingAfter;
