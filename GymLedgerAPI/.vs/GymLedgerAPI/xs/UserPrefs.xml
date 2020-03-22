@@ -1,27 +1,17 @@
 ﻿<Properties StartupConfiguration="{AF31347B-018E-4D4B-8489-592B7A4FF86D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Domain/Models/Training.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Controllers/TrainingController.cs">
     <Files>
       <File FileName="GymLedgerAPI/Data/Repositories/TrainingRepo.cs" Line="33" Column="42" />
       <File FileName="GymLedgerAPI/Controllers/TrainingController.cs" Line="45" Column="40" />
       <File FileName="GymLedgerAPI/Domain/DTOs/TrainingDTO.cs" Line="19" Column="32" />
-      <File FileName="GymLedgerAPI/Domain/Models/Training.cs" Line="37" Column="48" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GymLedgerAPI" expanded="True">
             <Node name="GymLedgerAPI" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Data" expanded="True">
-                <Node name="Mapping" expanded="True" />
-                <Node name="Repositories" expanded="True" />
-              </Node>
-              <Node name="Domain" expanded="True">
-                <Node name="DTOs" expanded="True" />
-                <Node name="Interfaces " expanded="True" />
-                <Node name="Models" expanded="True">
-                  <Node name="Training.cs" selected="True" />
-                </Node>
+              <Node name="Controllers" expanded="True">
+                <Node name="TrainingController.cs" selected="True" />
               </Node>
               <Node name="Properties" expanded="True" />
             </Node>
