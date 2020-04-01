@@ -5,14 +5,7 @@
     <UserSecretsId>38a8dc7d-26b9-476e-bb7b-ed0c6913c658</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Domain\" />
-    <Folder Include="Domain\Models\" />
-    <Folder Include="Domain\Interfaces \" />
-    <Folder Include="Data\" />
-    <Folder Include="Data\Repositories\" />
-    <Folder Include="Data\Mapping\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Domain\DTOs\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="WeatherForecast.cs" />
