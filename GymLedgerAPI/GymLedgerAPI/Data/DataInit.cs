@@ -94,10 +94,16 @@ namespace GymLedgerAPI.Data
                 Training t3 = new Training(legpower, new DateTime(DateTime.Now.AddDays(4).Year, DateTime.Now.AddDays(4).Month, DateTime.Now.AddDays(4).Day));
                 Training t4 = new Training(backpower, new DateTime(DateTime.Now.AddDays(5).Year, DateTime.Now.AddDays(5).Month, DateTime.Now.AddDays(5).Day), 9,9);
 
+                Training t5 = new Training(backpower, new DateTime(DateTime.Now.AddDays(5).Year, DateTime.Now.AddDays(5).Month, DateTime.Now.AddDays(5).Day), 9, 9);
+
+
+
+
                 _dbContext.Trainings.Add(t1);
                 _dbContext.Trainings.Add(t2);
                 _dbContext.Trainings.Add(t3);
                 _dbContext.Trainings.Add(t4);
+                _dbContext.Trainings.Add(t5);
 
                 Exercise e1 = new Exercise("Squat", 10, "www.image.be", 50);
                 Exercise e2 = new Exercise("Biceps", 10, "www.image.be", 50);
@@ -114,6 +120,8 @@ namespace GymLedgerAPI.Data
                 florian.AddTraining(t2);
                 florian.AddTraining(t3);
                 florian.AddTraining(t4);
+
+                jonathan.AddTraining(t5);
 
 
                 #endregion

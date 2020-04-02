@@ -57,5 +57,25 @@ namespace GymLedgerAPI.Controllers
         }
 
 
+        [HttpDelete("{id}")]
+        public ActionResult<Training> Remove(int id) {
+            Training trainingToDelete = this._trainings.GetbyId(id);
+
+            if (trainingToDelete == null) {
+                return NotFound();
+            }
+
+            try {
+                _trainings.Remove(trainingToDelete);
+                _trainings.SaveChanges();
+
+                return Ok(trainingToDelete);
+            } catch( Exception e) {
+                return BadRequest(e.Message);
+            }
+            
+        }
+
+
     }
 }
