@@ -76,6 +76,32 @@ namespace GymLedgerAPI.Controllers
             
         }
 
+        [HttpPut("{id}")]
+        public ActionResult<Training> Edit([FromBody]TrainingDTO trainingDTO ,int id) {
+            Training trainingToEdit = _trainings.GetbyId(id);
+            Category category = _categories.GetbyId(trainingDTO.CategoryId);
+
+            if (trainingToEdit == null) {
+                return NotFound();
+            }
+
+            if(category == null) {
+                return NotFound();
+            }
+
+            try {
+
+                trainingToEdit.Category = category;
+                trainingToEdit.Date = trainingDTO.Day;
+                trainingToEdit.FeelingBeforeTraining = trainingDTO.BeforeFeeling;
+                trainingToEdit.FeelingAfterTraining = trainingDTO.AfterFeeling;
+                _trainings.SaveChanges();
+                return Ok(trainingToEdit);
+            } catch (Exception e) {
+                return BadRequest(e.Message);
+            }
+        } 
+
 
     }
 }
