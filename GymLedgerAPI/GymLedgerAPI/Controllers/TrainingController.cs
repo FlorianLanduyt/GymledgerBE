@@ -42,7 +42,7 @@ namespace GymLedgerAPI.Controllers
             Gymnast gymnast = _gymnasts.GetbyId(gymnastId);
             Category category = _categories.GetbyId(trainingDTO.CategoryId);
 
-            Training training = new Training(category, trainingDTO.Day, trainingDTO.BeforeFeeling, trainingDTO.AfterFeeling);
+            Training training = new Training(category, trainingDTO.Date, trainingDTO.FeelingBeforeTraining, trainingDTO.FeelingAfterTraining);
 
 
             // Andere post-it
@@ -70,15 +70,15 @@ namespace GymLedgerAPI.Controllers
                 _trainings.SaveChanges();
 
                 return Ok(trainingToDelete);
-            } catch( Exception e) {
+            } catch (Exception e) {
                 return BadRequest(e.Message);
             }
-            
+
         }
 
-        [HttpPut("{id}")]
-        public ActionResult<Training> Edit([FromBody]TrainingDTO trainingDTO ,int id) {
-            Training trainingToEdit = _trainings.GetbyId(id);
+        [HttpPut("edit")]
+        public ActionResult<Training> Edit([FromBody]TrainingDTO trainingDTO) {
+            Training trainingToEdit = _trainings.GetbyId(trainingDTO.trainingId);
             Category category = _categories.GetbyId(trainingDTO.CategoryId);
 
             if (trainingToEdit == null) {
@@ -90,11 +90,10 @@ namespace GymLedgerAPI.Controllers
             }
 
             try {
-
                 trainingToEdit.Category = category;
-                trainingToEdit.Date = trainingDTO.Day;
-                trainingToEdit.FeelingBeforeTraining = trainingDTO.BeforeFeeling;
-                trainingToEdit.FeelingAfterTraining = trainingDTO.AfterFeeling;
+                trainingToEdit.Date = trainingDTO.Date;
+                trainingToEdit.FeelingBeforeTraining = trainingDTO.FeelingBeforeTraining;
+                trainingToEdit.FeelingAfterTraining = trainingDTO.FeelingAfterTraining;
                 _trainings.SaveChanges();
                 return Ok(trainingToEdit);
             } catch (Exception e) {

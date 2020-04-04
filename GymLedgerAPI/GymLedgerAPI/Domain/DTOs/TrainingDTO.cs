@@ -5,9 +5,10 @@ using GymLedgerAPI.Models;
 
 namespace GymLedgerAPI.DTOs {
     public class TrainingDTO {
+        public int trainingId { get; set; }
 
         [Required]
-        public DateTime Day { get; set; }
+        public DateTime Date { get; set; }
 
         [Required]
         public int CategoryId { get; set; }
@@ -15,8 +16,8 @@ namespace GymLedgerAPI.DTOs {
         public Category Category{ get; set; }  
 
 
-        public int BeforeFeeling { get; set; }
-        public int AfterFeeling { get; set; }
+        public int FeelingBeforeTraining { get; set; }
+        public int FeelingAfterTraining { get; set; }
 
         public ICollection<Exercise> Exercises { get; set; }
 
