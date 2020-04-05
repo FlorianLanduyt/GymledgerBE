@@ -4,6 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>38a8dc7d-26b9-476e-bb7b-ed0c6913c658</UserSecretsId>
   </PropertyGroup>
+  <PropertyGroup> 
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
   </ItemGroup>

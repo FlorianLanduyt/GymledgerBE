@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GymLedgerAPI</name>
+    </assembly>
+    <members>
+        <member name="M:GymLedgerAPI.Controllers.TrainingController.GetTraining(System.Int32)">
+            <summary>
+            Get the training with the given ID
+            </summary>
+            <param name="trainingId">The ID of a training</param>
+            <returns>The training</returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.TrainingController.GetAllTrainingsFromGymnast(System.Int32)">
+            <summary>
+            Get all the trainings of a gymnast with the given ID
+            </summary>
+            <param name="gymnastId">The ID of a gymnast</param>
+            <returns>A list of trainings of a particularly gymnast</returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.TrainingController.CreateNewTraining(GymLedgerAPI.DTOs.TrainingDTO,System.Int32)">
+            <summary>
+            Create a new training
+            </summary>
+            <param name="trainingDTO">The training to add</param>
+            <param name="gymnastId">The ID of a the gymnast where to add the training </param>
+            <returns>The training</returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.TrainingController.Remove(System.Int32)">
+            <summary>
+            Remove a training
+            </summary>
+            <param name="id">The id of the training you want to delete</param>
+            <returns>The training</returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.TrainingController.Edit(GymLedgerAPI.DTOs.TrainingDTO)">
+            <summary>
+            Edit the training
+            </summary>
+            <param name="trainingDTO">A model of the changed training</param>
+            <returns>The changed training</returns>
+        </member>
+    </members>
+</doc>

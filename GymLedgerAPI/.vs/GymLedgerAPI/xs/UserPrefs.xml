@@ -1,22 +1,25 @@
 ﻿<Properties StartupConfiguration="{AF31347B-018E-4D4B-8489-592B7A4FF86D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Data/DataInit.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/GymLedgerAPI.csproj">
     <Files>
       <File FileName="GymLedgerAPI/Data/Repositories/TrainingRepo.cs" Line="58" Column="1" />
-      <File FileName="GymLedgerAPI/Controllers/TrainingController.cs" Line="67" Column="1" />
-      <File FileName="GymLedgerAPI/Domain/DTOs/TrainingDTO.cs" Line="8" Column="1" />
-      <File FileName="GymLedgerAPI/Controllers/GymnastController.cs" Line="1" Column="1" />
-      <File FileName="GymLedgerAPI/Domain/Models/Training.cs" Line="15" Column="52" />
-      <File FileName="GymLedgerAPI/Data/DataInit.cs" Line="96" Column="1" />
+      <File FileName="GymLedgerAPI/Controllers/TrainingController.cs" Line="82" Column="36" />
+      <File FileName="GymLedgerAPI/Domain/DTOs/TrainingDTO.cs" Line="12" Column="1" />
+      <File FileName="GymLedgerAPI/Controllers/GymnastController.cs" />
+      <File FileName="GymLedgerAPI/Domain/Models/Training.cs" Line="25" Column="74" />
+      <File FileName="GymLedgerAPI/Data/DataInit.cs" />
+      <File FileName="GymLedgerAPI/Domain/Models/TrainingExercise.cs" />
+      <File FileName="GymLedgerAPI/Data/Repositories/GymnastRepo.cs" />
+      <File FileName="GymLedgerAPI/Startup.cs" Line="105" Column="54" />
+      <File FileName="GymLedgerAPI/GymLedgerAPI.csproj" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GymLedgerAPI" expanded="True">
-            <Node name="GymLedgerAPI" expanded="True">
+            <Node name="GymLedgerAPI" expanded="True" selected="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True">
                 <Node name="Repositories" expanded="True" />
-                <Node name="DataInit.cs" selected="True" />
               </Node>
               <Node name="Domain" expanded="True">
                 <Node name="DTOs" expanded="True" />
@@ -33,7 +36,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.GymLedgerAPI PreferredExecutionTarget="/Applications/Safari.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/Domain/DTOs/lqe45rxf.fy1~" relfile="GymLedgerAPI/Domain/DTOs/lqe45rxf.fy1~" line="80" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
