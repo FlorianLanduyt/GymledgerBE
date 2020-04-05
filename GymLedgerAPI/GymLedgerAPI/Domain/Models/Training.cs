@@ -7,11 +7,28 @@ namespace GymLedgerAPI.Models
 {
     public class Training {
         private int _amount;
+        private string _dayOfWeek;
 
         public int Id { get; set; }
         public Category Category { get; set; }
-        //public int CategoryId { get; set; }
         public DateTime Date { get; set; }
+        public string Day{
+            get {
+                return _dayOfWeek;
+            }
+            private set {
+                switch (Date.DayOfWeek) {
+                    case DayOfWeek.Monday: _dayOfWeek = "maandag"; break;
+                    case DayOfWeek.Tuesday: _dayOfWeek = "dinsdag"; break;
+                    case DayOfWeek.Wednesday: _dayOfWeek = "woensdag"; break;
+                    case DayOfWeek.Thursday: _dayOfWeek = "donderdag"; break;
+                    case DayOfWeek.Friday: _dayOfWeek = "vrijdag"; break;
+                    case DayOfWeek.Saturday: _dayOfWeek = "zaterdag"; break;
+                    case DayOfWeek.Sunday: _dayOfWeek = "zondag"; break;
+                }
+            }
+            
+        }
         public int FeelingBeforeTraining { get; set; }
         public int FeelingAfterTraining { get; set; }
 
