@@ -102,9 +102,10 @@ namespace GymLedgerAPI
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo {
+                c.SwaggerDoc("v1", new OpenApiInfo { 
                     Title = "Gymnast Ledger API",
-                    Version = "v1"
+                    Version = "v1",
+                    Description = "The training API"
                 });
             });
 

@@ -94,3 +94,5 @@
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.dll
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.pdb
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.csprojAssemblyReference.cache
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/GymLedgerAPI.xml
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Debug/netcoreapp3.1/GymLedgerAPI.xml
