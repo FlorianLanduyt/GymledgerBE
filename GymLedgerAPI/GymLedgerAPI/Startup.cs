@@ -12,24 +12,32 @@ using GymLedgerAPI.Domain.Interfaces;
 using GymLedgerAPI.Data.Repositories;
 using System.Security.Claims;
 using GymLedgerAPI.Models;
-using Microsoft.OpenApi.Models;
 using System;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Linq;
+using NSwag.Generation.Processors.Security;
+using NSwag;
+using Microsoft.AspNetCore.Http;
 
 namespace GymLedgerAPI
 {
     public class Startup
     {
+        private string _myToken = null;
+
         public Startup(IConfiguration configuration, IHostEnvironment env)
         {
             Configuration = configuration;
             Env = env;
+
         }
 
+
+
         public IConfiguration Configuration { get; }
-       public IHostEnvironment Env { get; }
+        public IHostEnvironment Env { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -37,7 +45,7 @@ namespace GymLedgerAPI
 
             services.AddControllers();
             services.AddRazorPages();
-
+            _myToken = Configuration["Tokens:Key"];
 
             services.AddMvc(option => option
                 .EnableEndpointRouting = false)
@@ -84,30 +92,23 @@ namespace GymLedgerAPI
             services.AddScoped<ICategoryRepo, CategoryRepo>();
 
 
-   //         services.AddOpenApiDocument(c =>
-			//{
-			//	c.DocumentName = "apidocs";
-			//	c.Title = "Gymnast Ledger API";
-			//	c.Version = "v1";
-			//	c.Description = "The gymnast API documentation description";
-			//	c.DocumentProcessors.Add(new SecurityDefinitionAppender("JWT Token", new SwaggerSecurityScheme
-			//	{
-			//		Type = SwaggerSecuritySchemeType.ApiKey,
-			//		Name = "Authorization",
-			//		In = SwaggerSecurityApiKeyLocation.Header,
-			//		Description = "Copy 'Bearer' + valid JWT token into field"
-			//	}));
-			//	c.OperationProcessors.Add(new OperationSecurityScopeProcessor("JWT Token"));
-			//});
+            services.AddOpenApiDocument(c => {
+                c.DocumentName = "apidocs";
+                c.Title = "Gymnast Ledger API";
+                c.Version = "v1";
+                c.Description = "The gymnast API documentation description";
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { 
-                    Title = "Gymnast Ledger API",
-                    Version = "v1",
-                    Description = "The training API"
+                c.AddSecurity("JWT", Enumerable.Empty<string>(), new OpenApiSecurityScheme {
+                    Type = OpenApiSecuritySchemeType.ApiKey,
+                    Name = "Authorization",
+                    In = OpenApiSecurityApiKeyLocation.Header,
+                    Description = "Type into the textbox: Bearer {your JWT token}."
                 });
-            });
+
+                c.OperationProcessors.Add(
+                    new AspNetCoreOperationSecurityScopeProcessor("JWT")); //adds the token when a request is send
+                });
+
 
 
             services.AddAuthentication(x =>
@@ -141,6 +142,7 @@ namespace GymLedgerAPI
             }
 
 
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -155,11 +157,15 @@ namespace GymLedgerAPI
 
             app.UseCors("AllowAllOrigins");
 
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-            });
-            app.UseSwagger();
+            //app.UseSwaggerUI(c =>
+            //{
+            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            //});
+
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
+            //app.UseSwagger();
+            app.UseReDoc();
 
             dataInit.InitializeData().Wait();
         }

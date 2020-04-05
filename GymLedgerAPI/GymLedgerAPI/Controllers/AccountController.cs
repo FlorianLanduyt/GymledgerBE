@@ -42,10 +42,11 @@ namespace GymLedgerAPI.Controllers
             var user = await _userManager.FindByEmailAsync(model.Email);
             if (user != null)
             {
-                var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false); if (result.Succeeded)
+                var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+                if (result.Succeeded)
                 {
                     string token = GetToken(user);
-                    return Created("", token); //returns only the token }
+                    return Created("", token); //returns only the token 
                 }
             }
             return BadRequest();
@@ -58,6 +59,7 @@ namespace GymLedgerAPI.Controllers
                 new Claim(JwtRegisteredClaimNames.UniqueName, user.Lastname)
             };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
+            Console.WriteLine(key);
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
                 null, null, claims,
