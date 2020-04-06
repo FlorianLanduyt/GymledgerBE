@@ -9,6 +9,7 @@ namespace GymLedgerAPI.Domain.DTOs
         [EmailAddress]
         public string Email { get; set; }
 
+
         [Required]
         public string Password { get; set; }
     }

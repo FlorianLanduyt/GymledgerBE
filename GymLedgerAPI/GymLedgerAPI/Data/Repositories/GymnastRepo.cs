@@ -28,19 +28,15 @@ namespace GymLedgerAPI.Data.Repositories
             return _gymnasts.ToList();
         }
 
-        public Gymnast GetbyId(int id)
-        {
-            return _gymnasts.SingleOrDefault(g => g.Id == id);
-        }
 
-        public Gymnast GetGymnastWithTrainings(int gymnastId) {
+        public Gymnast GetGymnastWithTrainings(string gymnastId) {
             return _gymnasts
                 .Include(g => g.Trainings).ThenInclude(t => t.TrainingExercises)
                 .Include(g=> g.Trainings).ThenInclude(t => t.Category)
                 .SingleOrDefault(g => g.Id == gymnastId);
         }
 
-        public ICollection<Gymnast> GetGymnastsFromCoach(int coachId)
+        public ICollection<Gymnast> GetGymnastsFromCoach(string coachId)
         {
             return _gymnasts
                 .Include(g => g.GymnastCoaches).ThenInclude(gc => gc.Gymnast)
@@ -58,6 +54,15 @@ namespace GymLedgerAPI.Data.Repositories
         public void SaveChanges()
         {
             _context.SaveChanges();
+        }
+
+        public Gymnast GetbyIdString(string id) {
+            return _gymnasts.SingleOrDefault(g => g.Id == id);
+
+        }
+
+        public Gymnast GetbyId(int id) {
+            throw new NotImplementedException();
         }
     }
 }

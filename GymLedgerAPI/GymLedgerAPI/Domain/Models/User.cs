@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace GymLedgerAPI.Models
 {
-    public class User : IdentityUser<int>
+    public class User : IdentityUser
     {
         //public int UserId { get; set; }
         [Required]
@@ -30,6 +30,7 @@ namespace GymLedgerAPI.Models
 
         public User(string firstname, string lastname, DateTime birthDate, string email)
         {
+            UserName = firstname + lastname;
             Firstname = firstname;
             Lastname = lastname;
             BirthDate = birthDate;

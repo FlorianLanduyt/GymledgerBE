@@ -40,7 +40,7 @@ namespace GymLedgerAPI.Controllers
         }
 
         [HttpGet("gymnastsWithTraining/{gymnastId}")]
-        public ActionResult<Gymnast> GetGymnastWithTraining(int gymnastId) {
+        public ActionResult<Gymnast> GetGymnastWithTraining(string gymnastId) {
             try {
                 return _gymnasts.GetGymnastWithTrainings(gymnastId);
             } catch (ArgumentNullException) {
@@ -50,7 +50,7 @@ namespace GymLedgerAPI.Controllers
 
 
         [HttpGet("gymnasts/{CoachId}")]
-        public ActionResult<IEnumerable<Gymnast>> GetGymnastFromCoach(int coachId)
+        public ActionResult<IEnumerable<Gymnast>> GetGymnastFromCoach(string coachId)
         {
             try {
                 return _gymnasts.GetGymnastsFromCoach(coachId).ToList();

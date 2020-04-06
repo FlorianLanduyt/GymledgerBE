@@ -16,6 +16,7 @@ namespace GymLedgerAPI.Data.Repositories
         {
             _context = context;
             _coaches = context.Coaches;
+
         }
 
         public void Add(Coach obj)
@@ -28,11 +29,14 @@ namespace GymLedgerAPI.Data.Repositories
             return _coaches.Include(g => g.GymnastCoaches).ToList();
         }
 
-        public Coach GetbyId(int id)
-        {
+        public Coach GetbyId(string id) {
             return _coaches
                 .Include(c => c.GymnastCoaches)
                 .SingleOrDefault(c => c.Id == id);
+        }
+
+        public Coach GetbyId(int id) {
+            throw new NotImplementedException();
         }
 
         public void Remove(Coach obj)

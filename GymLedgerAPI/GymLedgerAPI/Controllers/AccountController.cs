@@ -8,16 +8,17 @@ using System.Threading.Tasks;
 using GymLedgerAPI.Domain.DTOs;
 using GymLedgerAPI.Domain.Interfaces;
 using GymLedgerAPI.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-
 namespace GymLedgerAPI.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class AccountController : Controller
     {
         private readonly SignInManager<User> _signInManager;
@@ -40,9 +41,11 @@ namespace GymLedgerAPI.Controllers
         public async Task<ActionResult<string>> CreateToken(LoginDTO model)
         {
             var user = await _userManager.FindByEmailAsync(model.Email);
+
             if (user != null)
             {
                 var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+
                 if (result.Succeeded)
                 {
                     string token = GetToken(user);
@@ -58,13 +61,21 @@ namespace GymLedgerAPI.Controllers
                 new Claim(JwtRegisteredClaimNames.Sub, user.Email),
                 new Claim(JwtRegisteredClaimNames.UniqueName, user.Lastname)
             };
+
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
+
+            //test
             Console.WriteLine(key);
+
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
             var token = new JwtSecurityToken(
-                null, null, claims,
+                null,
+                null,
+                claims,
                 expires: DateTime.Now.AddMinutes(30),
                 signingCredentials: creds);
+
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }

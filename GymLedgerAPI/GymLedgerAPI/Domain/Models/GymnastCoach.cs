@@ -6,10 +6,10 @@ namespace GymLedgerAPI.Domain.Models
     public class GymnastCoach
     {
         public Gymnast Gymnast { get; set; }
-        public int GymnastId { get; set; }
+        public string GymnastId { get; set; }
 
         public Coach Coach { get; set; }
-        public int CoachId { get; set; }
+        public string CoachId { get; set; }
 
         public GymnastCoach(Gymnast g, Coach c)
         {

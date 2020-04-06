@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using GymLedgerAPI.Domain.Interfaces;
 using GymLedgerAPI.DTOs;
 using GymLedgerAPI.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GymLedgerAPI.Controllers
 {
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Produces("application/json")]
     [Route("api/[controller]")]
     public class TrainingController : Controller {
@@ -45,7 +48,7 @@ namespace GymLedgerAPI.Controllers
         /// <param name="gymnastId">The ID of a gymnast</param>
         /// <returns>A list of trainings of a particularly gymnast</returns>
         [HttpGet("{gymnastId}/trainings")]
-        public ActionResult<IEnumerable<Training>> GetAllTrainingsFromGymnast(int gymnastId) {
+        public ActionResult<IEnumerable<Training>> GetAllTrainingsFromGymnast(string gymnastId) {
             return _trainings.GetAllTrainingsFromGymnast(gymnastId).ToList();
         }
 

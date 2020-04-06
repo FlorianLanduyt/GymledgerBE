@@ -20,6 +20,7 @@ using System.Linq;
 using NSwag.Generation.Processors.Security;
 using NSwag;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 
 namespace GymLedgerAPI
 {
@@ -45,19 +46,13 @@ namespace GymLedgerAPI
 
             services.AddControllers();
             services.AddRazorPages();
-            _myToken = Configuration["Tokens:Key"];
+            _myToken = Configuration["Tokens:Key"]; //test of token wel wordt opgehaald
 
             services.AddMvc(option => option
                 .EnableEndpointRouting = false)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
-
-            //services.AddDbContext<ApplicationDbContext>(options =>
-            //    options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
-
-            //services.AddDbContextPool<ApplicationDbContext>(options =>
-            //     options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
 
             if (Env.IsDevelopment())
             {
@@ -68,28 +63,57 @@ namespace GymLedgerAPI
                 }
                 ));
             }
-        
+
+            services.Configure<IdentityOptions>(options => {
+                // Password settings.
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 6;
+
+                // Lockout settings.
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.AllowedForNewUsers = true;
+
+                // User settings.
+                options.User.AllowedUserNameCharacters =
+                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+                options.User.RequireUniqueEmail = true;
+            });
+
 
             services.AddScoped<DataInit>();
 
-            services.AddIdentityCore<User>(cfg => cfg.User.RequireUniqueEmail = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            //services.AddIdentityCore<User>(cfg => cfg.User.RequireUniqueEmail = true)
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
 
             //services.AddAuthorization(options => {
             //    //Function policies
             //    options.AddPolicy("Gymnast", policy => policy.RequireClaim(ClaimTypes.Role, "gymnast"));
             //    options.AddPolicy("Coach", policy => policy.RequireClaim(ClaimTypes.Role, "coach"));
             //    options.AddPolicy("NonUser", policy => policy.RequireClaim(ClaimTypes.Role, "nonuser"));
-                
+
             //});
+
+            services.AddIdentity<User, IdentityRole>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+            })
+            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders();
+
 
             services.AddScoped<IGymnastRepo, GymnastRepo>();
             services.AddScoped<ICoachRepo, CoachRepo>();
-            services.AddScoped<IUserRepo, UserRepo>();
+            //services.AddScoped<IUserRepo, UserRepo>();
             services.AddScoped<IExerciseRepo, ExerciseRepo>();
             services.AddScoped<ITrainingRepo, TrainingRepo>();
             services.AddScoped<IExerciseEvaluationRepo, ExerciseEvaluationRepo>();
             services.AddScoped<ICategoryRepo, CategoryRepo>();
+
+
+            
 
 
             services.AddOpenApiDocument(c => {
@@ -131,6 +155,7 @@ namespace GymLedgerAPI
 
             services.AddCors(options => options.AddPolicy("AllowAllOrigins", builder => builder.AllowAnyOrigin()));
 
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -147,8 +172,9 @@ namespace GymLedgerAPI
 
             app.UseRouting();
 
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
+            
 
             app.UseEndpoints(endpoints =>
             {

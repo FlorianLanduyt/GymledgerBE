@@ -119,3 +119,5 @@
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/NSwag.Core.dll
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/NSwag.Generation.dll
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/NSwag.Generation.AspNetCore.dll
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authorization.dll
+/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Metadata.dll

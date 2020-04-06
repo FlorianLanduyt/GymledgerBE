@@ -6,6 +6,6 @@ namespace GymLedgerAPI.Domain.Interfaces
 {
     public interface ITrainingRepo : IGenericRepo<Training>
     {
-        ICollection<Training> GetAllTrainingsFromGymnast(int gymnastId);
+        ICollection<Training> GetAllTrainingsFromGymnast(string gymnastId);
     }
 }
