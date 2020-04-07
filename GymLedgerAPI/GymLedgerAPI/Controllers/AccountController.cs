@@ -55,6 +55,42 @@ namespace GymLedgerAPI.Controllers
             return BadRequest();
         }
 
+        [AllowAnonymous]
+        [HttpPost("register")]
+        public ActionResult<String> Register(RegisterDTO model) {
+            User user = CreateUser(model);
+            
+            //var result = await _userManager.CreateAsync(user, model.Password);
+
+            if (user != null) {
+                if (model.isCoach) {
+                    _coachRepo.Add((Coach)user);
+                    _coachRepo.SaveChanges();
+                } else {
+                    _gymnastRepo.Add((Gymnast)user);
+                    _gymnastRepo.SaveChanges();
+                }
+                string token = GetToken(user);
+                return Created("", token);
+            }
+            return BadRequest(); 
+        }
+
+        private User CreateUser(RegisterDTO model) {
+            User user = null;
+            if (model.isCoach) {
+                user =  new Coach(model.FirstName, model.LastName, model.BirthDay, model.Email);
+            } else {
+                user = new Gymnast(model.FirstName, model.LastName, model.BirthDay, model.Email);
+            }
+
+            user.NormalizedEmail = user.Email.ToUpper();
+            user.NormalizedUserName = user.Email.ToUpper().Trim();
+            user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, model.Password);
+
+            return user;
+        }
+
         private string GetToken(User user)
         {      // Create the token
             var claims = new[] {
