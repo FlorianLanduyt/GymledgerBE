@@ -52,10 +52,7 @@ namespace GymLedgerAPI.Data
                 // ---------- Adding users to the database ---------------------
 
 
-                _dbContext.Gymnasts.Add(florian);
-                _dbContext.Gymnasts.Add(jonathan);
-                _dbContext.Coaches.Add(stefan);
-                _dbContext.Coaches.Add(koen);
+                
 
                 //await _userManager.AddPasswordAsync(florian, password);
                 //await _userManager.AddPasswordAsync(jonathan, password);
@@ -126,6 +123,10 @@ namespace GymLedgerAPI.Data
 
                 jonathan.AddTraining(t5);
 
+                _dbContext.Gymnasts.Add(florian);
+                _dbContext.Gymnasts.Add(jonathan);
+                _dbContext.Coaches.Add(stefan);
+                _dbContext.Coaches.Add(koen);
 
                 #endregion
 

@@ -14,9 +14,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GymLedgerAPI.Controllers
 {
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Produces("application/json")]
     [Route("api/[controller]")]
+    [AllowAnonymous]
     public class TrainingController : Controller {
         private readonly IGymnastRepo _gymnasts;
         private readonly ITrainingRepo _trainings;
@@ -59,8 +60,8 @@ namespace GymLedgerAPI.Controllers
         /// <param name="gymnastId">The ID of a the gymnast where to add the training </param>
         /// <returns>The training</returns>
         [HttpPost("{gymnastId}")]
-        public ActionResult<Training> CreateNewTraining([FromBody]TrainingDTO trainingDTO, int gymnastId) {
-            Gymnast gymnast = _gymnasts.GetbyId(gymnastId);
+        public ActionResult<Training> CreateNewTraining([FromBody]TrainingDTO trainingDTO, string gymnastId) {
+            Gymnast gymnast = _gymnasts.GetbyIdString(gymnastId);
             Category category = _categories.GetbyId(trainingDTO.CategoryId);
 
             if(gymnast == null) {

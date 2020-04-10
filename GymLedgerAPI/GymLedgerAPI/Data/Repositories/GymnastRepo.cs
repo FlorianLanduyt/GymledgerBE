@@ -31,7 +31,8 @@ namespace GymLedgerAPI.Data.Repositories
 
         public Gymnast GetGymnastWithTrainings(string gymnastId) {
             return _gymnasts
-                .Include(g => g.Trainings).ThenInclude(t => t.TrainingExercises)
+                .Include(g => g.Trainings)
+                //.Include(g => g.Trainings).ThenInclude(t => t.TrainingExercises)
                 .Include(g=> g.Trainings).ThenInclude(t => t.Category)
                 .SingleOrDefault(g => g.Id == gymnastId);
         }

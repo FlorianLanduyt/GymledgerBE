@@ -18,8 +18,6 @@ namespace GymLedgerAPI.Domain.DTOs {
         [Required]
         public string Password { get; set; }
 
-        [Required]
-        public string PasswordConfirmation { get; set; }
 
         [Required]
         public DateTime BirthDay { get; set; }

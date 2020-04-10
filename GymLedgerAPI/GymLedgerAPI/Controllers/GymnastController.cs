@@ -28,9 +28,9 @@ namespace GymLedgerAPI.Controllers
 
 
         [HttpGet("{gymnastId}")]
-        public ActionResult<Gymnast> GetGymnast(int gymnastId)
+        public ActionResult<Gymnast> GetGymnast(string gymnastId)
         {
-            Gymnast g = _gymnasts.GetbyId(gymnastId);
+            Gymnast g = _gymnasts.GetbyIdString(gymnastId);
 
             if (g == null)
             {

@@ -45,7 +45,6 @@ namespace GymLedgerAPI.Controllers
             if (user != null)
             {
                 var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
-
                 if (result.Succeeded)
                 {
                     string token = GetToken(user);
@@ -59,9 +58,7 @@ namespace GymLedgerAPI.Controllers
         [HttpPost("register")]
         public ActionResult<String> Register(RegisterDTO model) {
             User user = CreateUser(model);
-            
             //var result = await _userManager.CreateAsync(user, model.Password);
-
             if (user != null) {
                 if (model.isCoach) {
                     _coachRepo.Add((Coach)user);
@@ -113,6 +110,13 @@ namespace GymLedgerAPI.Controllers
                 signingCredentials: creds);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        [AllowAnonymous]
+        [HttpGet("checkusername")]
+        public async Task<ActionResult<Boolean>> CheckAvailableUserName(string email) {
+            var user = await _userManager.FindByNameAsync(email);
+            return user == null;
         }
     }
 }

@@ -18,7 +18,7 @@
             <param name="gymnastId">The ID of a gymnast</param>
             <returns>A list of trainings of a particularly gymnast</returns>
         </member>
-        <member name="M:GymLedgerAPI.Controllers.TrainingController.CreateNewTraining(GymLedgerAPI.DTOs.TrainingDTO,System.Int32)">
+        <member name="M:GymLedgerAPI.Controllers.TrainingController.CreateNewTraining(GymLedgerAPI.DTOs.TrainingDTO,System.String)">
             <summary>
             Create a new training
             </summary>
