@@ -28,10 +28,10 @@ namespace GymLedgerAPI.Data.Repositories
             return _trainings.ToList();
         }
 
-        public ICollection<Training> GetAllTrainingsFromGymnast(string gymnastId) {
+        public ICollection<Training> GetAllTrainingsFromGymnast(string email) {
             return _trainings
                 .Include(t => t.Category)
-                .Where(t => t.Gymnast.Id == gymnastId).ToList();
+                .Where(t => t.Gymnast.Email == email).ToList();
         }
 
         public Training GetbyId(int id)

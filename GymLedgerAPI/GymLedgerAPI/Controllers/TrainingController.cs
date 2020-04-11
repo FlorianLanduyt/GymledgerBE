@@ -48,20 +48,20 @@ namespace GymLedgerAPI.Controllers
         /// </summary>
         /// <param name="gymnastId">The ID of a gymnast</param>
         /// <returns>A list of trainings of a particularly gymnast</returns>
-        [HttpGet("{gymnastId}/trainings")]
-        public ActionResult<IEnumerable<Training>> GetAllTrainingsFromGymnast(string gymnastId) {
-            return _trainings.GetAllTrainingsFromGymnast(gymnastId).ToList();
+        [HttpGet("{email}/trainings")]
+        public ActionResult<IEnumerable<Training>> GetAllTrainingsFromGymnast(string email) {
+            return _trainings.GetAllTrainingsFromGymnast(email).ToList();
         }
 
         /// <summary>
         /// Create a new training
         /// </summary>
         /// <param name="trainingDTO">The training to add</param>
-        /// <param name="gymnastId">The ID of a the gymnast where to add the training </param>
+        /// <param name="email">The email of a the gymnast where to add the training </param>
         /// <returns>The training</returns>
-        [HttpPost("{gymnastId}")]
-        public ActionResult<Training> CreateNewTraining([FromBody]TrainingDTO trainingDTO, string gymnastId) {
-            Gymnast gymnast = _gymnasts.GetbyIdString(gymnastId);
+        [HttpPost("{email}")]
+        public ActionResult<Training> CreateNewTraining([FromBody]TrainingDTO trainingDTO, string email) {
+            Gymnast gymnast = _gymnasts.GetByEmail(email);
             Category category = _categories.GetbyId(trainingDTO.CategoryId);
 
             if(gymnast == null) {

@@ -48,6 +48,16 @@ namespace GymLedgerAPI.Controllers
             }
         }
 
+        [HttpGet("gymnast/{email}")]
+        public ActionResult<Gymnast> GetGymnastByEmail(string email) {
+            try {
+                return _gymnasts.GetByEmail(email);
+            } catch (ArgumentNullException) {
+                return NotFound("Geen gymnast met deze email");
+            }
+        }
+
+
 
         [HttpGet("gymnasts/{CoachId}")]
         public ActionResult<IEnumerable<Gymnast>> GetGymnastFromCoach(string coachId)

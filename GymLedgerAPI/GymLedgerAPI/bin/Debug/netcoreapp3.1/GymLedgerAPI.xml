@@ -23,7 +23,7 @@
             Create a new training
             </summary>
             <param name="trainingDTO">The training to add</param>
-            <param name="gymnastId">The ID of a the gymnast where to add the training </param>
+            <param name="email">The email of a the gymnast where to add the training </param>
             <returns>The training</returns>
         </member>
         <member name="M:GymLedgerAPI.Controllers.TrainingController.Remove(System.Int32)">

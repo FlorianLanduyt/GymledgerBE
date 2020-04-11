@@ -9,5 +9,6 @@ namespace GymLedgerAPI.Domain.Interfaces
         ICollection<Gymnast> GetGymnastsFromCoach(string coachId);
         Gymnast GetGymnastWithTrainings(string gymnastId);
         Gymnast GetbyIdString(string id);
+        Gymnast GetByEmail(string email);
     }
 }

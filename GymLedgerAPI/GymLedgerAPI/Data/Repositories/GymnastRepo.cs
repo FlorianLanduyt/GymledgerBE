@@ -65,5 +65,12 @@ namespace GymLedgerAPI.Data.Repositories
         public Gymnast GetbyId(int id) {
             throw new NotImplementedException();
         }
+
+        public Gymnast GetByEmail(string email) {
+            return _gymnasts
+                .Include(g => g.Trainings)
+                .Include(g=>g.Trainings).ThenInclude(t=>t.Category)
+                .SingleOrDefault(g => g.Email == email);
+        }
     }
 }
