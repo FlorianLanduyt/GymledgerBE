@@ -108,6 +108,13 @@ namespace GymLedgerAPI.Data
                 Exercise e1 = new Exercise("Squat", 10, "www.image.be", 50);
                 Exercise e2 = new Exercise("Biceps", 10, "www.image.be", 50);
                 Exercise e3 = new Exercise("Triceps", 15, "www.image.be", 20);
+                Exercise e4 = new Exercise("Flies", 5, "www.image.be", 20);
+                Exercise e5 = new Exercise("Triceps", 10, "www.image.be", 20);
+                Exercise e6 = new Exercise("Quadriceps", 30, "www.image.be", 20);
+                Exercise e7 = new Exercise("polsen op en neer ", 10, "www.image.be", 20);
+                Exercise e8 = new Exercise("Xco met knieen op bal", 15, "www.image.be", 20);
+                Exercise e9 = new Exercise("Triceps", 40, "www.image.be", 20);
+                Exercise e10 = new Exercise("Gyrospinn", 15, "www.image.be", 20);
 
                 t1.AddExerciseToTraining(e1);
                 t1.AddExerciseToTraining(e2);
@@ -127,6 +134,15 @@ namespace GymLedgerAPI.Data
                 _dbContext.Gymnasts.Add(jonathan);
                 _dbContext.Coaches.Add(stefan);
                 _dbContext.Coaches.Add(koen);
+
+
+                _dbContext.Excercises.Add(e4);
+                _dbContext.Excercises.Add(e5);
+                _dbContext.Excercises.Add(e6);
+                _dbContext.Excercises.Add(e7);
+                _dbContext.Excercises.Add(e8);
+                _dbContext.Excercises.Add(e9);
+                _dbContext.Excercises.Add(e10);
 
                 #endregion
 

@@ -4,6 +4,12 @@
         <name>GymLedgerAPI</name>
     </assembly>
     <members>
+        <member name="M:GymLedgerAPI.Controllers.ExerciseController.GetAll">
+            <summary>
+            Get all the exercises 
+            </summary>
+            <returns>A list with all the exercises</returns>
+        </member>
         <member name="M:GymLedgerAPI.Controllers.TrainingController.GetTraining(System.Int32)">
             <summary>
             Get the training with the given ID
