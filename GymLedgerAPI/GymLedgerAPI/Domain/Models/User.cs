@@ -20,7 +20,6 @@ namespace GymLedgerAPI.Models
         [Required]
         public string Lastname { get; set; }
 
-        [Required]
         public DateTime BirthDate { get; set; }
 
         //[Required]
