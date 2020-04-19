@@ -13,8 +13,8 @@ namespace GymLedgerAPI.Domain.Models
 
         public TrainingExercise(Training t, Exercise e)
         {
-            //Training = t;
-            //TrainingId = t.Id;
+            Training = t;
+            TrainingId = t.Id;
             Exercise = e;
             ExerciseId = e.Id;
         }

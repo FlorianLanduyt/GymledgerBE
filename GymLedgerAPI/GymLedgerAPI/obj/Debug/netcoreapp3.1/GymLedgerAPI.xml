@@ -10,6 +10,14 @@
             </summary>
             <returns>A list with all the exercises</returns>
         </member>
+        <member name="M:GymLedgerAPI.Controllers.ExerciseController.AddExerciseToTraining(System.Int32,System.Int32)">
+            <summary>
+            Add a existing exercise to a training
+            </summary>
+            <param name="trainingId"></param>
+            <param name="exerciseId"></param>
+            <returns></returns>
+        </member>
         <member name="M:GymLedgerAPI.Controllers.TrainingController.GetTraining(System.Int32)">
             <summary>
             Get the training with the given ID

@@ -59,9 +59,17 @@ namespace GymLedgerAPI.Models
         protected Training() {
         }
 
+
         public void AddExerciseToTraining(Exercise e) {
-            TrainingExercises.Add(new TrainingExercise(this, e));
-            Console.WriteLine(TrainingExercises.Count);
+            var doubleEx = TrainingExercises.ToList().SingleOrDefault(te => te.Exercise == e);
+
+            if(doubleEx == null) {
+                TrainingExercises.Add(new TrainingExercise(this, e));
+            } else {
+                throw new Exception("Reeds in de lijst");
+            }
+
+            
         }
     }
 }
