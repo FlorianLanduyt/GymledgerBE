@@ -32,6 +32,54 @@ namespace GymLedgerAPI.Controllers
 
 
         /// <summary>
+        /// Get all trainings not in training to choose from
+        /// </summary>
+        /// <param name="trainingId">Id of the training</param>
+        /// <returns>The list of exercises</returns>
+        [HttpGet("oefeningNietInTraining/{trainingId}")]
+        public ActionResult<IEnumerable<Exercise>> GetExercisesNotInTraining(int trainingId) {
+            Training t = _trainingen.GetbyId(trainingId);
+
+            if(t == null) {
+                return NotFound();
+            }
+
+            try {
+                var exercisesInTraining = t.TrainingExercises.ToList().Select(te => te.Exercise).ToList();
+                var allExercises = _exercises.GetAll().ToList();
+
+                var exerciseNotInTraining = allExercises.Except(exercisesInTraining);
+
+                return Ok(exerciseNotInTraining);
+            } catch (Exception e) {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+
+            }
+        }
+
+
+
+        [HttpGet("{trainingId}")]
+        public ActionResult<IEnumerable<Exercise>> GetExercisesFromTraining(int trainingId) {
+            Training t = _trainingen.GetbyId(trainingId);
+            
+            if (t == null) {
+                return NotFound("Geen training met dit Id");
+            }
+
+            try {
+                var exercises = t.TrainingExercises.ToList().Select(te => te.Exercise);
+
+                return Ok(exercises);
+
+            } catch(Exception e) {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+
+        }
+
+
+        /// <summary>
         /// Add a existing exercise to a training
         /// </summary>
         /// <param name="trainingId"></param>

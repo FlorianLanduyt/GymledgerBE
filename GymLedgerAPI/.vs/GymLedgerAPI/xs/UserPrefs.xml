@@ -1,7 +1,14 @@
 ﻿<Properties StartupConfiguration="{AF31347B-018E-4D4B-8489-592B7A4FF86D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Controllers/GymnastController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Controllers/ExerciseController.cs">
     <Files>
       <File FileName="GymLedgerAPI/Controllers/GymnastController.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Domain/DTOs/ExerciseDTO.cs" />
+      <File FileName="GymLedgerAPI/Controllers/ExerciseController.cs" Line="46" Column="1" />
+      <File FileName="GymLedgerAPI/Controllers/TrainingController.cs" />
+      <File FileName="GymLedgerAPI/Data/Repositories/TrainingRepo.cs" />
+      <File FileName="GymLedgerAPI/Domain/Interfaces /IExerciseRepo.cs" />
+      <File FileName="GymLedgerAPI/Domain/Interfaces /IGymnastRepo.cs" />
+      <File FileName="GymLedgerAPI/Data/Repositories/ExerciseRepo.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,7 +17,7 @@
             <Node name="GymLedgerAPI" expanded="True">
               <Node name="Dependencies" expanded="True" />
               <Node name="Controllers" expanded="True">
-                <Node name="GymnastController.cs" selected="True" />
+                <Node name="ExerciseController.cs" selected="True" />
               </Node>
               <Node name="Data" expanded="True">
                 <Node name="Repositories" expanded="True" />
