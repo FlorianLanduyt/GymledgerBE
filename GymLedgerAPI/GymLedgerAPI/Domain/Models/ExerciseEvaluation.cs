@@ -8,19 +8,23 @@ namespace GymLedgerAPI.Domain.Models
         public int Id { get; set; }
         public int DifficultyScore { get; set; }
         public string Note { get; set; }
+        public int Series { get; set; }
+        public double Weight { get; set; }
+        public int Repetitions { get; set; }
+
+
         public Training Training { get; set; }
         public Exercise Exercise { get; set; }
-        public int ExerciseId { get; set; }
-        public int TrainingId { get; set; }
 
-        public ExerciseEvaluation(String note, int score, Training t, Exercise e)
+        public ExerciseEvaluation(string note, int difficultyScore, double weight, int repetitions, int series, Exercise e)
         {
-            DifficultyScore = score;
+            DifficultyScore = difficultyScore;
             Note = note;
-            Training = t;
+            Weight = weight;
+            Repetitions = repetitions;
+            Series = series;
+
             Exercise = e;
-            ExerciseId = e.Id;
-            TrainingId = t.Id;
         }
 
         protected ExerciseEvaluation()

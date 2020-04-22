@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using GymLedgerAPI.Domain.Models;
 using GymLedgerAPI.Models;
 using Microsoft.AspNetCore.Identity;
 
@@ -105,16 +106,29 @@ namespace GymLedgerAPI.Data
                 _dbContext.Trainings.Add(t4);
                 _dbContext.Trainings.Add(t5);
 
-                Exercise e1 = new Exercise("Squat", 10, "www.image.be", 50);
-                Exercise e2 = new Exercise("Biceps", 10, "www.image.be", 50);
-                Exercise e3 = new Exercise("Triceps", 15, "www.image.be", 20);
-                Exercise e4 = new Exercise("Flies", 5, "www.image.be", 20);
-                Exercise e5 = new Exercise("Triceps", 10, "www.image.be", 20);
-                Exercise e6 = new Exercise("Quadriceps", 30, "www.image.be", 20);
-                Exercise e7 = new Exercise("polsen op en neer ", 10, "www.image.be", 20);
-                Exercise e8 = new Exercise("Xco met knieen op bal", 15, "www.image.be", 20);
-                Exercise e9 = new Exercise("Triceps", 40, "www.image.be", 20);
-                Exercise e10 = new Exercise("Gyrospinn", 15, "www.image.be", 20);
+                Exercise e1 = new Exercise("Squat", "www.image.be");
+                Exercise e2 = new Exercise("Biceps", "www.image.be");
+                Exercise e3 = new Exercise("Triceps", "www.image.be");
+                Exercise e4 = new Exercise("Flies", "www.image.be");
+                Exercise e5 = new Exercise("Kettle bell swing", "www.image.be");
+                Exercise e6 = new Exercise("Quadriceps", "www.image.be");
+                Exercise e7 = new Exercise("Polsen op en neer", "www.image.be");
+                Exercise e8 = new Exercise("Xco met knieen op bal", "www.image.be");
+                Exercise e9 = new Exercise("Flex bars", "www.image.be");
+                Exercise e10 = new Exercise("Gyrospinn", "www.image.be");
+
+
+                ExerciseEvaluation ee1 = new ExerciseEvaluation("Gaat beter dan vorige week", 8, 12.0, 20, 3, e1);
+                ExerciseEvaluation ee2 = new ExerciseEvaluation("Pijn aan linkerschouder", 4, 0, 20, 3, e2);
+                ExerciseEvaluation ee3 = new ExerciseEvaluation("Kan volgende week hoger gewicht", 9, 12.0, 20, 3, e3);
+                ExerciseEvaluation ee4 = new ExerciseEvaluation("toch weer iets meer pijn, iets rustiger doen de volgende keer", 5, 12.0, 20, 3, e1);
+
+
+                t1.AddExerciseEvaluationToTraining(ee1);
+                t1.AddExerciseEvaluationToTraining(ee2);
+                t1.AddExerciseEvaluationToTraining(ee3);
+                t3.AddExerciseEvaluationToTraining(ee4);
+
 
                 t1.AddExerciseToTraining(e1);
                 t1.AddExerciseToTraining(e2);

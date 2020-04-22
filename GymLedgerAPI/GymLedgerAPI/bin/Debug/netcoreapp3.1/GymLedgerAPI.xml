@@ -25,6 +25,27 @@
             <param name="exerciseId"></param>
             <returns></returns>
         </member>
+        <member name="M:GymLedgerAPI.Controllers.ExerciseEvaluationController.GetAll">
+            <summary>
+            Get all the evaluations of an exercise in any training
+            </summary>
+            <returns>A list with exercise evaluations</returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.ExerciseEvaluationController.GetFromTraining(System.Int32)">
+            <summary>
+            Get the evaluations of an exercise in a given training 
+            </summary>
+            <param name="trainingId">The id of the training</param>
+            <returns>A list with exercise evaluations</returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.ExerciseEvaluationController.GetEvaluationFromExerciseInTraining(System.Int32,System.Int32)">
+            <summary>
+            Get the evaluation from an exercise in a training
+            </summary>
+            <param name="trainingId">The id of the training</param>
+            <param name="exerciseId">The id of the exercise</param>
+            <returns>The evaluation</returns>
+        </member>
         <member name="M:GymLedgerAPI.Controllers.TrainingController.GetTraining(System.Int32)">
             <summary>
             Get the training with the given ID

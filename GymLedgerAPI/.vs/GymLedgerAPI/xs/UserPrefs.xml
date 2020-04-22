@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{AF31347B-018E-4D4B-8489-592B7A4FF86D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Controllers/ExerciseController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Domain/Interfaces /IExerciseEvaluationRepo.cs">
     <Files>
       <File FileName="GymLedgerAPI/Controllers/GymnastController.cs" Line="1" Column="1" />
       <File FileName="GymLedgerAPI/Domain/DTOs/ExerciseDTO.cs" />
@@ -8,7 +8,19 @@
       <File FileName="GymLedgerAPI/Data/Repositories/TrainingRepo.cs" />
       <File FileName="GymLedgerAPI/Domain/Interfaces /IExerciseRepo.cs" />
       <File FileName="GymLedgerAPI/Domain/Interfaces /IGymnastRepo.cs" />
-      <File FileName="GymLedgerAPI/Data/Repositories/ExerciseRepo.cs" />
+      <File FileName="GymLedgerAPI/Data/Repositories/ExerciseRepo.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Domain/Models/ExerciseEvaluation.cs" Line="26" Column="1" />
+      <File FileName="GymLedgerAPI/Domain/Models/Training.cs" Line="78" Column="122" />
+      <File FileName="GymLedgerAPI/Domain/Models/Exercise.cs" Line="23" Column="27" />
+      <File FileName="GymLedgerAPI/Data/ApplicationDbContext.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Data/DataInit.cs" Line="129" Column="57" />
+      <File FileName="GymLedgerAPI/Domain/Models/Gymnast.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Domain/Models/Category.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Data/Mapping/ExerciseEvaluationMapper.cs" Line="14" Column="15" />
+      <File FileName="GymLedgerAPI/Data/Mapping/TrainingMapper.cs" Line="16" Column="13" />
+      <File FileName="GymLedgerAPI/Controllers/ExerciseEvaulationController.cs" Line="29" Column="54" />
+      <File FileName="GymLedgerAPI/Data/Repositories/ExerciseEvaluationRepo.cs" Line="28" Column="40" />
+      <File FileName="GymLedgerAPI/Domain/Interfaces /IExerciseEvaluationRepo.cs" Line="8" Column="34" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,15 +28,16 @@
           <Node name="GymLedgerAPI" expanded="True">
             <Node name="GymLedgerAPI" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Controllers" expanded="True">
-                <Node name="ExerciseController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True">
+                <Node name="Mapping" expanded="True" />
                 <Node name="Repositories" expanded="True" />
               </Node>
               <Node name="Domain" expanded="True">
                 <Node name="DTOs" expanded="True" />
-                <Node name="Interfaces " expanded="True" />
+                <Node name="Interfaces " expanded="True">
+                  <Node name="IExerciseEvaluationRepo.cs" selected="True" />
+                </Node>
                 <Node name="Models" expanded="True" />
               </Node>
               <Node name="Properties" expanded="True" />
