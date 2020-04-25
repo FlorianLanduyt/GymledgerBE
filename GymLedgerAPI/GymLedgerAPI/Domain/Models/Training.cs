@@ -76,12 +76,18 @@ namespace GymLedgerAPI.Models
             var inList = ExerciseEvaluations
                 .ToList()
                 .SingleOrDefault(ee => (ee.Training == exEvaluation.Training) && (ee.Exercise == exEvaluation.Exercise));
+
             if(inList == null) {
                 ExerciseEvaluations.Add(exEvaluation);
             } else {
                 throw new Exception("Reeds in de lijst");
             }
 
+        }
+
+
+        public void DeleteExerciseFromTraining(Exercise exercise) {
+            TrainingExercises.Remove(TrainingExercises.FirstOrDefault(te => te.Exercise == exercise));
         }
     }
 }

@@ -15,10 +15,12 @@ namespace GymLedgerAPI.Controllers
     public class ExerciseController : Controller {
         private readonly IExerciseRepo _exercises;
         private readonly ITrainingRepo _trainingen;
+        private readonly IExerciseEvaluationRepo _evaluations;
 
-        public ExerciseController(IExerciseRepo exercises, ITrainingRepo trainingen) {
+        public ExerciseController(IExerciseRepo exercises, ITrainingRepo trainingen, IExerciseEvaluationRepo evaluations) {
             _exercises = exercises;
             _trainingen = trainingen;
+            _evaluations = evaluations;
         }
 
         /// <summary>
@@ -40,7 +42,7 @@ namespace GymLedgerAPI.Controllers
         public ActionResult<IEnumerable<Exercise>> GetExercisesNotInTraining(int trainingId) {
             Training t = _trainingen.GetbyId(trainingId);
 
-            if(t == null) {
+            if (t == null) {
                 return NotFound();
             }
 
@@ -62,7 +64,7 @@ namespace GymLedgerAPI.Controllers
         [HttpGet("{trainingId}")]
         public ActionResult<IEnumerable<Exercise>> GetExercisesFromTraining(int trainingId) {
             Training t = _trainingen.GetbyId(trainingId);
-            
+
             if (t == null) {
                 return NotFound("Geen training met dit Id");
             }
@@ -72,7 +74,7 @@ namespace GymLedgerAPI.Controllers
 
                 return Ok(exercises);
 
-            } catch(Exception e) {
+            } catch (Exception e) {
                 return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
             }
 
@@ -87,9 +89,10 @@ namespace GymLedgerAPI.Controllers
         /// <returns></returns>
         [HttpPost("{trainingId}/{exerciseId}")]
         public ActionResult<Exercise> AddExerciseToTraining(int trainingId, int exerciseId) {
-            
+
             var training = _trainingen.GetbyId(trainingId);
             var exercise = _exercises.GetbyId(exerciseId);
+
 
             if (training == null) {
                 return NotFound();
@@ -99,17 +102,55 @@ namespace GymLedgerAPI.Controllers
                 return NotFound();
             }
 
-
             try {
                 training.AddExerciseToTraining(exercise);
                 _trainingen.SaveChanges();
 
                 return Ok(exercise);
 
-            } catch(Exception e) {
+            } catch (Exception e) {
                 return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
             }
         }
+
+
+        /// <summary>
+        /// Deletes an exercise from a training with its evaluation
+        /// </summary>
+        /// <param name="trainingId"></param>
+        /// <param name="exerciseId"></param>
+        /// <returns>The removed exercise</returns>
+        [HttpDelete("{trainingId}/{exerciseId}")]
+        public ActionResult<Exercise> DeleteExerciseFromTraining(int trainingId, int exerciseId) {
+            var training = _trainingen.GetbyId(trainingId);
+            var exercise = _exercises.GetbyId(exerciseId);
+
+            if (training == null) {
+                return NotFound("Geen training met dit Id gevonden.");
+            }
+
+            if (exercise == null) {
+                return NotFound("Geen oefening met dit Id gevonden.");
+            }
+
+
+
+            try {
+                var evaluation = _evaluations.GetEvaluationFromExerciseInTraining(trainingId, exerciseId);
+                if (evaluation != null) {
+                    _evaluations.Remove(evaluation);
+                    _evaluations.SaveChanges();
+                }
+
+                training.DeleteExerciseFromTraining(exercise);
+                _trainingen.SaveChanges();
+
+                return Ok(exercise);
+            } catch (Exception e) {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }
+
 
     }
 }

@@ -25,6 +25,14 @@
             <param name="exerciseId"></param>
             <returns></returns>
         </member>
+        <member name="M:GymLedgerAPI.Controllers.ExerciseController.DeleteExerciseFromTraining(System.Int32,System.Int32)">
+            <summary>
+            Deletes an exercise from a training with its evaluation
+            </summary>
+            <param name="trainingId"></param>
+            <param name="exerciseId"></param>
+            <returns>The removed exercise</returns>
+        </member>
         <member name="M:GymLedgerAPI.Controllers.ExerciseEvaluationController.GetAll">
             <summary>
             Get all the evaluations of an exercise in any training

@@ -119,13 +119,13 @@ namespace GymLedgerAPI.Data
 
 
                 ExerciseEvaluation ee1 = new ExerciseEvaluation("Gaat beter dan vorige week", 8, 12.0, 20, 3, e1);
-                ExerciseEvaluation ee2 = new ExerciseEvaluation("Pijn aan linkerschouder", 4, 0, 20, 3, e2);
+                //ExerciseEvaluation ee2 = new ExerciseEvaluation("Pijn aan linkerschouder", 4, 0, 20, 3, e2);
                 ExerciseEvaluation ee3 = new ExerciseEvaluation("Kan volgende week hoger gewicht", 9, 12.0, 20, 3, e3);
                 ExerciseEvaluation ee4 = new ExerciseEvaluation("toch weer iets meer pijn, iets rustiger doen de volgende keer", 5, 12.0, 20, 3, e1);
 
 
                 t1.AddExerciseEvaluationToTraining(ee1);
-                t1.AddExerciseEvaluationToTraining(ee2);
+               // t1.AddExerciseEvaluationToTraining(ee2);
                 t1.AddExerciseEvaluationToTraining(ee3);
                 t3.AddExerciseEvaluationToTraining(ee4);
 
