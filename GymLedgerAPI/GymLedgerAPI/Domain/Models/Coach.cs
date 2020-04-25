@@ -7,7 +7,6 @@ namespace GymLedgerAPI.Models
 {
     public class Coach : User
     {
-        //public int CoachId { get; set; }
         public IList<GymnastCoach> GymnastCoaches { get; set; }  
 
         public Coach(string firstname, string lastname, DateTime birthday, string email): base(firstname, lastname, birthday, email)

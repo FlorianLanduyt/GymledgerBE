@@ -8,7 +8,6 @@ namespace GymLedgerAPI.Models
     public class Gymnast : User
     {
 
-        //public int GymnastId { get; set; }
         public IList<Training> Trainings { get; set; } = new List<Training>();
         public IList<GymnastCoach> GymnastCoaches { get; set; } = new List<GymnastCoach>();
 

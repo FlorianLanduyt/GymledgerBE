@@ -8,12 +8,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GymLedgerAPI.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<User, IdentityRole<int>, int, IdentityUserClaim<int>, IdentityUserRole<int>, IdentityUserLogin<int>, IdentityRoleClaim<int>, IdentityUserToken<int>>
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
 
         public DbSet<Gymnast> Gymnasts { get; set; }
         public DbSet<Coach> Coaches { get; set; }
-        public DbSet<User> AppUsers { get; set; }
+        //public DbSet<User> AppUsers { get; set; }
         public DbSet<Exercise> Excercises { get; set; }
         public DbSet<Training> Trainings { get; set; }
         public DbSet<ExerciseEvaluation> Evaluations { get; set; }
@@ -35,7 +35,7 @@ namespace GymLedgerAPI.Data
             builder.ApplyConfiguration(new TrainingMapper());
             builder.ApplyConfiguration(new TrainingExerciseMapper());
             builder.ApplyConfiguration(new ExerciseEvaluationMapper());
-            //builder.ApplyConfiguration(new UserMapper());
+
         }
     }
 }

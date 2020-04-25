@@ -11,7 +11,7 @@ namespace GymLedgerAPI.Data.Mapping
         {
             builder.ToTable("ExerciseEvaluation");
 
-            builder.HasKey(e => new { e.ExerciseId, e.TrainingId });
+            //builder.HasKey(e => new { e.Exercise.Id, e.TrainingId });
         }
     }
 }

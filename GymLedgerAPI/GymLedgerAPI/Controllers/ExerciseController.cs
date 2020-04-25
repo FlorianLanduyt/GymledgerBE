@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GymLedgerAPI.Domain.Interfaces;
+using GymLedgerAPI.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,8 +12,145 @@ using Microsoft.AspNetCore.Mvc;
 namespace GymLedgerAPI.Controllers
 {
     [Route("api/[controller]")]
-    public class ExerciseController : Controller
-    {
-        
+    public class ExerciseController : Controller {
+        private readonly IExerciseRepo _exercises;
+        private readonly ITrainingRepo _trainingen;
+        private readonly IExerciseEvaluationRepo _evaluations;
+
+        public ExerciseController(IExerciseRepo exercises, ITrainingRepo trainingen, IExerciseEvaluationRepo evaluations) {
+            _exercises = exercises;
+            _trainingen = trainingen;
+            _evaluations = evaluations;
+        }
+
+        /// <summary>
+        /// Get all the exercises 
+        /// </summary>
+        /// <returns>A list with all the exercises</returns>
+        [HttpGet]
+        public IEnumerable<Exercise> GetAll() {
+            return _exercises.GetAll().ToList();
+        }
+
+
+        /// <summary>
+        /// Get all trainings not in training to choose from
+        /// </summary>
+        /// <param name="trainingId">Id of the training</param>
+        /// <returns>The list of exercises</returns>
+        [HttpGet("oefeningNietInTraining/{trainingId}")]
+        public ActionResult<IEnumerable<Exercise>> GetExercisesNotInTraining(int trainingId) {
+            Training t = _trainingen.GetbyId(trainingId);
+
+            if (t == null) {
+                return NotFound();
+            }
+
+            try {
+                var exercisesInTraining = t.TrainingExercises.ToList().Select(te => te.Exercise).ToList();
+                var allExercises = _exercises.GetAll().ToList();
+
+                var exerciseNotInTraining = allExercises.Except(exercisesInTraining);
+
+                return Ok(exerciseNotInTraining);
+            } catch (Exception e) {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+
+            }
+        }
+
+
+
+        [HttpGet("{trainingId}")]
+        public ActionResult<IEnumerable<Exercise>> GetExercisesFromTraining(int trainingId) {
+            Training t = _trainingen.GetbyId(trainingId);
+
+            if (t == null) {
+                return NotFound("Geen training met dit Id");
+            }
+
+            try {
+                var exercises = t.TrainingExercises.ToList().Select(te => te.Exercise);
+
+                return Ok(exercises);
+
+            } catch (Exception e) {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+
+        }
+
+
+        /// <summary>
+        /// Add a existing exercise to a training
+        /// </summary>
+        /// <param name="trainingId"></param>
+        /// <param name="exerciseId"></param>
+        /// <returns></returns>
+        [HttpPost("{trainingId}/{exerciseId}")]
+        public ActionResult<Exercise> AddExerciseToTraining(int trainingId, int exerciseId) {
+
+            var training = _trainingen.GetbyId(trainingId);
+            var exercise = _exercises.GetbyId(exerciseId);
+
+
+            if (training == null) {
+                return NotFound();
+            }
+
+            if (exercise == null) {
+                return NotFound();
+            }
+
+            try {
+                training.AddExerciseToTraining(exercise);
+                _trainingen.SaveChanges();
+
+                return Ok(exercise);
+
+            } catch (Exception e) {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// Deletes an exercise from a training with its evaluation
+        /// </summary>
+        /// <param name="trainingId"></param>
+        /// <param name="exerciseId"></param>
+        /// <returns>The removed exercise</returns>
+        [HttpDelete("{trainingId}/{exerciseId}")]
+        public ActionResult<Exercise> DeleteExerciseFromTraining(int trainingId, int exerciseId) {
+            var training = _trainingen.GetbyId(trainingId);
+            var exercise = _exercises.GetbyId(exerciseId);
+
+            if (training == null) {
+                return NotFound("Geen training met dit Id gevonden.");
+            }
+
+            if (exercise == null) {
+                return NotFound("Geen oefening met dit Id gevonden.");
+            }
+
+
+
+            try {
+                var evaluation = _evaluations.GetEvaluationFromExerciseInTraining(trainingId, exerciseId);
+                if (evaluation != null) {
+                    _evaluations.Remove(evaluation);
+                    _evaluations.SaveChanges();
+                }
+
+                training.DeleteExerciseFromTraining(exercise);
+                _trainingen.SaveChanges();
+
+                return Ok(exercise);
+            } catch (Exception e) {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }
+
+
     }
 }

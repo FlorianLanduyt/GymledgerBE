@@ -28,9 +28,9 @@ namespace GymLedgerAPI.Controllers
 
 
         [HttpGet("{gymnastId}")]
-        public ActionResult<Gymnast> GetGymnast(int gymnastId)
+        public ActionResult<Gymnast> GetGymnast(string gymnastId)
         {
-            Gymnast g = _gymnasts.GetbyId(gymnastId);
+            Gymnast g = _gymnasts.GetbyIdString(gymnastId);
 
             if (g == null)
             {
@@ -40,7 +40,7 @@ namespace GymLedgerAPI.Controllers
         }
 
         [HttpGet("gymnastsWithTraining/{gymnastId}")]
-        public ActionResult<Gymnast> GetGymnastWithTraining(int gymnastId) {
+        public ActionResult<Gymnast> GetGymnastWithTraining(string gymnastId) {
             try {
                 return _gymnasts.GetGymnastWithTrainings(gymnastId);
             } catch (ArgumentNullException) {
@@ -48,9 +48,19 @@ namespace GymLedgerAPI.Controllers
             }
         }
 
+        [HttpGet("gymnast/{email}")]
+        public ActionResult<Gymnast> GetGymnastByEmail(string email) {
+            try {
+                return _gymnasts.GetByEmail(email);
+            } catch (ArgumentNullException) {
+                return NotFound("Geen gymnast met deze email");
+            }
+        }
+
+
 
         [HttpGet("gymnasts/{CoachId}")]
-        public ActionResult<IEnumerable<Gymnast>> GetGymnastFromCoach(int coachId)
+        public ActionResult<IEnumerable<Gymnast>> GetGymnastFromCoach(string coachId)
         {
             try {
                 return _gymnasts.GetGymnastsFromCoach(coachId).ToList();

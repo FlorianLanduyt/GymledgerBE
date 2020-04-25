@@ -8,16 +8,17 @@ using System.Threading.Tasks;
 using GymLedgerAPI.Domain.DTOs;
 using GymLedgerAPI.Domain.Interfaces;
 using GymLedgerAPI.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-
 namespace GymLedgerAPI.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class AccountController : Controller
     {
         private readonly SignInManager<User> _signInManager;
@@ -40,15 +41,51 @@ namespace GymLedgerAPI.Controllers
         public async Task<ActionResult<string>> CreateToken(LoginDTO model)
         {
             var user = await _userManager.FindByEmailAsync(model.Email);
+
             if (user != null)
             {
-                var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false); if (result.Succeeded)
+                var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+                if (result.Succeeded)
                 {
                     string token = GetToken(user);
-                    return Created("", token); //returns only the token }
+                    return Created("", token); //returns only the token 
                 }
             }
             return BadRequest();
+        }
+
+        [AllowAnonymous]
+        [HttpPost("register")]
+        public ActionResult<String> Register(RegisterDTO model) {
+            User user = CreateUser(model);
+            //var result = await _userManager.CreateAsync(user, model.Password);
+            if (user != null) {
+                if (model.isCoach) {
+                    _coachRepo.Add((Coach)user);
+                    _coachRepo.SaveChanges();
+                } else {
+                    _gymnastRepo.Add((Gymnast)user);
+                    _gymnastRepo.SaveChanges();
+                }
+                string token = GetToken(user);
+                return Created("", token);
+            }
+            return BadRequest(); 
+        }
+
+        private User CreateUser(RegisterDTO model) {
+            User user = null;
+            if (model.isCoach) {
+                user =  new Coach(model.FirstName, model.LastName, model.BirthDay, model.Email);
+            } else {
+                user = new Gymnast(model.FirstName, model.LastName, model.BirthDay, model.Email);
+            }
+
+            user.NormalizedEmail = user.Email.ToUpper();
+            user.NormalizedUserName = user.Email.ToUpper().Trim();
+            user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, model.Password);
+
+            return user;
         }
 
         private string GetToken(User user)
@@ -57,13 +94,29 @@ namespace GymLedgerAPI.Controllers
                 new Claim(JwtRegisteredClaimNames.Sub, user.Email),
                 new Claim(JwtRegisteredClaimNames.UniqueName, user.Lastname)
             };
+
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
+
+            //test
+            Console.WriteLine(key);
+
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
             var token = new JwtSecurityToken(
-                null, null, claims,
+                null,
+                null,
+                claims,
                 expires: DateTime.Now.AddMinutes(30),
                 signingCredentials: creds);
+
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        [AllowAnonymous]
+        [HttpGet("checkusername")]
+        public async Task<ActionResult<Boolean>> CheckAvailableUserName(string email) {
+            var user = await _userManager.FindByNameAsync(email);
+            return user == null;
         }
     }
 }

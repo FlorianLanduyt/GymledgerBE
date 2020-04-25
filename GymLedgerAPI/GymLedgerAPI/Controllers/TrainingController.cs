@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using GymLedgerAPI.Domain.Interfaces;
 using GymLedgerAPI.DTOs;
 using GymLedgerAPI.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,8 +14,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GymLedgerAPI.Controllers
 {
+    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Produces("application/json")]
     [Route("api/[controller]")]
+    [AllowAnonymous]
     public class TrainingController : Controller {
         private readonly IGymnastRepo _gymnasts;
         private readonly ITrainingRepo _trainings;
@@ -44,20 +48,20 @@ namespace GymLedgerAPI.Controllers
         /// </summary>
         /// <param name="gymnastId">The ID of a gymnast</param>
         /// <returns>A list of trainings of a particularly gymnast</returns>
-        [HttpGet("{gymnastId}/trainings")]
-        public ActionResult<IEnumerable<Training>> GetAllTrainingsFromGymnast(int gymnastId) {
-            return _trainings.GetAllTrainingsFromGymnast(gymnastId).ToList();
+        [HttpGet("{email}/trainings")]
+        public ActionResult<IEnumerable<Training>> GetAllTrainingsFromGymnast(string email) {
+            return _trainings.GetAllTrainingsFromGymnast(email).ToList();
         }
 
         /// <summary>
         /// Create a new training
         /// </summary>
         /// <param name="trainingDTO">The training to add</param>
-        /// <param name="gymnastId">The ID of a the gymnast where to add the training </param>
+        /// <param name="email">The email of a the gymnast where to add the training </param>
         /// <returns>The training</returns>
-        [HttpPost("{gymnastId}")]
-        public ActionResult<Training> CreateNewTraining([FromBody]TrainingDTO trainingDTO, int gymnastId) {
-            Gymnast gymnast = _gymnasts.GetbyId(gymnastId);
+        [HttpPost("{email}")]
+        public ActionResult<Training> CreateNewTraining([FromBody]TrainingDTO trainingDTO, string email) {
+            Gymnast gymnast = _gymnasts.GetByEmail(email);
             Category category = _categories.GetbyId(trainingDTO.CategoryId);
 
             if(gymnast == null) {

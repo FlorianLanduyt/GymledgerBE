@@ -1,31 +1,45 @@
 ﻿<Properties StartupConfiguration="{AF31347B-018E-4D4B-8489-592B7A4FF86D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/GymLedgerAPI.csproj">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Domain/DTOs/EvaluationDTO.cs">
     <Files>
-      <File FileName="GymLedgerAPI/Data/Repositories/TrainingRepo.cs" Line="58" Column="1" />
-      <File FileName="GymLedgerAPI/Controllers/TrainingController.cs" Line="82" Column="36" />
-      <File FileName="GymLedgerAPI/Domain/DTOs/TrainingDTO.cs" Line="12" Column="1" />
-      <File FileName="GymLedgerAPI/Controllers/GymnastController.cs" />
-      <File FileName="GymLedgerAPI/Domain/Models/Training.cs" Line="25" Column="74" />
-      <File FileName="GymLedgerAPI/Data/DataInit.cs" />
-      <File FileName="GymLedgerAPI/Domain/Models/TrainingExercise.cs" />
-      <File FileName="GymLedgerAPI/Data/Repositories/GymnastRepo.cs" />
-      <File FileName="GymLedgerAPI/Startup.cs" Line="105" Column="54" />
-      <File FileName="GymLedgerAPI/GymLedgerAPI.csproj" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Controllers/ExerciseController.cs" Line="153" Column="1" />
+      <File FileName="GymLedgerAPI/Domain/Models/Training.cs" Line="76" Column="45" />
+      <File FileName="GymLedgerAPI/Controllers/ExerciseEvaulationController.cs" Line="99" Column="14" />
+      <File FileName="GymLedgerAPI/Controllers/TrainingController.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Data/Repositories/TrainingRepo.cs" Line="41" Column="17" />
+      <File FileName="GymLedgerAPI/Domain/Interfaces /IExerciseRepo.cs" />
+      <File FileName="GymLedgerAPI/Domain/Interfaces /IGymnastRepo.cs" />
+      <File FileName="GymLedgerAPI/Data/Repositories/ExerciseRepo.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Domain/Models/ExerciseEvaluation.cs" Line="51" Column="41" />
+      <File FileName="GymLedgerAPI/Domain/Models/Exercise.cs" Line="23" Column="27" />
+      <File FileName="GymLedgerAPI/Data/ApplicationDbContext.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Data/DataInit.cs" Line="128" Column="18" />
+      <File FileName="GymLedgerAPI/Domain/Models/Gymnast.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Domain/Models/Category.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Data/Mapping/ExerciseEvaluationMapper.cs" Line="14" Column="15" />
+      <File FileName="GymLedgerAPI/Data/Mapping/TrainingMapper.cs" Line="16" Column="13" />
+      <File FileName="GymLedgerAPI/Data/Repositories/ExerciseEvaluationRepo.cs" Line="39" Column="42" />
+      <File FileName="GymLedgerAPI/Domain/Interfaces /IExerciseEvaluationRepo.cs" Line="10" Column="96" />
+      <File FileName="GymLedgerAPI/Controllers/GymnastController.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Domain/DTOs/EvaluatieDTO.cs" Line="10" Column="23" />
+      <File FileName="GymLedgerAPI/Domain/DTOs/ExerciseDTO.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GymLedgerAPI" expanded="True">
-            <Node name="GymLedgerAPI" expanded="True" selected="True">
+            <Node name="GymLedgerAPI" expanded="True">
+              <Node name="Dependencies" expanded="True" />
               <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True">
                 <Node name="Repositories" expanded="True" />
               </Node>
               <Node name="Domain" expanded="True">
-                <Node name="DTOs" expanded="True" />
+                <Node name="DTOs" expanded="True">
+                  <Node name="EvaluationDTO.cs" selected="True" />
+                </Node>
+                <Node name="Interfaces " expanded="True" />
                 <Node name="Models" expanded="True" />
               </Node>
-              <Node name="Properties" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -38,6 +52,8 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/Domain/DTOs/lqe45rxf.fy1~" relfile="GymLedgerAPI/Domain/DTOs/lqe45rxf.fy1~" line="80" column="1" />
+      <Breakpoint file="/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/Domain/DTOs/4vg13pxb.8jp~" relfile="GymLedgerAPI/Domain/DTOs/4vg13pxb.8jp~" line="43" column="1" />
+      <Breakpoint file="/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/Controllers/ExerciseEvaluationController.cs" relfile="GymLedgerAPI/Controllers/ExerciseEvaluationController.cs" line="90" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

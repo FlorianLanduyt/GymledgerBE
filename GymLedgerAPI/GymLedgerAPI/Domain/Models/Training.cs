@@ -59,9 +59,35 @@ namespace GymLedgerAPI.Models
         protected Training() {
         }
 
+
         public void AddExerciseToTraining(Exercise e) {
-            TrainingExercises.Add(new TrainingExercise(this, e));
-            Console.WriteLine(TrainingExercises.Count);
+            var inList = TrainingExercises.ToList().SingleOrDefault(te => te.Exercise == e);
+
+            if(inList == null) {
+                TrainingExercises.Add(new TrainingExercise(this, e));
+            } else {
+                throw new Exception("Reeds in de lijst");
+            }
+        }
+
+        public void AddExerciseEvaluationToTraining(ExerciseEvaluation exEvaluation) {
+            exEvaluation.Training = this;
+
+            var inList = ExerciseEvaluations
+                .ToList()
+                .SingleOrDefault(ee => (ee.Training == exEvaluation.Training) && (ee.Exercise == exEvaluation.Exercise));
+
+            if(inList == null) {
+                ExerciseEvaluations.Add(exEvaluation);
+            } else {
+                throw new Exception("Reeds in de lijst");
+            }
+
+        }
+
+
+        public void DeleteExerciseFromTraining(Exercise exercise) {
+            TrainingExercises.Remove(TrainingExercises.FirstOrDefault(te => te.Exercise == exercise));
         }
     }
 }

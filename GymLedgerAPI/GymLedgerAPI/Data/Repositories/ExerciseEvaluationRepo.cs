@@ -28,11 +28,22 @@ namespace GymLedgerAPI.Data.Repositories
             return _exerciseEvaluations.ToList();
         }
 
-        public ExerciseEvaluation GetbyId(int id)
-        {
-            return _exerciseEvaluations.SingleOrDefault(e => e.Id == id);
+        public ICollection<ExerciseEvaluation> GetAllFromTraining(int trainingId) {
+            return _exerciseEvaluations.Where(ee => ee.Training.Id == trainingId).ToList();
         }
 
+        public ExerciseEvaluation GetbyId(int id)
+        {
+            return _exerciseEvaluations
+                .Include(e => e.Training)
+                .Include(e => e.Exercise)
+                .SingleOrDefault(e => e.Id == id);
+        }
+
+        public ExerciseEvaluation GetEvaluationFromExerciseInTraining(int trainingId, int exerciseId) {
+            return _exerciseEvaluations
+                .SingleOrDefault(ee => ee.Training.Id == trainingId && ee.Exercise.Id == exerciseId);
+        }
 
         public void Remove(ExerciseEvaluation obj)
         {

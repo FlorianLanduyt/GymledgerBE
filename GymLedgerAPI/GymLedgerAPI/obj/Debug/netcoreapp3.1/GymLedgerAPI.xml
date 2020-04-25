@@ -4,6 +4,56 @@
         <name>GymLedgerAPI</name>
     </assembly>
     <members>
+        <member name="M:GymLedgerAPI.Controllers.ExerciseController.GetAll">
+            <summary>
+            Get all the exercises 
+            </summary>
+            <returns>A list with all the exercises</returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.ExerciseController.GetExercisesNotInTraining(System.Int32)">
+            <summary>
+            Get all trainings not in training to choose from
+            </summary>
+            <param name="trainingId">Id of the training</param>
+            <returns>The list of exercises</returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.ExerciseController.AddExerciseToTraining(System.Int32,System.Int32)">
+            <summary>
+            Add a existing exercise to a training
+            </summary>
+            <param name="trainingId"></param>
+            <param name="exerciseId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.ExerciseController.DeleteExerciseFromTraining(System.Int32,System.Int32)">
+            <summary>
+            Deletes an exercise from a training with its evaluation
+            </summary>
+            <param name="trainingId"></param>
+            <param name="exerciseId"></param>
+            <returns>The removed exercise</returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.ExerciseEvaluationController.GetAll">
+            <summary>
+            Get all the evaluations of an exercise in any training
+            </summary>
+            <returns>A list with exercise evaluations</returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.ExerciseEvaluationController.GetFromTraining(System.Int32)">
+            <summary>
+            Get the evaluations of an exercise in a given training 
+            </summary>
+            <param name="trainingId">The id of the training</param>
+            <returns>A list with exercise evaluations</returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.ExerciseEvaluationController.GetEvaluationFromExerciseInTraining(System.Int32,System.Int32)">
+            <summary>
+            Get the evaluation from an exercise in a training
+            </summary>
+            <param name="trainingId">The id of the training</param>
+            <param name="exerciseId">The id of the exercise</param>
+            <returns>The evaluation</returns>
+        </member>
         <member name="M:GymLedgerAPI.Controllers.TrainingController.GetTraining(System.Int32)">
             <summary>
             Get the training with the given ID
@@ -11,19 +61,19 @@
             <param name="trainingId">The ID of a training</param>
             <returns>The training</returns>
         </member>
-        <member name="M:GymLedgerAPI.Controllers.TrainingController.GetAllTrainingsFromGymnast(System.Int32)">
+        <member name="M:GymLedgerAPI.Controllers.TrainingController.GetAllTrainingsFromGymnast(System.String)">
             <summary>
             Get all the trainings of a gymnast with the given ID
             </summary>
             <param name="gymnastId">The ID of a gymnast</param>
             <returns>A list of trainings of a particularly gymnast</returns>
         </member>
-        <member name="M:GymLedgerAPI.Controllers.TrainingController.CreateNewTraining(GymLedgerAPI.DTOs.TrainingDTO,System.Int32)">
+        <member name="M:GymLedgerAPI.Controllers.TrainingController.CreateNewTraining(GymLedgerAPI.DTOs.TrainingDTO,System.String)">
             <summary>
             Create a new training
             </summary>
             <param name="trainingDTO">The training to add</param>
-            <param name="gymnastId">The ID of a the gymnast where to add the training </param>
+            <param name="email">The email of a the gymnast where to add the training </param>
             <returns>The training</returns>
         </member>
         <member name="M:GymLedgerAPI.Controllers.TrainingController.Remove(System.Int32)">
