@@ -121,8 +121,6 @@ namespace GymLedgerAPI.Controllers
 
         [HttpPut]
         public ActionResult<ExerciseEvaluation> EditEvaluation([FromBody] EvaluationDTO model) {
-
-
             var evaluation = _evaluations.GetbyId(model.Id);
            
 
