@@ -118,5 +118,20 @@ namespace GymLedgerAPI.Controllers
             var user = await _userManager.FindByNameAsync(email);
             return user == null;
         }
+
+        [AllowAnonymous]
+        [HttpGet("userNameExists")]
+        public async Task<ActionResult<Boolean>> UserNameExists(string email, string password) {
+            var user = await _userManager.FindByNameAsync(email);
+
+            if (user != null) {
+                var passwordCorrect = await _signInManager.CheckPasswordSignInAsync(user, password, false);
+                return (user != null) && passwordCorrect.Succeeded;
+            }
+
+
+            return false;
+        }
+
     }
 }

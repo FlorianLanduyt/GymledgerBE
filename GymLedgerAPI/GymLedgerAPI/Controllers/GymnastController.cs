@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GymLedgerAPI.Domain.Interfaces;
 using GymLedgerAPI.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -27,33 +28,38 @@ namespace GymLedgerAPI.Controllers
         }
 
 
-        [HttpGet("{gymnastId}")]
-        public ActionResult<Gymnast> GetGymnast(string gymnastId)
-        {
-            Gymnast g = _gymnasts.GetbyIdString(gymnastId);
+        //[HttpGet("{gymnastId}")]
+        //public ActionResult<Gymnast> GetGymnast(string gymnastId)
+        //{
+        //    Gymnast g = _gymnasts.GetbyIdString(gymnastId);
 
-            if (g == null)
-            {
-                return NotFound();
-            }
-            return g;
-        }
+        //    if (g == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return g;
+        //}
 
-        [HttpGet("gymnastsWithTraining/{gymnastId}")]
-        public ActionResult<Gymnast> GetGymnastWithTraining(string gymnastId) {
-            try {
-                return _gymnasts.GetGymnastWithTrainings(gymnastId);
-            } catch (ArgumentNullException) {
-                return NotFound("Geen gymnast met dit id");
-            }
-        }
+        //[HttpGet("gymnastsWithTraining/{gymnastId}")]
+        //public ActionResult<Gymnast> GetGymnastWithTraining(string gymnastId) {
+        //    try {
+        //        return _gymnasts.GetGymnastWithTrainings(gymnastId);
+        //    } catch (ArgumentNullException) {
+        //        return NotFound("Geen gymnast met dit id");
+        //    }
+        //}
 
         [HttpGet("gymnast/{email}")]
         public ActionResult<Gymnast> GetGymnastByEmail(string email) {
+            var g = _gymnasts.GetByEmail(email);
+            if (g == null) {
+                return NotFound("Geen gebruiker met deze email.");
+            }
+
             try {
-                return _gymnasts.GetByEmail(email);
-            } catch (ArgumentNullException) {
-                return NotFound("Geen gymnast met deze email");
+                return Ok(g);
+            } catch (ArgumentNullException e) {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
             }
         }
 
