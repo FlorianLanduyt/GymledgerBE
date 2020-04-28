@@ -14,10 +14,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GymLedgerAPI.Controllers
 {
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Produces("application/json")]
     [Route("api/[controller]")]
-    [AllowAnonymous]
     public class TrainingController : Controller {
         private readonly IGymnastRepo _gymnasts;
         private readonly ITrainingRepo _trainings;

@@ -129,7 +129,6 @@ namespace GymLedgerAPI.Controllers
                 return (user != null) && passwordCorrect.Succeeded;
             }
 
-
             return false;
         }
 
