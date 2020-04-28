@@ -3,7 +3,7 @@
     <Files>
       <File FileName="GymLedgerAPI/Controllers/ExerciseController.cs" Line="157" Column="1" />
       <File FileName="GymLedgerAPI/Domain/Models/Training.cs" />
-      <File FileName="GymLedgerAPI/Controllers/TrainingController.cs" Line="17" Column="1" />
+      <File FileName="GymLedgerAPI/Controllers/TrainingController.cs" />
       <File FileName="GymLedgerAPI/Data/Repositories/TrainingRepo.cs" />
       <File FileName="GymLedgerAPI/Domain/Interfaces /IExerciseRepo.cs" />
       <File FileName="GymLedgerAPI/Domain/Interfaces /IGymnastRepo.cs" />
@@ -23,27 +23,19 @@
       <File FileName="GymLedgerAPI/Domain/Models/DCD.cd" />
       <File FileName="GymLedgerAPI/Controllers/CategoryController.cs" />
       <File FileName="GymLedgerAPI/Controllers/AccountController.cs" />
-      <File FileName="GymLedgerAPI.Tests/UnitTest1.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI.Tests/UnitTest1.cs" Line="12" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GymLedgerAPI" expanded="True">
-            <Node name="GymLedgerAPI" expanded="True" selected="True" />
+            <Node name="GymLedgerAPI.Tests" selected="True" />
           </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="GymLedgerAPI" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <DisabledProjects>
-    <String>GymLedgerAPI.Tests/GymLedgerAPI.Tests.csproj</String>
-  </DisabledProjects>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.GymLedgerAPI PreferredExecutionTarget="/Applications/Safari.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
