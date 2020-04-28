@@ -16,6 +16,7 @@ namespace GymLedgerAPI.Controllers
 {
     [Produces("application/json")]
     [Route("api/[controller]")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class TrainingController : Controller {
         private readonly IGymnastRepo _gymnasts;
         private readonly ITrainingRepo _trainings;

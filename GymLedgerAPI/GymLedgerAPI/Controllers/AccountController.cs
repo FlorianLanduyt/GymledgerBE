@@ -88,6 +88,7 @@ namespace GymLedgerAPI.Controllers
             return user;
         }
 
+
         private string GetToken(User user)
         {      // Create the token
             var claims = new[] {
