@@ -29,11 +29,7 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GymLedgerAPI" expanded="True">
-            <Node name="GymLedgerAPI.Tests" expanded="True" selected="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True" />
-              </Node>
-            </Node>
+            <Node name="GymLedgerAPI" expanded="True" selected="True" />
           </Node>
         </State>
       </Pad>
@@ -44,8 +40,10 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.GymLedgerAPI.Tests FirstBuild="True" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>GymLedgerAPI.Tests/GymLedgerAPI.Tests.csproj</String>
+  </DisabledProjects>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.GymLedgerAPI PreferredExecutionTarget="/Applications/Safari.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
