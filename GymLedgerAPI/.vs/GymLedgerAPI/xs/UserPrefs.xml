@@ -1,35 +1,33 @@
 ﻿<Properties StartupConfiguration="{AF31347B-018E-4D4B-8489-592B7A4FF86D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI.Tests/UnitTest1.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Controllers/GymnastController.cs">
     <Files>
-      <File FileName="GymLedgerAPI/Controllers/ExerciseController.cs" Line="157" Column="1" />
-      <File FileName="GymLedgerAPI/Domain/Models/Training.cs" />
-      <File FileName="GymLedgerAPI/Controllers/TrainingController.cs" />
-      <File FileName="GymLedgerAPI/Data/Repositories/TrainingRepo.cs" />
-      <File FileName="GymLedgerAPI/Domain/Interfaces /IExerciseRepo.cs" />
-      <File FileName="GymLedgerAPI/Domain/Interfaces /IGymnastRepo.cs" />
-      <File FileName="GymLedgerAPI/Data/Repositories/ExerciseRepo.cs" />
-      <File FileName="GymLedgerAPI/Domain/Models/ExerciseEvaluation.cs" />
-      <File FileName="GymLedgerAPI/Domain/Models/Exercise.cs" />
-      <File FileName="GymLedgerAPI/Data/ApplicationDbContext.cs" />
-      <File FileName="GymLedgerAPI/Data/DataInit.cs" />
-      <File FileName="GymLedgerAPI/Domain/Models/Gymnast.cs" />
-      <File FileName="GymLedgerAPI/Domain/Models/Category.cs" />
-      <File FileName="GymLedgerAPI/Data/Mapping/ExerciseEvaluationMapper.cs" />
-      <File FileName="GymLedgerAPI/Data/Mapping/TrainingMapper.cs" />
-      <File FileName="GymLedgerAPI/Data/Repositories/ExerciseEvaluationRepo.cs" />
-      <File FileName="GymLedgerAPI/Domain/Interfaces /IExerciseEvaluationRepo.cs" />
-      <File FileName="GymLedgerAPI/Controllers/GymnastController.cs" />
-      <File FileName="GymLedgerAPI/Domain/Models/Coach.cs" />
-      <File FileName="GymLedgerAPI/Domain/Models/DCD.cd" />
-      <File FileName="GymLedgerAPI/Controllers/CategoryController.cs" />
-      <File FileName="GymLedgerAPI/Controllers/AccountController.cs" />
-      <File FileName="GymLedgerAPI.Tests/UnitTest1.cs" Line="12" Column="1" />
+      <File FileName="GymLedgerAPI/Controllers/TrainingController.cs" Line="44" Column="18" IsPinned="True" />
+      <File FileName="GymLedgerAPI.Tests/Data/DummyDbContext.cs" Line="56" Column="33" />
+      <File FileName="GymLedgerAPI.Tests/Controllers/TrainingControllerTest.cs" Line="63" Column="1" />
+      <File FileName="GymLedgerAPI/Controllers/GymnastController.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Domain/DTOs/TrainingDTO.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GymLedgerAPI" expanded="True">
-            <Node name="GymLedgerAPI.Tests" selected="True" />
+            <Node name="GymLedgerAPI" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="GymnastController.cs" selected="True" />
+              </Node>
+              <Node name="Data" expanded="True">
+                <Node name="Repositories" expanded="True" />
+              </Node>
+              <Node name="Domain" expanded="True">
+                <Node name="DTOs" expanded="True" />
+                <Node name="Models" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="GymLedgerAPI.Tests" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="Models" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
