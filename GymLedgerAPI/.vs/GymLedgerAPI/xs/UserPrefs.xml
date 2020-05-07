@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{AF31347B-018E-4D4B-8489-592B7A4FF86D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/GymLedgerAPI.csproj">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Controllers/CoachController.cs">
     <Files>
       <File FileName="GymLedgerAPI/Controllers/TrainingController.cs" Line="145" Column="1" IsPinned="True" />
       <File FileName="GymLedgerAPI/Data/DataInit.cs" IsPinned="True" />
@@ -7,16 +7,21 @@
       <File FileName="GymLedgerAPI/Controllers/ExerciseEvaluationController.cs" />
       <File FileName="GymLedgerAPI/Controllers/ExerciseController.cs" />
       <File FileName="GymLedgerAPI/Controllers/UserController.cs" />
-      <File FileName="GymLedgerAPI/Controllers/AccountController.cs" />
-      <File FileName="GymLedgerAPI/Startup.cs" Line="200" Column="1" />
-      <File FileName="GymLedgerAPI/GymLedgerAPI.csproj" Line="5" Column="72" />
+      <File FileName="GymLedgerAPI/Controllers/AccountController.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Startup.cs" />
+      <File FileName="GymLedgerAPI/GymLedgerAPI.csproj" />
+      <File FileName="GymLedgerAPI/appsettings.json" Line="14" Column="38" />
+      <File FileName="GymLedgerAPI/Controllers/CategoryController.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Controllers/CoachController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GymLedgerAPI" expanded="True">
-            <Node name="GymLedgerAPI" expanded="True" selected="True">
-              <Node name="Controllers" expanded="True" />
+            <Node name="GymLedgerAPI" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="CoachController.cs" selected="True" />
+              </Node>
               <Node name="Data" expanded="True" />
               <Node name="Domain" expanded="True">
                 <Node name="Models" expanded="True" />
@@ -28,9 +33,6 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <DisabledProjects>
-    <String>GymLedgerAPI.Tests/GymLedgerAPI.Tests.csproj</String>
-  </DisabledProjects>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.GymLedgerAPI PreferredExecutionTarget="/Applications/Safari.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
