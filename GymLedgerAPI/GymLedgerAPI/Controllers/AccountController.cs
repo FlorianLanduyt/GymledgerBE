@@ -88,6 +88,7 @@ namespace GymLedgerAPI.Controllers
             return user;
         }
 
+
         private string GetToken(User user)
         {      // Create the token
             var claims = new[] {
@@ -128,7 +129,6 @@ namespace GymLedgerAPI.Controllers
                 var passwordCorrect = await _signInManager.CheckPasswordSignInAsync(user, password, false);
                 return (user != null) && passwordCorrect.Succeeded;
             }
-
 
             return false;
         }

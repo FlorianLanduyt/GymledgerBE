@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymLedgerAPI", "GymLedgerAPI\GymLedgerAPI.csproj", "{AF31347B-018E-4D4B-8489-592B7A4FF86D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymLedgerAPI.Tests", "GymLedgerAPI.Tests\GymLedgerAPI.Tests.csproj", "{8F5D2F86-56A9-4A71-91B4-334DEFFB8EC5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +15,9 @@ Global
 		{AF31347B-018E-4D4B-8489-592B7A4FF86D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF31347B-018E-4D4B-8489-592B7A4FF86D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF31347B-018E-4D4B-8489-592B7A4FF86D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F5D2F86-56A9-4A71-91B4-334DEFFB8EC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F5D2F86-56A9-4A71-91B4-334DEFFB8EC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F5D2F86-56A9-4A71-91B4-334DEFFB8EC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F5D2F86-56A9-4A71-91B4-334DEFFB8EC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

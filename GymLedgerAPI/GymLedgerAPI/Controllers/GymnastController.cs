@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using GymLedgerAPI.Domain.Interfaces;
 using GymLedgerAPI.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace GymLedgerAPI.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class GymnastController : Controller
     {
         private readonly IGymnastRepo _gymnasts;

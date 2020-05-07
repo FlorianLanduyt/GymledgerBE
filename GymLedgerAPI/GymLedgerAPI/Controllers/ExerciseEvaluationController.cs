@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using GymLedgerAPI.Domain.DTOs;
 using GymLedgerAPI.Domain.Interfaces;
 using GymLedgerAPI.Domain.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace GymLedgerAPI.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ExerciseEvaluationController : Controller {
         private readonly IExerciseEvaluationRepo _evaluations;
         private readonly ITrainingRepo _trainings;

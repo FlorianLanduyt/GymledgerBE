@@ -14,10 +14,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GymLedgerAPI.Controllers
 {
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Produces("application/json")]
     [Route("api/[controller]")]
-    [AllowAnonymous]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class TrainingController : Controller {
         private readonly IGymnastRepo _gymnasts;
         private readonly ITrainingRepo _trainings;
@@ -36,8 +35,14 @@ namespace GymLedgerAPI.Controllers
         /// <returns>The training</returns>
         [HttpGet("{trainingId}")]
         public ActionResult<Training> GetTraining(int trainingId) {
+            Training t = _trainings.GetbyId(trainingId);
+
+            if(t == null) {
+                return NotFound();
+            }
+
             try {
-                return _trainings.GetbyId(trainingId);
+                return Ok(_trainings.GetbyId(trainingId));
             } catch (Exception e) {
                 return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
             }
