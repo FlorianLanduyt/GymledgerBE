@@ -1,46 +1,24 @@
 ﻿<Properties StartupConfiguration="{AF31347B-018E-4D4B-8489-592B7A4FF86D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Controllers/CategoryController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/GymLedgerAPI.csproj">
     <Files>
-      <File FileName="GymLedgerAPI/Controllers/ExerciseController.cs" Line="157" Column="1" />
-      <File FileName="GymLedgerAPI/Domain/Models/Training.cs" Line="94" Column="1" />
-      <File FileName="GymLedgerAPI/Controllers/ExerciseEvaulationController.cs" Line="17" Column="63" />
-      <File FileName="GymLedgerAPI/Controllers/TrainingController.cs" Line="145" Column="1" />
-      <File FileName="GymLedgerAPI/Data/Repositories/TrainingRepo.cs" Line="58" Column="1" />
-      <File FileName="GymLedgerAPI/Domain/Interfaces /IExerciseRepo.cs" />
-      <File FileName="GymLedgerAPI/Domain/Interfaces /IGymnastRepo.cs" />
-      <File FileName="GymLedgerAPI/Data/Repositories/ExerciseRepo.cs" Line="49" Column="1" />
-      <File FileName="GymLedgerAPI/Domain/Models/ExerciseEvaluation.cs" Line="68" Column="1" />
-      <File FileName="GymLedgerAPI/Domain/Models/Exercise.cs" Line="12" Column="1" />
-      <File FileName="GymLedgerAPI/Data/ApplicationDbContext.cs" Line="42" Column="1" />
-      <File FileName="GymLedgerAPI/Data/DataInit.cs" Line="183" Column="1" />
-      <File FileName="GymLedgerAPI/Domain/Models/Gymnast.cs" Line="47" Column="1" />
-      <File FileName="GymLedgerAPI/Domain/Models/Category.cs" Line="16" Column="1" />
-      <File FileName="GymLedgerAPI/Data/Mapping/ExerciseEvaluationMapper.cs" Line="18" Column="1" />
-      <File FileName="GymLedgerAPI/Data/Mapping/TrainingMapper.cs" Line="24" Column="1" />
-      <File FileName="GymLedgerAPI/Data/Repositories/ExerciseEvaluationRepo.cs" Line="59" Column="1" />
-      <File FileName="GymLedgerAPI/Domain/Interfaces /IExerciseEvaluationRepo.cs" Line="13" Column="1" />
-      <File FileName="GymLedgerAPI/Controllers/GymnastController.cs" Line="86" Column="1" />
-      <File FileName="GymLedgerAPI/Domain/DTOs/EvaluatieDTO.cs" Line="26" Column="1" />
-      <File FileName="GymLedgerAPI/Domain/Models/Coach.cs" Line="1" Column="1" />
-      <File FileName="GymLedgerAPI/Domain/Models/DCD.cd" Line="1" Column="1" />
-      <File FileName="GymLedgerAPI/Controllers/CategoryController.cs" Line="1" Column="1" />
-      <File FileName="GymLedgerAPI/Controllers/AccountController.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Controllers/TrainingController.cs" Line="145" Column="1" IsPinned="True" />
+      <File FileName="GymLedgerAPI/Data/DataInit.cs" IsPinned="True" />
+      <File FileName="GymLedgerAPI/Controllers/GymnastController.cs" />
+      <File FileName="GymLedgerAPI/Controllers/ExerciseEvaluationController.cs" />
+      <File FileName="GymLedgerAPI/Controllers/ExerciseController.cs" />
+      <File FileName="GymLedgerAPI/Controllers/UserController.cs" />
+      <File FileName="GymLedgerAPI/Controllers/AccountController.cs" />
+      <File FileName="GymLedgerAPI/Startup.cs" Line="200" Column="1" />
+      <File FileName="GymLedgerAPI/GymLedgerAPI.csproj" Line="5" Column="72" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GymLedgerAPI" expanded="True">
-            <Node name="GymLedgerAPI" expanded="True">
-              <Node name="Dependencies" expanded="True" />
-              <Node name="Controllers" expanded="True">
-                <Node name="CategoryController.cs" selected="True" />
-              </Node>
-              <Node name="Data" expanded="True">
-                <Node name="Repositories" expanded="True" />
-              </Node>
+            <Node name="GymLedgerAPI" expanded="True" selected="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True" />
               <Node name="Domain" expanded="True">
-                <Node name="DTOs" expanded="True" />
-                <Node name="Interfaces " expanded="True" />
                 <Node name="Models" expanded="True" />
               </Node>
             </Node>
@@ -50,6 +28,9 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>GymLedgerAPI.Tests/GymLedgerAPI.Tests.csproj</String>
+  </DisabledProjects>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.GymLedgerAPI PreferredExecutionTarget="/Applications/Safari.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
