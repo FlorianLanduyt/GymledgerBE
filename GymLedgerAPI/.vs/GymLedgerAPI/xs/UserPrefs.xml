@@ -1,20 +1,35 @@
 ﻿<Properties StartupConfiguration="{AF31347B-018E-4D4B-8489-592B7A4FF86D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Domain/Interfaces /ICoachRepo.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Data/Mapping/TrainingMapper.cs">
     <Files>
       <File FileName="GymLedgerAPI/Controllers/TrainingController.cs" Line="150" Column="1" IsPinned="True" />
-      <File FileName="GymLedgerAPI/Data/DataInit.cs" IsPinned="True" />
+      <File FileName="GymLedgerAPI/Data/DataInit.cs" Line="1" Column="1" IsPinned="True" />
       <File FileName="GymLedgerAPI/Controllers/GymnastController.cs" />
       <File FileName="GymLedgerAPI/Controllers/ExerciseEvaluationController.cs" />
       <File FileName="GymLedgerAPI/Controllers/ExerciseController.cs" />
       <File FileName="GymLedgerAPI/Controllers/UserController.cs" />
-      <File FileName="GymLedgerAPI/Controllers/AccountController.cs" Line="137" Column="2" />
-      <File FileName="GymLedgerAPI/Startup.cs" />
+      <File FileName="GymLedgerAPI/Controllers/AccountController.cs" />
+      <File FileName="GymLedgerAPI/Startup.cs" Line="164" Column="1" />
       <File FileName="GymLedgerAPI/GymLedgerAPI.csproj" />
-      <File FileName="GymLedgerAPI/appsettings.json" Line="14" Column="38" />
-      <File FileName="GymLedgerAPI/Controllers/CategoryController.cs" Line="31" Column="1" />
-      <File FileName="GymLedgerAPI/Controllers/CoachController.cs" Line="45" Column="1" />
-      <File FileName="GymLedgerAPI/Data/Repositories/CoachRepo.cs" Line="1" Column="1" />
-      <File FileName="GymLedgerAPI/Domain/Interfaces /ICoachRepo.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/appsettings.json" Line="17" Column="1" />
+      <File FileName="GymLedgerAPI/Controllers/CategoryController.cs" />
+      <File FileName="GymLedgerAPI/Controllers/CoachController.cs" />
+      <File FileName="GymLedgerAPI/Data/Repositories/CoachRepo.cs" />
+      <File FileName="GymLedgerAPI/Data/Mapping/GymnastCoachMapper.cs" Line="22" Column="1" />
+      <File FileName="GymLedgerAPI/Data/Mapping/GymnastMapper.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Data/Mapping/CoachMapper.cs" Line="14" Column="46" />
+      <File FileName="GymLedgerAPI/Data/Mapping/UserMapper.cs" Line="14" Column="39" />
+      <File FileName="GymLedgerAPI/Data/ApplicationDbContext.cs" Line="15" Column="36" />
+      <File FileName="GymLedgerAPI/Domain/Models/Coach.cs" Line="15" Column="28" />
+      <File FileName="GymLedgerAPI/Domain/Models/Category.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Domain/Models/Gymnast.cs" Line="29" Column="56" />
+      <File FileName="GymLedgerAPI/Domain/Models/User.cs" Line="22" Column="48" />
+      <File FileName="GymLedgerAPI/Domain/Models/GymnastCoach.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Domain/Models/Training.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Domain/Models/TrainingExercise.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Data/Mapping/TrainingMapper.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Data/Mapping/ExerciseEvaluationMapper.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Data/Mapping/ExerciseMapper.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Data/Mapping/TrainingExerciseMapper.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -23,13 +38,14 @@
             <Node name="GymLedgerAPI" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True">
-                <Node name="Repositories" expanded="True" />
-              </Node>
-              <Node name="Domain" expanded="True">
-                <Node name="Interfaces " expanded="True">
-                  <Node name="ICoachRepo.cs" selected="True" />
+                <Node name="Mapping" expanded="True">
+                  <Node name="TrainingMapper.cs" selected="True" />
                 </Node>
               </Node>
+              <Node name="Domain" expanded="True">
+                <Node name="Models" expanded="True" />
+              </Node>
+              <Node name="appsettings.json" expanded="True" />
             </Node>
           </Node>
         </State>

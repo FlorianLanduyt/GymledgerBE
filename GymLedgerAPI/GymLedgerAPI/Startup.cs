@@ -22,14 +22,11 @@ using NSwag;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 
-namespace GymLedgerAPI
-{
-    public class Startup
-    {
+namespace GymLedgerAPI {
+    public class Startup {
         private string _myToken = null;
 
-        public Startup(IConfiguration configuration, IHostEnvironment env)
-        {
+        public Startup(IConfiguration configuration, IHostEnvironment env) {
             Configuration = configuration;
             Env = env;
 
@@ -41,8 +38,7 @@ namespace GymLedgerAPI
         public IHostEnvironment Env { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
+        public void ConfigureServices(IServiceCollection services) {
 
             services.AddControllers();
             services.AddRazorPages();
@@ -54,15 +50,18 @@ namespace GymLedgerAPI
                 .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
 
-            if (Env.IsDevelopment())
-            {
-                string connectionString = $"Server=127.0.0.1;Database=Gymledger;User=root;Password=rootroot;Persist Security Info=True";
-                services.AddDbContextPool<ApplicationDbContext>(options => options.UseMySql(connectionString, mySqlOptions =>
-                {
-                    mySqlOptions.ServerVersion(new Version(8, 0, 17), ServerType.MySql).DisableBackslashEscaping();
-                }
-                ));
-            }
+            if (Env.IsDevelopment()) {                string connectionString = $"Server=127.0.0.1;Database=Gymledger;User=root;Password=rootroot;Persist Security Info=True";                string windowsConnection = Configuration.GetConnectionString("WindowsConnection");
+
+
+                //services.AddDbContextPool<ApplicationDbContext>(options => 
+                //    options.UseMySql(connectionString, mySqlOptions =>
+                //    {
+                //        mySqlOptions.ServerVersion(new Version(8, 0, 17), ServerType.MySql).DisableBackslashEscaping();
+                //    }
+                //    ));
+
+                services.AddDbContextPool<ApplicationDbContext>(options =>
+options.UseSqlServer(windowsConnection));            }
 
             services.Configure<IdentityOptions>(options => {
                 // Password settings.
@@ -96,8 +95,7 @@ namespace GymLedgerAPI
 
             //});
 
-            services.AddIdentity<User, IdentityRole>(options =>
-            {
+            services.AddIdentity<User, IdentityRole>(options => {
                 options.User.RequireUniqueEmail = true;
             })
             .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -113,7 +111,7 @@ namespace GymLedgerAPI
             services.AddScoped<ICategoryRepo, CategoryRepo>();
 
 
-            
+
 
 
             services.AddOpenApiDocument(c => {
@@ -131,27 +129,24 @@ namespace GymLedgerAPI
 
                 c.OperationProcessors.Add(
                     new AspNetCoreOperationSecurityScopeProcessor("JWT")); //adds the token when a request is send
-                });
+            });
 
 
 
-            services.AddAuthentication(x =>
-			{
+            services.AddAuthentication(x => {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-			})
-			.AddJwtBearer(x =>
-			{
-				x.RequireHttpsMetadata = false;
-				x.SaveToken = true;
-				x.TokenValidationParameters = new TokenValidationParameters
-				{
-					ValidateIssuerSigningKey = true,
-					IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Tokens:Key"])),
-					ValidateIssuer = false,
-					ValidateAudience = false,
-					RequireExpirationTime = true //Ensure token hasn't expired
-				};
-			});
+            })
+            .AddJwtBearer(x => {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Tokens:Key"])),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    RequireExpirationTime = true //Ensure token hasn't expired
+                };
+            });
 
             services.AddCors(options => options.AddPolicy("AllowAllOrigins", builder => builder.AllowAnyOrigin()));
 
@@ -159,10 +154,8 @@ namespace GymLedgerAPI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataInit dataInit)
-        {
-            if (env.IsDevelopment())
-            {
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataInit dataInit) {
+            if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             }
 
@@ -174,10 +167,9 @@ namespace GymLedgerAPI
 
             app.UseAuthentication();
             app.UseAuthorization();
-            
 
-            app.UseEndpoints(endpoints =>
-            {
+
+            app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();
             });
 
