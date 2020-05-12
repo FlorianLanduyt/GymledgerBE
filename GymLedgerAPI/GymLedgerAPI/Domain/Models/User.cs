@@ -10,9 +10,8 @@ namespace GymLedgerAPI.Models
 {
     public class User : IdentityUser
     {
-        //public int UserId { get; set; }
         [Required]
-        public bool isCoach { get; set; }
+        public bool IsCoach { get; set; }
 
         [Required]
         public string Firstname { get; set; }
