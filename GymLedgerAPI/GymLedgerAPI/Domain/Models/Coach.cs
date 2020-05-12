@@ -17,6 +17,7 @@ namespace GymLedgerAPI.Models
 
         protected Coach()
         {
+            GymnastCoaches = new List<GymnastCoach>();
         }
 
         public void AddGymnast(Gymnast g)

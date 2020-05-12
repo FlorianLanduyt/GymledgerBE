@@ -21,6 +21,7 @@ using NSwag.Generation.Processors.Security;
 using NSwag;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace GymLedgerAPI {
     public class Startup {
@@ -40,21 +41,21 @@ namespace GymLedgerAPI {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
 
-            services.AddControllers();
-            services.AddRazorPages();
-            _myToken = Configuration["Tokens:Key"]; //test of token wel wordt opgehaald
-
             services.AddMvc(option => option
                 .EnableEndpointRouting = false)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
+            services.AddControllers();
+            services.AddRazorPages();
+            _myToken = Configuration["Tokens:Key"]; //test of token wel wordt opgehaald
 
-            if (Env.IsDevelopment()) {                string connectionString = $"Server=127.0.0.1;Database=Gymledger;User=root;Password=rootroot;Persist Security Info=True";                string windowsConnection = Configuration.GetConnectionString("WindowsConnection");
+
+            if (Env.IsDevelopment()) {                string windowsConnection = $"Server=127.0.0.1;Database=Gymledger;User=root;Password=rootroot;Persist Security Info=True";                //string windowsConnection = Configuration.GetConnectionString("WindowsConnection");
 
 
                 services.AddDbContextPool<ApplicationDbContext>(options =>
-                    options.UseMySql(connectionString, mySqlOptions => {
+                    options.UseMySql(windowsConnection, mySqlOptions => {
                         mySqlOptions.ServerVersion(new Version(8, 0, 17), ServerType.MySql).DisableBackslashEscaping();
                     }
                     ));
@@ -147,7 +148,14 @@ namespace GymLedgerAPI {
                 };
             });
 
-            services.AddCors(options => options.AddPolicy("AllowAllOrigins", builder => builder.AllowAnyOrigin()));
+            services.AddCors(options => {
+                options.AddPolicy("CorsPolicy", builder => builder
+                    .AllowCredentials()
+                    .SetIsOriginAllowed(host => true)
+                    .WithMethods("GET", "POST", "PUT", "DELETE")
+                    .WithHeaders("Accept", "Authorization", "Content-Type", "Origin", "X-Requested-With")
+                );
+            });
 
 
         }
@@ -158,7 +166,7 @@ namespace GymLedgerAPI {
                 app.UseDeveloperExceptionPage();
             }
 
-
+            app.UseMvc();
 
             app.UseHttpsRedirection();
 
@@ -172,7 +180,11 @@ namespace GymLedgerAPI {
                 endpoints.MapControllers();
             });
 
-            app.UseCors("AllowAllOrigins");
+            app.UseCors("CorsPolicy");
+
+            app.UseForwardedHeaders(new ForwardedHeadersOptions {
+                ForwardedHeaders = ForwardedHeaders.All
+            });
 
             //app.UseSwaggerUI(c =>
             //{
@@ -184,7 +196,7 @@ namespace GymLedgerAPI {
             //app.UseSwagger();
             app.UseReDoc();
 
-            dataInit.InitializeData().Wait();
+            //dataInit.InitializeData().Wait();
         }
     }
 }

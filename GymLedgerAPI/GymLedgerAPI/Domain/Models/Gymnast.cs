@@ -7,17 +7,22 @@ namespace GymLedgerAPI.Models
 {
     public class Gymnast : User
     {
+        public IList<Training> Trainings { get; set; }
+        public IList<GymnastCoach> GymnastCoaches { get; set; }
 
-        public IList<Training> Trainings { get; set; } = new List<Training>();
-        public IList<GymnastCoach> GymnastCoaches { get; set; } = new List<GymnastCoach>();
 
         public Gymnast(string firstname, string lastname, DateTime birthday, string email): base(firstname, lastname, birthday, email)
         {
+            Trainings = new List<Training>();
+            GymnastCoaches = new List<GymnastCoach>();
+
             IsCoach = false;
         }
 
         protected Gymnast()
         {
+           Trainings = new List<Training>();
+           GymnastCoaches = new List<GymnastCoach>();
 
         }
 
