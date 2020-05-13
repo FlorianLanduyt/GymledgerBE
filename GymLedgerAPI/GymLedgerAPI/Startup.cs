@@ -51,17 +51,22 @@ namespace GymLedgerAPI {
             _myToken = Configuration["Tokens:Key"]; //test of token wel wordt opgehaald
 
 
-            if (Env.IsDevelopment()) {                string windowsConnection = $"Server=127.0.0.1;Database=Gymledger;User=root;Password=rootroot;Persist Security Info=True";                //string windowsConnection = Configuration.GetConnectionString("WindowsConnection");
 
 
-                services.AddDbContextPool<ApplicationDbContext>(options =>
-                    options.UseMySql(windowsConnection, mySqlOptions => {
-                        mySqlOptions.ServerVersion(new Version(8, 0, 17), ServerType.MySql).DisableBackslashEscaping();
-                    }
-                    ));
+            //string windowsConnection = $"Server=127.0.0.1;Database=Gymledger;User=root;Password=rootroot;Persist Security Info=True";
+            string windowsConnection = Configuration.GetConnectionString("WindowsConnection");
 
-                //services.AddDbContextPool<ApplicationDbContext>(options =>
-                //    options.UseSqlServer(windowsConnection));            }
+
+            //services.AddDbContextPool<ApplicationDbContext>(options => 
+            //    options.UseMySql(connectionString, mySqlOptions =>
+            //    {
+            //        mySqlOptions.ServerVersion(new Version(8, 0, 17), ServerType.MySql).DisableBackslashEscaping();
+            //    }
+            //    ));
+
+            services.AddDbContextPool<ApplicationDbContext>(options =>
+                options.UseSqlServer(windowsConnection));
+
 
             services.Configure<IdentityOptions>(options => {
                 // Password settings.
@@ -157,7 +162,6 @@ namespace GymLedgerAPI {
                 );
             });
 
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -185,7 +189,6 @@ namespace GymLedgerAPI {
             app.UseForwardedHeaders(new ForwardedHeadersOptions {
                 ForwardedHeaders = ForwardedHeaders.All
             });
-
             //app.UseSwaggerUI(c =>
             //{
             //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
@@ -196,7 +199,7 @@ namespace GymLedgerAPI {
             //app.UseSwagger();
             app.UseReDoc();
 
-            //dataInit.InitializeData().Wait();
+            // dataInit.InitializeData().Wait();
         }
     }
 }

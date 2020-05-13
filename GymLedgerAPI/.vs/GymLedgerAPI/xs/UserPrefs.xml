@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{AF31347B-018E-4D4B-8489-592B7A4FF86D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Data/Mapping/GymnastCoachMapper.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Data/DataInit.cs">
     <Files>
-      <File FileName="GymLedgerAPI/Startup.cs" Line="206" Column="1" />
+      <File FileName="GymLedgerAPI/Startup.cs" Line="202" Column="29" />
       <File FileName="GymLedgerAPI/Domain/Models/Gymnast.cs" Line="1" Column="1" />
       <File FileName="GymLedgerAPI/Domain/Models/Coach.cs" Line="1" Column="1" />
       <File FileName="GymLedgerAPI/Data/Mapping/GymnastCoachMapper.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Data/DataInit.cs" Line="33" Column="118" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,9 +14,8 @@
             <Node name="GymLedgerAPI" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True">
-                <Node name="Mapping" expanded="True">
-                  <Node name="GymnastCoachMapper.cs" selected="True" />
-                </Node>
+                <Node name="Mapping" expanded="True" />
+                <Node name="DataInit.cs" selected="True" />
               </Node>
               <Node name="Domain" expanded="True">
                 <Node name="Models" expanded="True" />
