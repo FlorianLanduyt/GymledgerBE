@@ -69,12 +69,20 @@ namespace GymLedgerAPI.Controllers
             Gymnast gymnast = _gymnasts.GetByEmail(email);
             Category category = _categories.GetbyId(trainingDTO.CategoryId);
 
+
+
             if(gymnast == null) {
                 return NotFound("Geen gymnast met dit ID.");
             }
 
-            if(category == null) {
-                return NotFound("Geen category met dit ID.");
+            //WIP
+            if(category == null && trainingDTO.Category != null) {
+                category = new Category(trainingDTO.Category, ""); // tijdelijke geen beschrijving
+                _categories.SaveChanges();
+            }
+
+            if (category == null && trainingDTO.Category == null) {
+                return NotFound("Geen category met dit ID");
             }
 
             try {

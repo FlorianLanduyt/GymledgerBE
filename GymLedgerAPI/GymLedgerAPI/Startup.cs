@@ -53,13 +53,12 @@ namespace GymLedgerAPI {
 
 
 
-            //string windowsConnection = $"Server=127.0.0.1;Database=Gymledger;User=root;Password=rootroot;Persist Security Info=True";
+            //string connectionString = $"Server=127.0.0.1;Database=Gymledger;User=root;Password=rootroot;Persist Security Info=True";
             string windowsConnection = Configuration.GetConnectionString("WindowsConnection");
 
 
-            //services.AddDbContextPool<ApplicationDbContext>(options => 
-            //    options.UseMySql(connectionString, mySqlOptions =>
-            //    {
+            //services.AddDbContextPool<ApplicationDbContext>(options =>
+            //    options.UseMySql(connectionString, mySqlOptions => {
             //        mySqlOptions.ServerVersion(new Version(8, 0, 17), ServerType.MySql).DisableBackslashEscaping();
             //    }
             //    ));
@@ -199,7 +198,7 @@ namespace GymLedgerAPI {
             //app.UseSwagger();
             app.UseReDoc();
 
-            // dataInit.InitializeData().Wait();
+            //dataInit.InitializeData().Wait();
         }
     }
 }

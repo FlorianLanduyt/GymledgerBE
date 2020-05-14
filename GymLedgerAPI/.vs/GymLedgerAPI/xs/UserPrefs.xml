@@ -1,11 +1,15 @@
 ﻿<Properties StartupConfiguration="{AF31347B-018E-4D4B-8489-592B7A4FF86D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Data/DataInit.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Domain/Models/Training.cs">
     <Files>
-      <File FileName="GymLedgerAPI/Startup.cs" Line="202" Column="29" />
+      <File FileName="GymLedgerAPI/Startup.cs" Line="56" Column="36" />
       <File FileName="GymLedgerAPI/Domain/Models/Gymnast.cs" Line="1" Column="1" />
       <File FileName="GymLedgerAPI/Domain/Models/Coach.cs" Line="1" Column="1" />
       <File FileName="GymLedgerAPI/Data/Mapping/GymnastCoachMapper.cs" Line="1" Column="1" />
-      <File FileName="GymLedgerAPI/Data/DataInit.cs" Line="33" Column="118" />
+      <File FileName="GymLedgerAPI/Data/DataInit.cs" Line="32" Column="17" />
+      <File FileName="GymLedgerAPI/Controllers/TrainingController.cs" Line="94" Column="1" />
+      <File FileName="GymLedgerAPI/Domain/DTOs/TrainingDTO.cs" Line="8" Column="9" />
+      <File FileName="GymLedgerAPI/Controllers/GymnastController.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Domain/Models/Training.cs" Line="12" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,10 +19,12 @@
               <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True">
                 <Node name="Mapping" expanded="True" />
-                <Node name="DataInit.cs" selected="True" />
               </Node>
               <Node name="Domain" expanded="True">
-                <Node name="Models" expanded="True" />
+                <Node name="DTOs" expanded="True" />
+                <Node name="Models" expanded="True">
+                  <Node name="Training.cs" selected="True" />
+                </Node>
               </Node>
               <Node name="appsettings.json" expanded="True" />
             </Node>
@@ -34,6 +40,7 @@
     <BreakpointStore>
       <Breakpoint file="/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/Domain/DTOs/lqe45rxf.fy1~" relfile="GymLedgerAPI/Domain/DTOs/lqe45rxf.fy1~" line="80" column="1" />
       <Breakpoint file="/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/Domain/DTOs/4vg13pxb.8jp~" relfile="GymLedgerAPI/Domain/DTOs/4vg13pxb.8jp~" line="43" column="1" />
+      <Breakpoint file="/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/Controllers/TrainingController.cs" relfile="GymLedgerAPI/Controllers/TrainingController.cs" line="68" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
