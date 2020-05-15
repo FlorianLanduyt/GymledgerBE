@@ -75,7 +75,7 @@ namespace GymLedgerAPI.Controllers
                 return NotFound("Geen gymnast met dit ID.");
             }
 
-            //WIP
+            
             if(category == null && trainingDTO.Category != null) {
                 category = new Category(trainingDTO.Category, ""); // tijdelijke geen beschrijving
                 _categories.SaveChanges();
@@ -131,6 +131,18 @@ namespace GymLedgerAPI.Controllers
         public ActionResult<Training> Edit([FromBody]TrainingDTO trainingDTO) {
             Training trainingToEdit = _trainings.GetbyId(trainingDTO.trainingId);
             Category category = _categories.GetbyId(trainingDTO.CategoryId);
+
+            //
+
+            if (category == null && trainingDTO.Category != null) {
+                category = new Category(trainingDTO.Category, ""); // tijdelijke geen beschrijving
+                _categories.SaveChanges();
+            }
+
+            if (category == null && trainingDTO.Category == null) {
+                return NotFound("Geen category met dit ID");
+            }
+
 
             if (trainingToEdit == null) {
                 return NotFound();

@@ -9,12 +9,14 @@ namespace GymLedgerAPI.Models
     {
         public IList<Training> Trainings { get; set; }
         public IList<GymnastCoach> GymnastCoaches { get; set; }
+        public IList<Exercise> Exercises { get; set; }
 
 
         public Gymnast(string firstname, string lastname, DateTime birthday, string email): base(firstname, lastname, birthday, email)
         {
             Trainings = new List<Training>();
             GymnastCoaches = new List<GymnastCoach>();
+            Exercises = new List<Exercise>();
 
             IsCoach = false;
         }
@@ -23,6 +25,7 @@ namespace GymLedgerAPI.Models
         {
            Trainings = new List<Training>();
            GymnastCoaches = new List<GymnastCoach>();
+           Exercises = new List<Exercise>();
 
         }
 
