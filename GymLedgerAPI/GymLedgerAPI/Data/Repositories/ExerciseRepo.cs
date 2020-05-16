@@ -25,6 +25,12 @@ namespace GymLedgerAPI.Data.Repositories
             _context.Add(obj);
         }
 
+        public ICollection<Exercise> GetExercisesFromGymnast(string email) {
+             return _exercises
+                .Where(t => t.Gymnast.Email == email)
+                .ToList();
+        }
+
         public ICollection<Exercise> GetAll()
         {
             return _exercises.ToList();

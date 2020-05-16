@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GymLedgerAPI.Domain.DTOs;
 using GymLedgerAPI.Domain.Interfaces;
 using GymLedgerAPI.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -11,19 +12,20 @@ using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace GymLedgerAPI.Controllers
-{
+namespace GymLedgerAPI.Controllers {
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("api/[controller]")]
     public class ExerciseController : Controller {
         private readonly IExerciseRepo _exercises;
         private readonly ITrainingRepo _trainingen;
         private readonly IExerciseEvaluationRepo _evaluations;
+        private readonly IGymnastRepo _gymnasts;
 
-        public ExerciseController(IExerciseRepo exercises, ITrainingRepo trainingen, IExerciseEvaluationRepo evaluations) {
+        public ExerciseController(IExerciseRepo exercises, ITrainingRepo trainingen, IExerciseEvaluationRepo evaluations, IGymnastRepo gymnasts) {
             _exercises = exercises;
             _trainingen = trainingen;
             _evaluations = evaluations;
+            _gymnasts = gymnasts;
         }
 
         /// <summary>
@@ -64,7 +66,7 @@ namespace GymLedgerAPI.Controllers
 
 
 
-        [HttpGet("{trainingId}")]
+        [HttpGet("training/{trainingId}")]
         public ActionResult<IEnumerable<Exercise>> GetExercisesFromTraining(int trainingId) {
             Training t = _trainingen.GetbyId(trainingId);
 
@@ -155,5 +157,48 @@ namespace GymLedgerAPI.Controllers
         }
 
 
+
+        [HttpGet("list/{gymnastEmail}")]
+        public ActionResult<IEnumerable<Exercise>> GetExercisesFromGymnast(string gymnastEmail) {
+            var gymnast = _gymnasts.GetByEmail(gymnastEmail);
+
+            if (gymnast == null) {
+                return NotFound("Geen gymnast met dit ID");
+            }
+
+            try {
+                var oefeningen = _exercises.GetExercisesFromGymnast(gymnastEmail);
+
+                if(oefeningen == null) {
+                    return Ok(); //Een lege lijst terug sturen maar geen error
+                }
+
+                return Ok(oefeningen);
+            } catch (Exception e) {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }
+
+
+        [HttpPost("{gymnastEmail}")]
+        public ActionResult<Exercise> AddExercise([FromBody] ExerciseDTO model, string gymnastEmail) {
+            var gymnast = _gymnasts.GetByEmail(gymnastEmail);
+
+            if (gymnast == null) {
+                return NotFound("Geen gymnast met deze email");
+            }
+
+            try {
+                Exercise newExercise = new Exercise(model.Description, "", gymnast);
+                _exercises.Add(newExercise);
+                _exercises.SaveChanges();
+
+                return Ok(newExercise);
+
+
+            } catch (Exception e) {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }
     }
 }
