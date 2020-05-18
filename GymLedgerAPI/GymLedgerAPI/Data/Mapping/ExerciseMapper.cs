@@ -12,6 +12,9 @@ namespace GymLedgerAPI.Data.Mapping
             builder.ToTable("Exercise");
 
             builder.HasKey(e => e.Id);
+
+            //builder.HasOne(e => e.Gymnast).WithMany().OnDelete(DeleteBehavior.SetNull);
+
         }
     }
 }
