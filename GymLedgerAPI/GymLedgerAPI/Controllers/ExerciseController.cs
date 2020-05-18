@@ -64,6 +64,33 @@ namespace GymLedgerAPI.Controllers {
             }
         }
 
+        //[HttpGet("oefeningNietInTraining/{trainingId}/{email}")]
+        //public ActionResult<IEnumerable<Exercise>> GetExercisesNotInTraining(string email, int trainingId) {
+
+        //    var gymnast = _gymnasts.GetByEmail(email);
+        //    Training t = _trainingen.GetbyId(trainingId);
+
+        //    if (gymnast == null) {
+        //        return NotFound("Geen gymnast met dit ID");
+        //    }
+
+        //    if (t == null) {
+        //        return NotFound();
+        //    }
+
+        //    try {
+        //        var exercisesInTraining = t.TrainingExercises.ToList().Select(te => te.Exercise).ToList();
+        //        var allExercises = _exercises.GetExercisesFromGymnast(email).ToList();
+
+        //        var exerciseNotInTraining = allExercises.Except(exercisesInTraining);
+
+        //        return Ok(exerciseNotInTraining);
+        //    } catch (Exception e) {
+        //        return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+
+        //    }
+        //}
+
 
 
         [HttpGet("training/{trainingId}")]
