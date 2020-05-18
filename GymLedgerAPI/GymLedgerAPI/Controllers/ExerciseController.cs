@@ -33,8 +33,22 @@ namespace GymLedgerAPI.Controllers {
         /// </summary>
         /// <returns>A list with all the exercises</returns>
         [HttpGet]
-        public IEnumerable<Exercise> GetAll() {
-            return _exercises.GetAll().ToList();
+        public ActionResult<IEnumerable<Exercise>> GetAll() {
+            
+
+            try {
+                var exercises = _exercises.GetAll().ToList();
+
+                if (exercises == null) {
+                    return Ok(); // Bij nog geen oefeningen, lege lijst teruggeven
+                }
+
+                return Ok(exercises);
+            } catch(Exception e) {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+
+            }
+
         }
 
 
