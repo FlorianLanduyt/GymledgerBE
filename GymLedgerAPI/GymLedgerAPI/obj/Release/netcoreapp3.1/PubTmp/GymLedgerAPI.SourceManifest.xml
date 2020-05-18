@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/obj/Release/netcoreapp3.1/PubTmp/Out/" />
+  <IisApp path="C:\Users\florianlanduyt\Web4\Backend\1920-a2-be-FlorianLanduyt\GymLedgerAPI\GymLedgerAPI\obj\Release\netcoreapp3.1\PubTmp\Out\" />
+  <dbfullsql path="C:\Users\florianlanduyt\Web4\Backend\1920-a2-be-FlorianLanduyt\GymLedgerAPI\GymLedgerAPI\obj\Release\netcoreapp3.1\PubTmp\EFSQLScripts\GymLedgerAPI.Data.ApplicationDbContext.sql" />
 </sitemanifest>

@@ -57,36 +57,9 @@ namespace GymLedgerAPI.Controllers {
         /// </summary>
         /// <param name="trainingId">Id of the training</param>
         /// <returns>The list of exercises</returns>
-        [HttpGet("oefeningNietInTraining/{trainingId}")]
-        public ActionResult<IEnumerable<Exercise>> GetExercisesNotInTraining(int trainingId) {
-            Training t = _trainingen.GetbyId(trainingId);
-
-            if (t == null) {
-                return NotFound();
-            }
-
-            try {
-                var exercisesInTraining = t.TrainingExercises.ToList().Select(te => te.Exercise).ToList();
-                var allExercises = _exercises.GetAll().ToList();
-
-                var exerciseNotInTraining = allExercises.Except(exercisesInTraining);
-
-                return Ok(exerciseNotInTraining);
-            } catch (Exception e) {
-                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
-
-            }
-        }
-
-        //[HttpGet("oefeningNietInTraining/{trainingId}/{email}")]
-        //public ActionResult<IEnumerable<Exercise>> GetExercisesNotInTraining(string email, int trainingId) {
-
-        //    var gymnast = _gymnasts.GetByEmail(email);
+        //[HttpGet("oefeningNietInTraining/{trainingId}")]
+        //public ActionResult<IEnumerable<Exercise>> GetExercisesNotInTraining(int trainingId) {
         //    Training t = _trainingen.GetbyId(trainingId);
-
-        //    if (gymnast == null) {
-        //        return NotFound("Geen gymnast met dit ID");
-        //    }
 
         //    if (t == null) {
         //        return NotFound();
@@ -94,7 +67,7 @@ namespace GymLedgerAPI.Controllers {
 
         //    try {
         //        var exercisesInTraining = t.TrainingExercises.ToList().Select(te => te.Exercise).ToList();
-        //        var allExercises = _exercises.GetExercisesFromGymnast(email).ToList();
+        //        var allExercises = _exercises.GetAll().ToList();
 
         //        var exerciseNotInTraining = allExercises.Except(exercisesInTraining);
 
@@ -104,6 +77,39 @@ namespace GymLedgerAPI.Controllers {
 
         //    }
         //}
+
+        [HttpGet("oefeningNietInTraining/{trainingId}/{email}")]
+        public ActionResult<IEnumerable<Exercise>> GetExercisesNotInTraining(string email, int trainingId)
+        {
+
+            var gymnast = _gymnasts.GetByEmail(email);
+            Training t = _trainingen.GetbyId(trainingId);
+
+            if (gymnast == null)
+            {
+                return NotFound("Geen gymnast met dit ID");
+            }
+
+            if (t == null)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                var exercisesInTraining = t.TrainingExercises.ToList().Select(te => te.Exercise).ToList();
+                var allExercises = _exercises.GetExercisesFromGymnast(email).ToList();
+
+                var exerciseNotInTraining = allExercises.Except(exercisesInTraining);
+
+                return Ok(exerciseNotInTraining);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+
+            }
+        }
 
 
 

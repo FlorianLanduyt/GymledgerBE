@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="IIS Web Application Name" description="" value="GymLedgerAPI20200511091542" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^/Users/florianlanduyt/Documents/TIN/Semester\ 2\ /Webapps\ /Backend\ /GymLedgerAPI/GymLedgerAPI/obj/Release/netcoreapp3\.1/PubTmp/Out/$" />
+  <parameter name="IIS Web Application Name" description="" value="GymLedgerAPI20200518180543" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\florianlanduyt\\Web4\\Backend\\1920-a2-be-FlorianLanduyt\\GymLedgerAPI\\GymLedgerAPI\\obj\\Release\\netcoreapp3\.1\\PubTmp\\Out\\$" />
+  </parameter>
+  <parameter name="GymLedgerAPI.Data.ApplicationDbContext" description="" value="Data Source=tcp:gymledgerapi20200518180543dbserver.database.windows.net,1433;Initial Catalog=GymLedgerAPI20200518180543_db;User Id=sqladmin@gymledgerapi20200518180543dbserver;Password=Skurting123$" tags="dbfullsql">
+    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Users\\florianlanduyt\\Web4\\Backend\\1920-a2-be-FlorianLanduyt\\GymLedgerAPI\\GymLedgerAPI\\obj\\Release\\netcoreapp3\.1\\PubTmp\\EFSQLScripts\\GymLedgerAPI\.Data\.ApplicationDbContext\.sql$" />
   </parameter>
 </parameters>

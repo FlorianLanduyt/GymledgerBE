@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAr9nfeThqKk6k7V/Qpg1BQAAAAAACAAAAAAAQZgAAAAEAACAAAABTfQoRavrgozY0W3Z/4N39H3MDuGvfrntE3QXexgeyVwAAAAAOgAAAAAIAACAAAADzHyr67D+ig3bf+EvYPNW/lar4vbC3y5mfXdZun4HEZ4AAAADYLxY8Cr45lIhIdff3dj/PAYy1qcLHChSd/Vjkw7EZpTAqgL0Hc/X5Xmbucahgnd0+NUXQ+mJfkViqJ1a9T9UMxAih12HgAxiX4kB0zXb6Dam/wNV/iRz2+buzavcVBlGVYC/Y85e3iRs8AEYLYUrARTqgAdplJDSPARUdwq9SVkAAAAB0dYQsPLOEMZIGkiS9YneLasQXYenEhOlNO0zI76T2SKHUnaAo1YsP6+skjFJ1Ls29yohTNEUOnm04eUCNpYqZ</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="WindowsConnection">
+      <Value>Data Source=tcp:gymledgerapi20200518180543dbserver.database.windows.net,1433%3bInitial Catalog=GymLedgerAPI20200518180543_db%3bUser Id=sqladmin%40gymledgerapi20200518180543dbserver%3bPassword=Skurting123%24</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="GymLedgerAPI.Data.ApplicationDbContext">
+      <Value>Data Source=tcp:gymledgerapi20200518180543dbserver.database.windows.net,1433%3bInitial Catalog=GymLedgerAPI20200518180543_db%3bUser Id=sqladmin%40gymledgerapi20200518180543dbserver%3bPassword=Skurting123%24</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>
