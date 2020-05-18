@@ -19,7 +19,7 @@ Back-end - [Azure](https://azure.microsoft.com/en-us/):
 https://gymledgerapi20200518180543.azurewebsites.net
 ```
 
-Frontend - [Vercel](https://www.vercel.com):  
+Front-end - [Vercel](https://www.vercel.com):  
 ```
 https://gymledger.now.sh/
 ```
@@ -71,7 +71,14 @@ Wachtwoord: P@ssword111
 ```
 
 
-### Link naar de frontend repo 
-```
-https://github.com/Web-IV/1920-a2-fe-FlorianLanduyt.git
-```
+### Extra 
+
+Link naar front-end: [https://github.com/Web-IV/1920-a2-fe-FlorianLanduyt.git]
+
+Uitbreidingsmogelijkheden:  
+- Verwijderen en aanpassen van oefeningen
+- Een foto kunnen uploaden van de oefening (Voor het moment een default foto)
+- Toevoegen van een trainer
+- Als trainer een training kunnen opstellen en delen met zijn/haar sporters
+- Een dashboard met gegevens van de voorbije trainingen die kan gedeeld worden met zijn/ haar trainer 
+
