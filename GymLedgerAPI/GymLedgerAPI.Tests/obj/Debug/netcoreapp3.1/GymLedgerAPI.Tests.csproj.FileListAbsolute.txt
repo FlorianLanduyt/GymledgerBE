@@ -168,3 +168,9 @@
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI.Tests/obj/Debug/netcoreapp3.1/GymLedgerAPI.Tests.csproj.CopyComplete
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI.Tests/obj/Debug/netcoreapp3.1/GymLedgerAPI.Tests.dll
 /Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI.Tests/obj/Debug/netcoreapp3.1/GymLedgerAPI.Tests.pdb
+C:\Users\florianlanduyt\Web4\Backend\1920-a2-be-FlorianLanduyt\GymLedgerAPI\GymLedgerAPI.Tests\obj\Debug\netcoreapp3.1\GymLedgerAPI.Tests.csprojAssemblyReference.cache
+C:\Users\florianlanduyt\Web4\Backend\1920-a2-be-FlorianLanduyt\GymLedgerAPI\GymLedgerAPI.Tests\obj\Debug\netcoreapp3.1\GymLedgerAPI.Tests.csproj.CoreCompileInputs.cache
+C:\Users\florianlanduyt\Web4\Backend\1920-a2-be-FlorianLanduyt\GymLedgerAPI\GymLedgerAPI.Tests\obj\Debug\netcoreapp3.1\GymLedgerAPI.Tests.AssemblyInfoInputs.cache
+C:\Users\florianlanduyt\Web4\Backend\1920-a2-be-FlorianLanduyt\GymLedgerAPI\GymLedgerAPI.Tests\obj\Debug\netcoreapp3.1\GymLedgerAPI.Tests.AssemblyInfo.cs
+C:\Users\florianlanduyt\Web4\Backend\1920-a2-be-FlorianLanduyt\GymLedgerAPI\GymLedgerAPI.Tests\obj\Debug\netcoreapp3.1\GymLedgerAPI.Tests.dll
+C:\Users\florianlanduyt\Web4\Backend\1920-a2-be-FlorianLanduyt\GymLedgerAPI\GymLedgerAPI.Tests\obj\Debug\netcoreapp3.1\GymLedgerAPI.Tests.pdb
