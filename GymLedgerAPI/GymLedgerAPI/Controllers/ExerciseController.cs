@@ -33,7 +33,7 @@ namespace GymLedgerAPI.Controllers {
         /// </summary>
         /// <param name="gymnastEmail">The mail from the gymnast</param>
         /// <returns>A list with the exercises of the gymnast</returns>
-        [HttpGet("list/{gymnastEmail}")]
+        [HttpGet("{gymnastEmail}/list")]
         public ActionResult<IEnumerable<Exercise>> GetExercises(string gymnastEmail) {
             var gymnast = _gymnasts.GetByEmail(gymnastEmail);
 
