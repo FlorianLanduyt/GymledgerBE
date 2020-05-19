@@ -29,9 +29,29 @@ namespace GymLedgerAPI.Controllers
         }
 
         /// <summary>
-        /// Get the training with the given ID
+        /// Get all the trainings of a gymnast with the given ID
         /// </summary>
-        /// <param name="trainingId">The ID of a training</param>
+        /// <param name="gymnastId">The ID of a gymnast</param>
+        /// <returns>A list of trainings of a particularly gymnast</returns>
+        [HttpGet("{email}/trainings")]
+        public ActionResult<IEnumerable<Training>> GetAllTrainingsFromGymnast(string email) {
+            try {
+                var trainings = _trainings.GetAllTrainingsFromGymnast(email).ToList();
+
+                if (trainings == null) {
+                    return Ok(); // returns empty list
+                }
+
+                return Ok(trainings);
+            } catch (Exception e) {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get a certain training
+        /// </summary>
+        /// <param name="trainingId">The id of the training</param>
         /// <returns>The training</returns>
         [HttpGet("{trainingId}")]
         public ActionResult<Training> GetTraining(int trainingId) {
@@ -48,29 +68,20 @@ namespace GymLedgerAPI.Controllers
             }
         }
 
-        /// <summary>
-        /// Get all the trainings of a gymnast with the given ID
-        /// </summary>
-        /// <param name="gymnastId">The ID of a gymnast</param>
-        /// <returns>A list of trainings of a particularly gymnast</returns>
-        [HttpGet("{email}/trainings")]
-        public ActionResult<IEnumerable<Training>> GetAllTrainingsFromGymnast(string email) {
-            return _trainings.GetAllTrainingsFromGymnast(email).ToList();
-        }
+        
 
         /// <summary>
         /// Create a new training
         /// </summary>
-        /// <param name="trainingDTO">The training to add</param>
-        /// <param name="email">The email of a the gymnast where to add the training </param>
-        /// <returns>The training</returns>
+        /// <param name="trainingDTO">The model of the training to add</param>
+        /// <param name="email">The email of a the gymnast where to add the training</param>
+        /// <returns>The created training</returns>
         [HttpPost("{email}")]
-        public ActionResult<Training> CreateNewTraining([FromBody]TrainingDTO trainingDTO, string email) {
+        public ActionResult<Training> CreateTraining([FromBody]TrainingDTO trainingDTO, string email) {
             Gymnast gymnast = _gymnasts.GetByEmail(email);
             Category category = _categories.GetbyId(trainingDTO.CategoryId);
 
-
-
+            
             if(gymnast == null) {
                 return NotFound("Geen gymnast met dit ID.");
             }
@@ -102,10 +113,10 @@ namespace GymLedgerAPI.Controllers
         /// Remove a training
         /// </summary>
         /// <param name="id">The id of the training you want to delete</param>
-        /// <returns>The training</returns>
+        /// <returns>The deleted training</returns>
         [HttpDelete("{id}")]
-        public ActionResult<Training> Remove(int id) {
-            Training trainingToDelete = this._trainings.GetbyId(id);
+        public ActionResult<Training> RemoveTraining(int id) {
+            Training trainingToDelete = _trainings.GetbyId(id);
 
             if (trainingToDelete == null) {
                 return NotFound();
@@ -115,7 +126,7 @@ namespace GymLedgerAPI.Controllers
                 _trainings.Remove(trainingToDelete);
                 _trainings.SaveChanges();
 
-                return NoContent();
+                return Ok(trainingToDelete);
             } catch (Exception e) {
                 return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
             }
@@ -123,16 +134,15 @@ namespace GymLedgerAPI.Controllers
         }
 
         /// <summary>
-        /// Edit the training
+        /// Edit a certain training
         /// </summary>
-        /// <param name="trainingDTO">A model of the changed training</param>
-        /// <returns>The changed training</returns>
+        /// <param name="trainingDTO">A model of the edited training</param>
+        /// <returns>The edited training</returns>
         [HttpPut("edit")]
-        public ActionResult<Training> Edit([FromBody]TrainingDTO trainingDTO) {
+        public ActionResult<Training> EditTraining([FromBody]TrainingDTO trainingDTO) {
             Training trainingToEdit = _trainings.GetbyId(trainingDTO.trainingId);
             Category category = _categories.GetbyId(trainingDTO.CategoryId);
 
-            //
 
             if (category == null && trainingDTO.Category != null) {
                 category = new Category(trainingDTO.Category, ""); // tijdelijke geen beschrijving

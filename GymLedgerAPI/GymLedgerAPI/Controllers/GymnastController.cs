@@ -24,11 +24,36 @@ namespace GymLedgerAPI.Controllers
             _gymnasts = gymnasts;
         }
 
-        [HttpGet]
-        public ActionResult<IEnumerable<Gymnast>> GetGymnasts()
-        {
-            return _gymnasts.GetAll().ToList();
+
+        /// <summary>
+        /// Get a certain gymnast
+        /// </summary>
+        /// <param name="email">The email of the gymnast</param>
+        /// <returns>The certain gymnast</returns>
+        [HttpGet("gymnast/{email}")]
+        public ActionResult<Gymnast> GetGymnast(string email) {
+            var g = _gymnasts.GetByEmail(email);
+            if (g == null) {
+                return NotFound("Geen gebruiker met deze email.");
+            }
+
+            try {
+                return Ok(g);
+            } catch (ArgumentNullException e) {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
         }
+
+
+
+
+        // ---------- Tijdelijk niet nodig ---------
+
+        //[HttpGet]
+        //public ActionResult<IEnumerable<Gymnast>> GetGymnasts()
+        //{
+        //    return _gymnasts.GetAll().ToList();
+        //}
 
 
         //[HttpGet("{gymnastId}")]
@@ -52,39 +77,16 @@ namespace GymLedgerAPI.Controllers
         //    }
         //}
 
-        [HttpGet("gymnast/{email}")]
-        public ActionResult<Gymnast> GetGymnastByEmail(string email) {
-            var g = _gymnasts.GetByEmail(email);
-            if (g == null) {
-                return NotFound("Geen gebruiker met deze email.");
-            }
 
-            try {
-                return Ok(g);
-            } catch (ArgumentNullException e) {
-                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
-            }
-        }
-
-
-
-        [HttpGet("gymnasts/{CoachId}")]
-        public ActionResult<IEnumerable<Gymnast>> GetGymnastFromCoach(string coachId)
-        {
-            try {
-                return _gymnasts.GetGymnastsFromCoach(coachId).ToList();
-            } catch (ArgumentNullException) {
-                return NotFound("Geen gymnasten met deze coach");
-            }
-        }
-
-
-
-
-
-        
-
-
+        //[HttpGet("gymnasts/{CoachId}")]
+        //public ActionResult<IEnumerable<Gymnast>> GetGymnastFromCoach(string coachId)
+        //{
+        //    try {
+        //        return _gymnasts.GetGymnastsFromCoach(coachId).ToList();
+        //    } catch (ArgumentNullException) {
+        //        return NotFound("Geen gymnasten met deze coach");
+        //    }
+        //}
 
 
 

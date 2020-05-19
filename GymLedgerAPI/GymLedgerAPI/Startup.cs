@@ -53,33 +53,33 @@ namespace GymLedgerAPI {
 
 
 
-            //string connectionString = $"Server=127.0.0.1;Database=Gymledger;User=root;Password=rootroot;Persist Security Info=True";
-            string windowsConnection = Configuration.GetConnectionString("WindowsConnection");
+            string connectionString = $"Server=127.0.0.1;Database=Gymledger;User=root;Password=rootroot;Persist Security Info=True";
+            //string windowsConnection = Configuration.GetConnectionString("WindowsConnection");
 
-
-            //services.AddDbContextPool<ApplicationDbContext>(options =>
-            //    options.UseMySql(connectionString, mySqlOptions => {
-            //        mySqlOptions.ServerVersion(new Version(8, 0, 17), ServerType.MySql).DisableBackslashEscaping();
-            //    }
-            //    ));
 
             services.AddDbContextPool<ApplicationDbContext>(options =>
-                options.UseSqlServer(windowsConnection));
+                options.UseMySql(connectionString, mySqlOptions => {
+                    mySqlOptions.ServerVersion(new Version(8, 0, 17), ServerType.MySql).DisableBackslashEscaping();
+                }
+                ));
+
+            //services.AddDbContextPool<ApplicationDbContext>(options =>
+            //    options.UseSqlServer(windowsConnection));
 
 
             services.Configure<IdentityOptions>(options => {
-                // Password settings.
+                // Password settings
                 options.Password.RequireDigit = true;
                 options.Password.RequireLowercase = true;
                 options.Password.RequireUppercase = true;
                 options.Password.RequiredLength = 6;
 
-                // Lockout settings.
+                // Lockout settings
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
                 options.Lockout.MaxFailedAccessAttempts = 5;
                 options.Lockout.AllowedForNewUsers = true;
 
-                // User settings.
+                // User settings
                 options.User.AllowedUserNameCharacters =
                 "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
                 options.User.RequireUniqueEmail = true;
@@ -198,7 +198,7 @@ namespace GymLedgerAPI {
             //app.UseSwagger();
             app.UseReDoc();
 
-            //dataInit.InitializeData().Wait();
+            dataInit.InitializeData().Wait();
         }
     }
 }

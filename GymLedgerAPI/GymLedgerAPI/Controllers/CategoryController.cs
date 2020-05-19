@@ -6,6 +6,7 @@ using GymLedgerAPI.Domain.Interfaces;
 using GymLedgerAPI.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -22,9 +23,23 @@ namespace GymLedgerAPI.Controllers {
         }
 
 
+        /// <summary>
+        /// Get all the categories available
+        /// </summary>
+        /// <returns>The list of categories</returns>
         [HttpGet]
         public ActionResult<IEnumerable<Category>> GetCategories() {
-            return _categoryRepo.GetAll().ToList();
+            try {
+                var categories = _categoryRepo.GetAll().ToList();
+
+                if(categories == null) {
+                    return Ok(); // Bij lege lijst geen error maar de lege lijst terug geven 
+                }
+                return Ok(categories);
+
+            } catch(Exception e) {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
         }
     }
 }

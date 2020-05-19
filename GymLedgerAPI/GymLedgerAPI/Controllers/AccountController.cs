@@ -36,6 +36,12 @@ namespace GymLedgerAPI.Controllers
             _config = config;
         }
 
+
+        /// <summary>
+        /// Logs in the user by creating a token
+        /// </summary>
+        /// <param name="model">The login model</param>
+        /// <returns>The created token</returns>
         [AllowAnonymous]
         [HttpPost]
         public async Task<ActionResult<string>> CreateToken(LoginDTO model)
@@ -54,11 +60,15 @@ namespace GymLedgerAPI.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Registers a user by creating a token
+        /// </summary>
+        /// <param name="model">The register model</param>
+        /// <returns>The created token</returns>
         [AllowAnonymous]
         [HttpPost("register")]
         public ActionResult<String> Register(RegisterDTO model) {
             User user = CreateUser(model);
-            //var result = await _userManager.CreateAsync(user, model.Password);
             if (user != null) {
                 if (model.isCoach) {
                     _coachRepo.Add((Coach)user);
@@ -73,10 +83,44 @@ namespace GymLedgerAPI.Controllers
             return BadRequest(); 
         }
 
+        
+
+        /// <summary>
+        /// Checks if the username is available
+        /// </summary>
+        /// <param name="email">The email that needs a check</param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet("checkusername")]
+        public async Task<ActionResult<Boolean>> CheckAvailableUserName(string email) {
+            var user = await _userManager.FindByNameAsync(email);
+            return user == null;
+        }
+
+        /// <summary>
+        /// Checks if the username exists and if it exists, checks for correct password
+        /// </summary>
+        /// <param name="email">The email</param>
+        /// <param name="password">The password</param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet("userNameExists")]
+        public async Task<ActionResult<Boolean>> UserNameExists(string email, string password) {
+            var user = await _userManager.FindByNameAsync(email);
+
+            if (user != null) {
+                var passwordCorrect = await _signInManager.CheckPasswordSignInAsync(user, password, false);
+                return (user != null) && passwordCorrect.Succeeded;
+            }
+
+            return false;
+        }
+
+        // Creates the user
         private User CreateUser(RegisterDTO model) {
             User user = null;
             if (model.isCoach) {
-                user =  new Coach(model.FirstName, model.LastName, model.BirthDay, model.Email);
+                user = new Coach(model.FirstName, model.LastName, model.BirthDay, model.Email);
             } else {
                 user = new Gymnast(model.FirstName, model.LastName, model.BirthDay, model.Email);
             }
@@ -88,9 +132,8 @@ namespace GymLedgerAPI.Controllers
             return user;
         }
 
-
-        private string GetToken(User user)
-        {      // Create the token
+        // Creates the token 
+        private string GetToken(User user) {      // Create the token
             var claims = new[] {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Email),
                 new Claim(JwtRegisteredClaimNames.UniqueName, user.Lastname)
@@ -111,26 +154,6 @@ namespace GymLedgerAPI.Controllers
                 signingCredentials: creds);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
-        }
-
-        [AllowAnonymous]
-        [HttpGet("checkusername")]
-        public async Task<ActionResult<Boolean>> CheckAvailableUserName(string email) {
-            var user = await _userManager.FindByNameAsync(email);
-            return user == null;
-        }
-
-        [AllowAnonymous]
-        [HttpGet("userNameExists")]
-        public async Task<ActionResult<Boolean>> UserNameExists(string email, string password) {
-            var user = await _userManager.FindByNameAsync(email);
-
-            if (user != null) {
-                var passwordCorrect = await _signInManager.CheckPasswordSignInAsync(user, password, false);
-                return (user != null) && passwordCorrect.Succeeded;
-            }
-
-            return false;
         }
 
     }

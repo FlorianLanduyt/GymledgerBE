@@ -27,10 +27,12 @@ namespace GymLedgerAPI.Data {
                 //Coach stefan = new Coach("Stefan", "Deckx", new DateTime(1978, 02, 10), "stefan.deckx@hotmail.com");
                 //Coach koen = new Coach("Koen", "Van Damme", new DateTime(1986, 03, 10), "koen.vandamme@hotmail.com");
 
-                Gymnast florian = new Gymnast("Florian", "Landuyt", new DateTime(1996, 05, 10), "florian.landuyt@hotmail.com");
+                //Gymnast florian = new Gymnast("Florian", "Landuyt", new DateTime(1996, 05, 10), "florian.landuyt@hotmail.com");
                 //Gymnast jonathan = new Gymnast("Jonathan", "Vrolix", new DateTime(1996, 11, 09), "jonathan.vrolix@hotmail.com");
 
-                CreateUser(florian, password);
+                Gymnast gymnast = new Gymnast("sport", "gymnast", new DateTime(1996, 05, 10), "sport.gymnast@hotmail.com");
+
+                CreateUser(gymnast, password);
                 //CreateUser(jonathan, password);
                 //CreateUser(koen, password);
                 //CreateUser(stefan, password);
@@ -50,7 +52,7 @@ namespace GymLedgerAPI.Data {
 
 
 
-                await _userManager.AddPasswordAsync(florian, password);
+                await _userManager.AddPasswordAsync(gymnast, password);
                 // //await _userManager.AddPasswordAsync(jonathan, password);
                 // //await _userManager.AddPasswordAsync(koen, password);
                 // //await _userManager.AddPasswordAsync(stefan, password);
@@ -139,7 +141,7 @@ namespace GymLedgerAPI.Data {
 
                 // jonathan.AddTraining(t5);
 
-                 _dbContext.Gymnasts.Add(florian);
+                 _dbContext.Gymnasts.Add(gymnast);
                 // _dbContext.Gymnasts.Add(jonathan);
                 // _dbContext.Coaches.Add(stefan);
                 // _dbContext.Coaches.Add(koen);

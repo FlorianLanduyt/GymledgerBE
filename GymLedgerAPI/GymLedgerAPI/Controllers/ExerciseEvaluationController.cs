@@ -27,35 +27,6 @@ namespace GymLedgerAPI.Controllers
             _exercises = exercises;
         }
 
-        /// <summary>
-        /// Get all the evaluations of an exercise in any training
-        /// </summary>
-        /// <returns>A list with exercise evaluations</returns>
-        [HttpGet]
-        public ActionResult<IEnumerable<ExerciseEvaluation>> GetAll() {
-            return Ok(_evaluations.GetAll().ToList());
-        }
-
-        /// <summary>
-        /// Get the evaluations of an exercise in a given training 
-        /// </summary>
-        /// <param name="trainingId">The id of the training</param>
-        /// <returns>A list with exercise evaluations</returns>
-        [HttpGet("{trainingId}")]
-        public ActionResult<IEnumerable<ExerciseEvaluation>> GetFromTraining(int trainingId) {
-            var training = _trainings.GetbyId(trainingId);
-
-            if(training == null) {
-                return NotFound("Geen training met dit Id gevonden");
-            }
-            try {
-                return Ok(_evaluations.GetAllFromTraining(trainingId));
-            } catch(Exception e) {
-                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
-            }
-
-        }
-
 
         /// <summary>
         /// Get the evaluation from an exercise in a training
@@ -64,16 +35,16 @@ namespace GymLedgerAPI.Controllers
         /// <param name="exerciseId">The id of the exercise</param>
         /// <returns>The evaluation</returns>
         [HttpGet("{trainingId}/{exerciseId}")]
-        public ActionResult<ExerciseEvaluation> GetEvaluationFromExerciseInTraining (int trainingId, int exerciseId) {
+        public ActionResult<ExerciseEvaluation> GetEvaluation (int trainingId, int exerciseId) {
             var training = _trainings.GetbyId(trainingId);
             var exercise = _exercises.GetbyId(exerciseId);
 
             if (training == null) {
-                return NotFound("Geen training met dit Id gevonden");
+                return NotFound("Geen training met dit id gevonden");
             }
 
             if (exercise == null) {
-                return NotFound("Geen oefening met dit Id gevonden");
+                return NotFound("Geen oefening met dit id gevonden");
             }
 
             try {
@@ -89,11 +60,16 @@ namespace GymLedgerAPI.Controllers
 
         }
 
-
+        /// <summary>
+        /// Creates a new evaluation to a exercises in a training
+        /// </summary>
+        /// <param name="model">The exercise </param>
+        /// <param name="trainingId">The id of the training</param>
+        /// <param name="exerciseId">The id of the exercise</param>
+        /// <returns>The created evaluation</returns>
         [HttpPost("{trainingId}/{exerciseId}")]
         public ActionResult<ExerciseEvaluation> CreateEvaluation([FromBody] EvaluationDTO model,  int trainingId, int exerciseId) {
             
-
             var training = _trainings.GetbyId(trainingId);
             var exercise = _exercises.GetbyId(exerciseId);
 
@@ -122,10 +98,14 @@ namespace GymLedgerAPI.Controllers
 
         }
 
+        /// <summary>
+        /// Edit the certain evaluation from a exercise in a training
+        /// </summary>
+        /// <param name="model">The model of the edited evaluation</param>
+        /// <returns>The edited evaluation </returns>
         [HttpPut]
         public ActionResult<ExerciseEvaluation> EditEvaluation([FromBody] EvaluationDTO model) {
             var evaluation = _evaluations.GetbyId(model.Id);
-           
 
             if (evaluation == null) {
                 return NotFound("Geen evaluation met dit Id gevonden");
@@ -147,10 +127,49 @@ namespace GymLedgerAPI.Controllers
             } catch (Exception e) {
                 return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
             }
-
         }
 
 
+        // -------- Tijdelijk niet nodig -----------
+
+        ///// <summary>
+        ///// Get all the evaluations of an exercise in any training
+        ///// </summary>
+        ///// <returns>A list with exercise evaluations</returns>
+        //[HttpGet]
+        //public ActionResult<IEnumerable<ExerciseEvaluation>> GetAll() {
+        //    try {
+        //        var evaluations = _evaluations.GetAll().ToList();
+
+        //        if(evaluations == null) {
+        //            return Ok(); // return empty list
+        //        }
+
+        //        return Ok(evaluations);
+        //    } catch (Exception e) {
+        //        return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+        //    }
+        //}
+
+        ///// <summary>
+        ///// Get the evaluations of an exercise in a given training 
+        ///// </summary>
+        ///// <param name="trainingId">The id of the training</param>
+        ///// <returns>A list with exercise evaluations</returns>
+        //[HttpGet("{trainingId}")]
+        //public ActionResult<IEnumerable<ExerciseEvaluation>> GetFromTraining(int trainingId) {
+        //    var training = _trainings.GetbyId(trainingId);
+
+        //    if(training == null) {
+        //        return NotFound("Geen training met dit Id gevonden");
+        //    }
+        //    try {
+        //        return Ok(_evaluations.GetAllFromTraining(trainingId));
+        //    } catch(Exception e) {
+        //        return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+        //    }
+
+        //}
 
 
     }
