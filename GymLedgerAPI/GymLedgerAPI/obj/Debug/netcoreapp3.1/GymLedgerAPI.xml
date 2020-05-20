@@ -39,6 +39,13 @@
             </summary>
             <returns>The list of categories</returns>
         </member>
+        <member name="M:GymLedgerAPI.Controllers.CategoryController.CheckAvailableUserName(System.String)">
+            <summary>
+            Checks if the username is available
+            </summary>
+            <param name="email">The email that needs a check</param>
+            <returns></returns>
+        </member>
         <member name="M:GymLedgerAPI.Controllers.ExerciseController.GetExercises(System.String)">
             <summary>
             Get all the exercises from a gymnast

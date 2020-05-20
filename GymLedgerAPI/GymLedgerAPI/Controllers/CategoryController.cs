@@ -41,5 +41,17 @@ namespace GymLedgerAPI.Controllers {
                 return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
             }
         }
+
+        /// <summary>
+        /// Checks if the username is available
+        /// </summary>
+        /// <param name="email">The email that needs a check</param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet("checkcategoryname")]
+        public bool CheckAvailableUserName(string name) {
+            var categoryname =   _categoryRepo.GetByName(name);
+            return categoryname == null;
+        }
     }
 }

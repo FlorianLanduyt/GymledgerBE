@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using GymLedgerAPI.Domain.Interfaces;
 using GymLedgerAPI.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace GymLedgerAPI.Data.Repositories {
@@ -26,6 +28,11 @@ namespace GymLedgerAPI.Data.Repositories {
         public Category GetbyId(int id) {
             return _categories.FirstOrDefault(c => c.Id == id);
         }
+
+        public Category GetByName(string name) {
+            return _categories.SingleOrDefault(c => c.Name == name); ;
+        }
+
 
         public void Remove(Category obj) {
             _categories.Remove(obj);

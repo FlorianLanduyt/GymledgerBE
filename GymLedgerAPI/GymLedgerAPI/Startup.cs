@@ -53,9 +53,8 @@ namespace GymLedgerAPI {
 
 
 
-            string connectionString = $"Server=127.0.0.1;Database=Gymledger;User=root;Password=rootroot;Persist Security Info=True";
-            //string windowsConnection = Configuration.GetConnectionString("WindowsConnection");
-
+            // ------ voor mac -------------
+            string connectionString = Configuration.GetConnectionString("DefaultConnection");
 
             services.AddDbContextPool<ApplicationDbContext>(options =>
                 options.UseMySql(connectionString, mySqlOptions => {
@@ -63,8 +62,17 @@ namespace GymLedgerAPI {
                 }
                 ));
 
+
+            // ------- voor windows --------
+
+            //string windowsConnection = Configuration.GetConnectionString("WindowsConnection");
             //services.AddDbContextPool<ApplicationDbContext>(options =>
             //    options.UseSqlServer(windowsConnection));
+
+
+
+
+
 
 
             services.Configure<IdentityOptions>(options => {
@@ -88,16 +96,6 @@ namespace GymLedgerAPI {
 
             services.AddScoped<DataInit>();
 
-            //services.AddIdentityCore<User>(cfg => cfg.User.RequireUniqueEmail = true)
-            //    .AddEntityFrameworkStores<ApplicationDbContext>();
-
-            //services.AddAuthorization(options => {
-            //    //Function policies
-            //    options.AddPolicy("Gymnast", policy => policy.RequireClaim(ClaimTypes.Role, "gymnast"));
-            //    options.AddPolicy("Coach", policy => policy.RequireClaim(ClaimTypes.Role, "coach"));
-            //    options.AddPolicy("NonUser", policy => policy.RequireClaim(ClaimTypes.Role, "nonuser"));
-
-            //});
 
             services.AddIdentity<User, IdentityRole>(options => {
                 options.User.RequireUniqueEmail = true;
@@ -108,21 +106,17 @@ namespace GymLedgerAPI {
 
             services.AddScoped<IGymnastRepo, GymnastRepo>();
             services.AddScoped<ICoachRepo, CoachRepo>();
-            //services.AddScoped<IUserRepo, UserRepo>();
             services.AddScoped<IExerciseRepo, ExerciseRepo>();
             services.AddScoped<ITrainingRepo, TrainingRepo>();
             services.AddScoped<IExerciseEvaluationRepo, ExerciseEvaluationRepo>();
             services.AddScoped<ICategoryRepo, CategoryRepo>();
 
 
-
-
-
             services.AddOpenApiDocument(c => {
                 c.DocumentName = "apidocs";
                 c.Title = "Gymnast Ledger API";
                 c.Version = "v1";
-                c.Description = "The gymnast API documentation description";
+                c.Description = "The gymnast API";
 
                 c.AddSecurity("JWT", Enumerable.Empty<string>(), new OpenApiSecurityScheme {
                     Type = OpenApiSecuritySchemeType.ApiKey,
@@ -188,14 +182,9 @@ namespace GymLedgerAPI {
             app.UseForwardedHeaders(new ForwardedHeadersOptions {
                 ForwardedHeaders = ForwardedHeaders.All
             });
-            //app.UseSwaggerUI(c =>
-            //{
-            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-            //});
 
             app.UseOpenApi();
             app.UseSwaggerUi3();
-            //app.UseSwagger();
             app.UseReDoc();
 
             dataInit.InitializeData().Wait();

@@ -4,49 +4,95 @@
         <name>GymLedgerAPI</name>
     </assembly>
     <members>
-        <member name="M:GymLedgerAPI.Controllers.ExerciseController.GetAll">
+        <member name="M:GymLedgerAPI.Controllers.AccountController.CreateToken(GymLedgerAPI.Domain.DTOs.LoginDTO)">
             <summary>
-            Get all the exercises 
+            Logs in the user by creating a token
             </summary>
-            <returns>A list with all the exercises</returns>
+            <param name="model">The login model</param>
+            <returns>The created token</returns>
         </member>
-        <member name="M:GymLedgerAPI.Controllers.ExerciseController.GetExercisesNotInTraining(System.Int32)">
+        <member name="M:GymLedgerAPI.Controllers.AccountController.Register(GymLedgerAPI.Domain.DTOs.RegisterDTO)">
             <summary>
-            Get all trainings not in training to choose from
+            Registers a user by creating a token
             </summary>
-            <param name="trainingId">Id of the training</param>
-            <returns>The list of exercises</returns>
+            <param name="model">The register model</param>
+            <returns>The created token</returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.AccountController.CheckAvailableUserName(System.String)">
+            <summary>
+            Checks if the username is available
+            </summary>
+            <param name="email">The email that needs a check</param>
+            <returns></returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.AccountController.UserNameExists(System.String,System.String)">
+            <summary>
+            Checks if the username exists and if it exists, checks for correct password
+            </summary>
+            <param name="email">The email</param>
+            <param name="password">The password</param>
+            <returns></returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.CategoryController.GetCategories">
+            <summary>
+            Get all the categories available
+            </summary>
+            <returns>The list of categories</returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.CategoryController.CheckAvailableUserName(System.String)">
+            <summary>
+            Checks if the username is available
+            </summary>
+            <param name="email">The email that needs a check</param>
+            <returns></returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.ExerciseController.GetExercises(System.String)">
+            <summary>
+            Get all the exercises from a gymnast
+            </summary>
+            <param name="gymnastEmail">The mail from the gymnast</param>
+            <returns>A list with the exercises of the gymnast</returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.ExerciseController.GetExercisesInTraining(System.Int32)">
+            <summary>
+            Get the exercises from a certain training
+            </summary>
+            <param name="trainingId">The id of the asked training</param>
+            <returns>A list of the exercises in the asked training</returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.ExerciseController.GetExercisesNotInTraining(System.String,System.Int32)">
+            <summary>
+            Get the exercises that are not in a certain training
+            </summary>
+            <param name="email">The email of the gymnast</param>
+            <param name="trainingId">The asked training</param>
+            <returns>A list of the exercises</returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.ExerciseController.CreateExercise(GymLedgerAPI.Domain.DTOs.ExerciseDTO,System.String)">
+            <summary>
+            Creates a new exercise for the gymnast
+            </summary>
+            <param name="model">The exercise</param>
+            <param name="gymnastEmail">The email of the gymnast</param>
+            <returns>The created exercise</returns>
         </member>
         <member name="M:GymLedgerAPI.Controllers.ExerciseController.AddExerciseToTraining(System.Int32,System.Int32)">
             <summary>
-            Add a existing exercise to a training
-            </summary>
-            <param name="trainingId"></param>
-            <param name="exerciseId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GymLedgerAPI.Controllers.ExerciseController.DeleteExerciseFromTraining(System.Int32,System.Int32)">
-            <summary>
-            Deletes an exercise from a training with its evaluation
-            </summary>
-            <param name="trainingId"></param>
-            <param name="exerciseId"></param>
-            <returns>The removed exercise</returns>
-        </member>
-        <member name="M:GymLedgerAPI.Controllers.ExerciseEvaluationController.GetAll">
-            <summary>
-            Get all the evaluations of an exercise in any training
-            </summary>
-            <returns>A list with exercise evaluations</returns>
-        </member>
-        <member name="M:GymLedgerAPI.Controllers.ExerciseEvaluationController.GetFromTraining(System.Int32)">
-            <summary>
-            Get the evaluations of an exercise in a given training 
+            Add an existing exercise to a training
             </summary>
             <param name="trainingId">The id of the training</param>
-            <returns>A list with exercise evaluations</returns>
+            <param name="exerciseId">The id of the exercise</param>
+            <returns>The added exercise to a training</returns>
         </member>
-        <member name="M:GymLedgerAPI.Controllers.ExerciseEvaluationController.GetEvaluationFromExerciseInTraining(System.Int32,System.Int32)">
+        <member name="M:GymLedgerAPI.Controllers.ExerciseController.RemoveExerciseFromTraining(System.Int32,System.Int32)">
+            <summary>
+            Removes an existing exercise from a training with its evaluation
+            </summary>
+            <param name="trainingId">The id of the training</param>
+            <param name="exerciseId">The id of the exercise</param>
+            <returns>The removed exercise</returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.ExerciseEvaluationController.GetEvaluation(System.Int32,System.Int32)">
             <summary>
             Get the evaluation from an exercise in a training
             </summary>
@@ -54,12 +100,28 @@
             <param name="exerciseId">The id of the exercise</param>
             <returns>The evaluation</returns>
         </member>
-        <member name="M:GymLedgerAPI.Controllers.TrainingController.GetTraining(System.Int32)">
+        <member name="M:GymLedgerAPI.Controllers.ExerciseEvaluationController.CreateEvaluation(GymLedgerAPI.Domain.DTOs.EvaluationDTO,System.Int32,System.Int32)">
             <summary>
-            Get the training with the given ID
+            Creates a new evaluation to a exercises in a training
             </summary>
-            <param name="trainingId">The ID of a training</param>
-            <returns>The training</returns>
+            <param name="model">The exercise </param>
+            <param name="trainingId">The id of the training</param>
+            <param name="exerciseId">The id of the exercise</param>
+            <returns>The created evaluation</returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.ExerciseEvaluationController.EditEvaluation(GymLedgerAPI.Domain.DTOs.EvaluationDTO)">
+            <summary>
+            Edit the certain evaluation from a exercise in a training
+            </summary>
+            <param name="model">The model of the edited evaluation</param>
+            <returns>The edited evaluation </returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.GymnastController.GetGymnast(System.String)">
+            <summary>
+            Get a certain gymnast
+            </summary>
+            <param name="email">The email of the gymnast</param>
+            <returns>The certain gymnast</returns>
         </member>
         <member name="M:GymLedgerAPI.Controllers.TrainingController.GetAllTrainingsFromGymnast(System.String)">
             <summary>
@@ -68,27 +130,34 @@
             <param name="gymnastId">The ID of a gymnast</param>
             <returns>A list of trainings of a particularly gymnast</returns>
         </member>
-        <member name="M:GymLedgerAPI.Controllers.TrainingController.CreateNewTraining(GymLedgerAPI.DTOs.TrainingDTO,System.String)">
+        <member name="M:GymLedgerAPI.Controllers.TrainingController.GetTraining(System.Int32)">
+            <summary>
+            Get a certain training
+            </summary>
+            <param name="trainingId">The id of the training</param>
+            <returns>The training</returns>
+        </member>
+        <member name="M:GymLedgerAPI.Controllers.TrainingController.CreateTraining(GymLedgerAPI.DTOs.TrainingDTO,System.String)">
             <summary>
             Create a new training
             </summary>
-            <param name="trainingDTO">The training to add</param>
-            <param name="email">The email of a the gymnast where to add the training </param>
-            <returns>The training</returns>
+            <param name="trainingDTO">The model of the training to add</param>
+            <param name="email">The email of a the gymnast where to add the training</param>
+            <returns>The created training</returns>
         </member>
-        <member name="M:GymLedgerAPI.Controllers.TrainingController.Remove(System.Int32)">
+        <member name="M:GymLedgerAPI.Controllers.TrainingController.RemoveTraining(System.Int32)">
             <summary>
             Remove a training
             </summary>
             <param name="id">The id of the training you want to delete</param>
-            <returns>The training</returns>
+            <returns>The deleted training</returns>
         </member>
-        <member name="M:GymLedgerAPI.Controllers.TrainingController.Edit(GymLedgerAPI.DTOs.TrainingDTO)">
+        <member name="M:GymLedgerAPI.Controllers.TrainingController.EditTraining(GymLedgerAPI.DTOs.TrainingDTO)">
             <summary>
-            Edit the training
+            Edit a certain training
             </summary>
-            <param name="trainingDTO">A model of the changed training</param>
-            <returns>The changed training</returns>
+            <param name="trainingDTO">A model of the edited training</param>
+            <returns>The edited training</returns>
         </member>
     </members>
 </doc>
