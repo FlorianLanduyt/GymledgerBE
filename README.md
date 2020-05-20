@@ -4,11 +4,11 @@
 
 Ik ben gestart met het ontwikkelen van Gymledger doordat ik dagelijk in aanraking kwam met het onhandig doorsturen van excel bestanden waar mijn dagelijkse sport programma's op stonden uitgelegd door mijn trainers. 
 
-Dit werd door hen elke week opnieuw opgesteld in excel, dus vond ik het nodig tijd om dit op een iets gebruiksvriendelijkere manier te laten verlopen. 
+Dit werd door hen elke week opnieuw opgesteld in Excel, dus vond ik het nodig tijd om dit op een iets gebruiksvriendelijkere manier te laten verlopen. 
 Op dit moment kan een gymnast zijn eigen trainingsprogramma opstellen. 
-Zo kan de sporter een eigen training teovoegen aan zijn lijst met trainingen, waar hij op zijn beurt de nodige oefeningen aan kan toevoegen.  
-Elke oefening kan per training geēvalueerd worden. Dit kan gebeuren door de benodige sets, herhalingen en gewicht aan toe te voegen. 
-Na een bepaalde oefening kan er nog een korte notitie en gevoelscore worden geschreven om later grafisch te kunnen weergeven op basis van gafieken.
+Zo kan de sporter een eigen training toevoegen aan zijn lijst met trainingen, waar hij op zijn beurt de nodige oefeningen aan kan toevoegen.  
+Elke oefening kan per training geëvalueerd worden. Dit kan gebeuren door de benodigde sets, herhalingen en gewicht aan toe te voegen. 
+Na een bepaalde oefening kan er nog een korte notitie en gevoel score worden ingevuld om later visueel te kunnen weergeven aan de hand van grafieken.
 
 ### Extra technologie
 
