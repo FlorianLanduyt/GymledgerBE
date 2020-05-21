@@ -1,54 +1,57 @@
 ﻿<Properties StartupConfiguration="{AF31347B-018E-4D4B-8489-592B7A4FF86D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/appsettings.json">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GymLedgerAPI/Controllers/ExerciseController.cs">
     <Files>
-      <File FileName="GymLedgerAPI/Startup.cs" Line="56" Column="133" />
+      <File FileName="GymLedgerAPI/Startup.cs" Line="106" Column="1" />
       <File FileName="GymLedgerAPI/Domain/Models/Gymnast.cs" />
       <File FileName="GymLedgerAPI/Domain/Models/Coach.cs" />
       <File FileName="GymLedgerAPI/Data/Mapping/GymnastCoachMapper.cs" />
-      <File FileName="GymLedgerAPI/Data/DataInit.cs" Line="19" Column="21" />
-      <File FileName="GymLedgerAPI/Controllers/TrainingController.cs" Line="178" Column="1" />
+      <File FileName="GymLedgerAPI/Data/DataInit.cs" />
+      <File FileName="GymLedgerAPI/Controllers/TrainingController.cs" />
       <File FileName="GymLedgerAPI/Domain/DTOs/TrainingDTO.cs" />
-      <File FileName="GymLedgerAPI/Controllers/GymnastController.cs" Line="36" Column="29" />
+      <File FileName="GymLedgerAPI/Controllers/GymnastController.cs" />
       <File FileName="GymLedgerAPI/Domain/Models/Training.cs" />
       <File FileName="GymLedgerAPI/Domain/Models/Exercise.cs" />
-      <File FileName="GymLedgerAPI/Controllers/ExerciseController.cs" Line="36" Column="38" />
+      <File FileName="GymLedgerAPI/Controllers/ExerciseController.cs" Line="64" Column="1" />
       <File FileName="GymLedgerAPI/Domain/DTOs/ExerciseDTO.cs" />
-      <File FileName="GymLedgerAPI/Domain/Interfaces/IExerciseRepo.cs" />
+      <File FileName="GymLedgerAPI/Domain/Interfaces/IExerciseRepo.cs" Line="9" Column="20" />
       <File FileName="GymLedgerAPI/Domain/Interfaces/IGymnastRepo.cs" />
-      <File FileName="GymLedgerAPI/Data/Repositories/ExerciseRepo.cs" />
+      <File FileName="GymLedgerAPI/Data/Repositories/ExerciseRepo.cs" Line="53" Column="96" />
       <File FileName="GymLedgerAPI/Data/Repositories/GymnastRepo.cs" />
       <File FileName="GymLedgerAPI/Data/Repositories/TrainingRepo.cs" />
-      <File FileName="GymLedgerAPI/Controllers/CategoryController.cs" Line="54" Column="41" />
-      <File FileName="GymLedgerAPI/Controllers/CoachController.cs" Line="25" Column="1" />
-      <File FileName="GymLedgerAPI/Controllers/UserController.cs" Line="1" Column="1" />
+      <File FileName="GymLedgerAPI/Controllers/CategoryController.cs" />
+      <File FileName="GymLedgerAPI/Controllers/CoachController.cs" />
+      <File FileName="GymLedgerAPI/Controllers/UserController.cs" />
       <File FileName="GymLedgerAPI/Data/Mapping/ExerciseMapper.cs" />
       <File FileName="GymLedgerAPI/Data/Mapping/GymnastMapper.cs" />
       <File FileName="GymLedgerAPI/Data/Mapping/UserMapper.cs" />
       <File FileName="GymLedgerAPI/Data/Mapping/CoachMapper.cs" />
       <File FileName="GymLedgerAPI/Data/Mapping/TrainingExerciseMapper.cs" />
-      <File FileName="GymLedgerAPI.Tests/Data/DummyDbContext.cs" Line="1" Column="1" />
-      <File FileName="GymLedgerAPI.Tests/Controllers/GymnastControllerTest.cs" Line="1" Column="1" />
-      <File FileName="GymLedgerAPI.Tests/Controllers/TrainingControllerTest.cs" Line="60" Column="60" />
-      <File FileName="GymLedgerAPI.Tests/Models/GymnastTest.cs" Line="19" Column="6" />
-      <File FileName="GymLedgerAPI/Controllers/AccountController.cs" Line="96" Column="49" />
-      <File FileName="GymLedgerAPI/Controllers/ExerciseEvaluationController.cs" Line="43" Column="70" />
-      <File FileName="GymLedgerAPI/Domain/Interfaces/ICategoryRepo.cs" Line="8" Column="17" />
-      <File FileName="GymLedgerAPI/Data/Repositories/CategoryRepo.cs" Line="34" Column="10" />
-      <File FileName="GymLedgerAPI/appsettings.json" Line="4" Column="32" />
+      <File FileName="GymLedgerAPI.Tests/Data/DummyDbContext.cs" />
+      <File FileName="GymLedgerAPI.Tests/Controllers/GymnastControllerTest.cs" />
+      <File FileName="GymLedgerAPI.Tests/Controllers/TrainingControllerTest.cs" />
+      <File FileName="GymLedgerAPI.Tests/Models/GymnastTest.cs" />
+      <File FileName="GymLedgerAPI/Controllers/AccountController.cs" />
+      <File FileName="GymLedgerAPI/Controllers/ExerciseEvaluationController.cs" />
+      <File FileName="GymLedgerAPI/Domain/Interfaces/ICategoryRepo.cs" />
+      <File FileName="GymLedgerAPI/Data/Repositories/CategoryRepo.cs" />
+      <File FileName="GymLedgerAPI/appsettings.json" />
+      <File FileName="GymLedgerAPI/Program.cs" Line="16" Column="1" />
+      <File FileName="GymLedgerAPI/Program.cs" Line="16" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GymLedgerAPI" expanded="True">
             <Node name="GymLedgerAPI" expanded="True">
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="ExerciseController.cs" selected="True" />
+              </Node>
               <Node name="Data" expanded="True">
                 <Node name="Repositories" expanded="True" />
               </Node>
               <Node name="Domain" expanded="True">
                 <Node name="Interfaces" expanded="True" />
               </Node>
-              <Node name="appsettings.json" selected="True" />
             </Node>
             <Node name="GymLedgerAPI.Tests" expanded="True">
               <Node name="Controllers" expanded="True" />
@@ -68,6 +71,7 @@
       <Breakpoint file="/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/Domain/DTOs/lqe45rxf.fy1~" relfile="GymLedgerAPI/Domain/DTOs/lqe45rxf.fy1~" line="80" column="1" />
       <Breakpoint file="/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/Domain/DTOs/4vg13pxb.8jp~" relfile="GymLedgerAPI/Domain/DTOs/4vg13pxb.8jp~" line="43" column="1" />
       <Breakpoint file="/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/Domain/DTOs/hlhcvtaz.m2z~" relfile="GymLedgerAPI/Domain/DTOs/hlhcvtaz.m2z~" line="68" column="1" />
+      <Breakpoint file="/Users/florianlanduyt/Documents/TIN/Semester 2 /Webapps /Backend /GymLedgerAPI/GymLedgerAPI/Controllers/ExerciseController.cs" relfile="GymLedgerAPI/Controllers/ExerciseController.cs" line="64" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

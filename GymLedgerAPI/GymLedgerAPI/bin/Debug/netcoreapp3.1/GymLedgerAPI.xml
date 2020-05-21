@@ -46,7 +46,7 @@
             <param name="email">The email that needs a check</param>
             <returns></returns>
         </member>
-        <member name="M:GymLedgerAPI.Controllers.ExerciseController.GetExercises(System.String)">
+        <member name="M:GymLedgerAPI.Controllers.ExerciseController.GetExercises(System.String,System.String)">
             <summary>
             Get all the exercises from a gymnast
             </summary>

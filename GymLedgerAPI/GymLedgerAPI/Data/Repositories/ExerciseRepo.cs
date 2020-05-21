@@ -11,13 +11,11 @@ namespace GymLedgerAPI.Data.Repositories
     {
         private readonly ApplicationDbContext _context;
         private readonly DbSet<Exercise> _exercises;
-        private readonly DbSet<Training> _trainingen;
 
         public ExerciseRepo(ApplicationDbContext context)
         {
             _context = context;
             _exercises = context.Excercises;
-            _trainingen = context.Trainings;
         }
 
         public void Add(Exercise obj)
@@ -49,6 +47,10 @@ namespace GymLedgerAPI.Data.Repositories
         public void SaveChanges()
         {
             _context.SaveChanges();
+        }
+
+        public IEnumerable<Exercise> GetByName(string name = null) {
+            return _exercises.Where(e => e.Description.ToLower().StartsWith(name.ToLower()));
         }
     }
 }

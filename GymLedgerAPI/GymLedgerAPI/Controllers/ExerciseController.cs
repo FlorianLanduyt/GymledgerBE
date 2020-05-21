@@ -28,13 +28,40 @@ namespace GymLedgerAPI.Controllers {
             _gymnasts = gymnasts;
         }
 
+        ///// <summary>
+        ///// Get all the exercises from a gymnast
+        ///// </summary>
+        ///// <param name="gymnastEmail">The mail from the gymnast</param>
+        ///// <returns>A list with the exercises of the gymnast</returns>
+        //[HttpGet("{gymnastEmail}/list")]
+        //public ActionResult<IEnumerable<Exercise>> GetExercises(string gymnastEmail) {
+        //    var gymnast = _gymnasts.GetByEmail(gymnastEmail);
+
+        //    if (gymnast == null) {
+        //        return NotFound("Geen gymnast met dit ID");
+        //    }
+
+        //    try {
+        //        
+        //        var oefeningen = _exercises.GetExercisesFromGymnast(gymnastEmail);
+
+        //        if (oefeningen == null) {
+        //            return Ok(); //Een lege lijst terug sturen maar geen error
+        //        }
+
+        //        return Ok(oefeningen);
+        //    } catch (Exception e) {
+        //        return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+        //    }
+        //}
+
         /// <summary>
         /// Get all the exercises from a gymnast
         /// </summary>
         /// <param name="gymnastEmail">The mail from the gymnast</param>
         /// <returns>A list with the exercises of the gymnast</returns>
         [HttpGet("{gymnastEmail}/list")]
-        public ActionResult<IEnumerable<Exercise>> GetExercises(string gymnastEmail) {
+        public ActionResult<IEnumerable<Exercise>> GetExercises(string gymnastEmail, string name = null) {
             var gymnast = _gymnasts.GetByEmail(gymnastEmail);
 
             if (gymnast == null) {
@@ -42,13 +69,21 @@ namespace GymLedgerAPI.Controllers {
             }
 
             try {
-                var oefeningen = _exercises.GetExercisesFromGymnast(gymnastEmail);
+                var oefeningen = new List<Exercise>();
+
+                if (name == null) {
+                    return  _exercises.GetExercisesFromGymnast(gymnastEmail).ToList();
+                }
+
 
                 if (oefeningen == null) {
                     return Ok(); //Een lege lijst terug sturen maar geen error
                 }
 
+                oefeningen = _exercises.GetByName(name).ToList();
+
                 return Ok(oefeningen);
+
             } catch (Exception e) {
                 return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
             }
