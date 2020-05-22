@@ -49,8 +49,8 @@ namespace GymLedgerAPI.Data.Repositories
             _context.SaveChanges();
         }
 
-        public IEnumerable<Exercise> GetByName(string name = null) {
-            return _exercises.Where(e => e.Description.ToLower().StartsWith(name.ToLower()));
+        public IEnumerable<Exercise> GetByName(string email, string name = null) {
+            return _exercises.Where(e => e.Gymnast.Email == email && e.Description.ToLower().StartsWith(name.ToLower()));
         }
     }
 }

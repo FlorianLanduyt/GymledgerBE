@@ -72,15 +72,16 @@ namespace GymLedgerAPI.Controllers {
                 var oefeningen = new List<Exercise>();
 
                 if (name == null) {
-                    return  _exercises.GetExercisesFromGymnast(gymnastEmail).ToList();
+                    oefeningen = _exercises.GetExercisesFromGymnast(gymnastEmail).ToList();
+
+                    if(oefeningen== null) {
+                        return Ok();
+                    }
+
+                    return oefeningen;
                 }
 
-
-                if (oefeningen == null) {
-                    return Ok(); //Een lege lijst terug sturen maar geen error
-                }
-
-                oefeningen = _exercises.GetByName(name).ToList();
+                oefeningen = _exercises.GetByName(gymnastEmail, name).ToList();
 
                 return Ok(oefeningen);
 
